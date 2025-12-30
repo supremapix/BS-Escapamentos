@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta
+      name="description"
+      content="BS Escapamentos - Especialistas em escapamentos, suspensão e freios em Curitiba."
+    />
+    <title>BS Escapamentos</title>
+    <!-- Google Fonts: Inter and Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                dark: '#0f172a',    // Slate 900
+                blue: '#1e3a8a',    // Brand Blue (Deep)
+                yellow: '#facc15',  // Brand Yellow (Bright)
+                red: '#ef4444',     // Alerts
+                green: '#25d366',   // WhatsApp
+              },
+              gray: {
+                light: '#f8f9fa',
+                medium: '#6c757d',
+                dark: '#343a40',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+              'blink': 'blink 1s step-end infinite',
+              'spin-slow': 'spin 8s linear infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'zoom-in': 'zoomIn 20s ease-out forwards',
+              'float': 'float 3s ease-in-out infinite',
+              'scroll-up': 'scrollUp 60s linear infinite',
+            },
+            keyframes: {
+              heartbeat: {
+                '0%, 100%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.3)' },
+              },
+              blink: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              zoomIn: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.2)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              scrollUp: {
+                '0%': { transform: 'translateY(0)' },
+                '100%': { transform: 'translateY(-50%)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e3a8a;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #1e40af;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Typewriter Cursor */
+      .cursor-blink {
+        animation: blink 1s step-end infinite;
+      }
+      .text-shadow-lg {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .text-shadow-xl {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+      }
+      /* Pause animation on hover */
+      .hover-pause:hover {
+        animation-play-state: paused;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "react/": "https://esm.sh/react@18.3.1/",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?deps=react@18.3.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.28.0?deps=react@18.3.1,react-dom@18.3.1",
+    "react-hook-form": "https://esm.sh/react-hook-form@7.53.0?deps=react@18.3.1",
+    "react-helmet-async": "https://esm.sh/react-helmet-async@2.0.5?deps=react@18.3.1,react-dom@18.3.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
