@@ -3,21 +3,21 @@ import { HERO_IMAGES } from '../data/constants';
 import { ChevronRight, ShieldCheck, Zap, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const MESSAGES = [
+  "ESCAPAMENTOS ESPECIAIS",
+  "SUSPENSÃO DE ALTA PERFORMANCE",
+  "FREIOS E SEGURANÇA",
+  "MECÂNICA PREMIUM",
+  "DIAGNÓSTICO COMPUTADORIZADO"
+];
+
 const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(80);
+  const [typingSpeed, setTypingSpeed] = useState(100);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-
-  const messages = [
-    "ESCAPAMENTOS ESPECIAIS",
-    "SUSPENSÃO DE ALTA PERFORMANCE",
-    "FREIOS E SEGURANÇA",
-    "MECÂNICA PREMIUM",
-    "DIAGNÓSTICO COMPUTADORIZADO"
-  ];
 
   // Parallax Effect Logic
   useEffect(() => {
@@ -39,27 +39,42 @@ const Hero: React.FC = () => {
   // Typewriter Logic
   useEffect(() => {
     const handleType = () => {
-      const i = loopNum % messages.length;
-      const fullText = messages[i];
+      const i = loopNum % MESSAGES.length;
+      const fullText = MESSAGES[i];
 
       setText(isDeleting 
         ? fullText.substring(0, text.length - 1) 
         : fullText.substring(0, text.length + 1)
       );
 
-      setTypingSpeed(isDeleting ? 30 : 80);
+      setTypingSpeed(isDeleting ? 40 : 100);
 
       if (!isDeleting && text === fullText) {
+        // Pause at the end of the sentence
         setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && text === '') {
+        // Move to the next sentence
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
       }
     };
 
-    const timer = setTimeout(handleType, typingSpeed);
+    // Only set the timer if we are not in the "pause" state (where text equals fullText and we are waiting for isDeleting to become true)
+    // Actually, in the pause state, setText generates the same string, so useEffect wouldn't re-trigger if we relied solely on 'text'.
+    // However, to be safe and explicit:
+    const i = loopNum % MESSAGES.length;
+    const fullText = MESSAGES[i];
+    
+    let timer: ReturnType<typeof setTimeout>;
+    
+    if (text === fullText && !isDeleting) {
+        // We are paused, waiting for the timeout inside handleType to trigger state change
+    } else {
+        timer = setTimeout(handleType, typingSpeed);
+    }
+
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed, messages]);
+  }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
     <section id="home" className="relative h-screen flex items-center justify-center bg-primary-dark text-white overflow-hidden">
@@ -112,7 +127,7 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-2xl text-gray-300 font-medium mb-1 tracking-wide uppercase text-shadow-lg">Somos especialistas em</p>
           <h1 className="text-2xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-yellow drop-shadow-[0_0_25px_rgba(250,204,21,0.5)]">
             {text}
-            <span className="cursor-blink text-white font-light ml-1">|</span>
+            <span className="animate-pulse text-primary-yellow font-light ml-1 opacity-80 inline-block align-middle">|</span>
           </h1>
         </div>
 
