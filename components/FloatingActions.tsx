@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, ArrowUp, Phone, X, Headset, FileText } from 'lucide-react';
+import { MessageCircle, ArrowUp, Phone, X, Headset, FileText, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../data/constants';
 
@@ -33,6 +33,18 @@ const FloatingActions: React.FC = () => {
         {/* --- Sub-Menu Options --- */}
         <div className={`flex flex-col items-end gap-3 transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
           
+          {/* Option: Email */}
+          <div className="relative group flex items-center">
+            <span className={labelClass}>Enviar Email</span>
+            <a
+              href={`mailto:${COMPANY_INFO.email}`}
+              className={`${subBtnClass} bg-orange-500 hover:bg-orange-600`}
+              aria-label="Enviar Email"
+            >
+              <Mail size={20} />
+            </a>
+          </div>
+
           {/* Option: Form (Router Link) */}
           <div className="relative group flex items-center">
             <span className={labelClass}>Orçamento Online</span>
@@ -51,7 +63,7 @@ const FloatingActions: React.FC = () => {
             <span className={labelClass}>Ligar Agora</span>
             <a
               href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-              className={`${subBtnClass} bg-gray-700 hover:bg-gray-600`}
+              className={`${subBtnClass} bg-blue-600 hover:bg-blue-700`}
               aria-label="Ligar Agora"
             >
               <Phone size={20} />

@@ -12,19 +12,18 @@ export const COMPANY_INFO = {
   siteUrl: "https://www.bsescapamentos.com.br"
 };
 
-// Imagens de Alta Resolução e Confiabilidade (Unsplash) - NOVOS LINKS
+// Imagens de Alta Resolução e Confiabilidade (Unsplash)
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", // 0: Elevador/Oficina
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", // 1: Carro Esportivo
-  "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", // 2: Mecânico Soldando
-  "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"  // 3: Ferramentas/Geral
+  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
+  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
+  "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
+  "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
 ];
 
-// Imagens específicas para as páginas internas (Garantia de carregamento) - NOVOS LINKS
 export const PAGE_IMAGES = {
-  trust: "https://images.unsplash.com/photo-1605218427360-6dd24bfa9e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Mecânico confiável
-  exhaust: "https://images.unsplash.com/photo-1504222490245-4876363b5771?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Escapamento/Chassis
-  workshop: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Oficina Geral
+  trust: "https://images.unsplash.com/photo-1605218427360-6dd24bfa9e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  exhaust: "https://images.unsplash.com/photo-1504222490245-4876363b5771?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  workshop: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 };
 
 export const SERVICES: ServiceItem[] = [
@@ -42,6 +41,7 @@ export const SERVICES: ServiceItem[] = [
   { id: '12', title: 'Escap. Esportivos', description: 'Performance, difusores e ronco diferenciado para seu projeto.', iconName: 'Flame' },
 ];
 
+// Comprehensive list of Neighborhoods
 const NEIGHBORHOODS_LIST = [
   "Vila Parolin", "Vila Torres", "Jardim Schaffer", "Vila Sabará", "Boqueirão de Baixo", "Boqueirão de Cima", "Tanguá", 
   "Vila Zumbi", "Abranches de Baixo", "Abranches de Cima", "Vila Nossa Senhora da Luz", "Vila Tecnológica", "Vila Oficinas", 
@@ -56,12 +56,13 @@ const NEIGHBORHOODS_LIST = [
   "Santa Felicidade", "Santa Quitéria", "Santo Inácio", "São Braz", "São Francisco", "São João", "São Lourenço", "São Miguel", 
   "Vila Pantanal", "Seminário", "Sítio Cercado", "Taboão", "Tarumã", "Tatuquara", "Tingui", "Uberaba", "Umbará", "Vila Izabel", 
   "Vista Alegre", "Xaxim", "Santa Quitéria Velha", "Portão Velho", "Guaíra Velho", "Uberaba de Cima", "Uberaba de Baixo", 
-  "São Braz Velho", "Cidade Industrial", "Vila Verde", "Vila Barigui", "Augusta", "São Miguel", "Caiuá", "Xaxim Velho", 
+  "São Braz Velho", "Cidade Industrial", "Vila Verde", "Vila Barigui", "Caiuá", "Xaxim Velho", 
   "Fazendinha-Portão", "Campo Comprido Velho", "Bacacheri Velho", "Capão da Imbuia Velho", "Pinheirinho Velho", 
   "Vila São Pedro", "Vila Osternack", "Neo Ville", "Vila Formosa", "Vila Sandra", "Conjunto Caiuá", 
   "Conjunto Parigot de Souza", "Vila Reno", "Vila Audi"
 ];
 
+// Comprehensive list of Cities
 const CITIES_LIST = [
   "Curitiba", "Adrianópolis", "Agudos do Sul", "Almirante Tamandaré", "Araucária", "Balsa Nova", "Bocaiúva do Sul", 
   "Campina Grande do Sul", "Campo do Tenente", "Campo Largo", "Campo Magro", "Cerro Azul", "Colombo", 
@@ -78,8 +79,8 @@ const generateSlug = (text: string) => {
 };
 
 // Sort lists alphabetically for better UX
-const SORTED_NEIGHBORHOODS = [...NEIGHBORHOODS_LIST].sort((a, b) => a.localeCompare(b));
-const SORTED_CITIES = [...CITIES_LIST].sort((a, b) => a.localeCompare(b));
+const SORTED_NEIGHBORHOODS = [...new Set(NEIGHBORHOODS_LIST)].sort((a, b) => a.localeCompare(b));
+const SORTED_CITIES = [...new Set(CITIES_LIST)].sort((a, b) => a.localeCompare(b));
 
 export const LOCATIONS: LocationData[] = [
   ...SORTED_CITIES.map(name => ({

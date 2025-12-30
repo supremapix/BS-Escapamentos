@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
           {/* Column 1: Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-                {/* Real BS Logo Emulation in Footer */}
                 <div className="relative flex items-center justify-center w-14 h-9 bg-primary-blue border border-primary-yellow rounded-[50%] shadow-md">
                     <span className="text-primary-yellow font-black text-lg italic tracking-tighter" style={{ fontFamily: 'Arial Black, Arial, sans-serif' }}>BS</span>
                 </div>
@@ -105,7 +104,7 @@ const Footer: React.FC = () => {
             {/* Top Fade Gradient */}
             <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-primary-dark/80 to-transparent z-10 pointer-events-none"></div>
             
-            {/* Animated Container - Content duplicated for seamless loop */}
+            {/* Animated Container */}
             <div className="animate-scroll-up hover-pause p-4">
                {/* Original List */}
                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs mb-3">
@@ -147,7 +146,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-2 mt-4 md:mt-0 bg-black/40 px-4 py-2 rounded-full border border-gray-800 hover:border-primary-blue transition-colors group">
             <span>Desenvolvido</span>
-            <Heart size={16} className="text-red-500 animate-heartbeat fill-current" />
+            <Heart size={24} className="text-red-500 animate-[heartbeat_1.5s_ease-in-out_infinite] fill-red-500" />
             <span>por</span>
             <a 
               href="https://supremasite.com.br" 
@@ -155,7 +154,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer" 
               className="text-white font-bold group-hover:text-primary-yellow transition-colors"
             >
-              Suprema Sites Express
+              Suprema Mídia
             </a>
           </div>
         </div>
