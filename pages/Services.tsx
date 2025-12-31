@@ -34,7 +34,7 @@ const Services: React.FC = () => {
               const IconComponent = (Icons as any)[service.iconName] as LucideIcon;
               
               return (
-                <div key={service.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
+                <div key={service.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-gray-100 hover:border-primary-yellow group flex flex-col h-full">
                   <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-primary-blue group-hover:bg-primary-blue group-hover:text-primary-yellow transition-colors shrink-0">
                     {IconComponent && <IconComponent size={32} />}
                   </div>

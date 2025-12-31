@@ -145,7 +145,7 @@ const Home: React.FC = () => {
               const IconComponent = (Icons as any)[service.iconName] as LucideIcon;
               
               return (
-                <div key={service.id} className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 hover:border-primary-yellow group relative overflow-hidden">
+                <div key={service.id} className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-gray-100 hover:border-primary-yellow group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary-blue/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500"></div>
                   
                   <div className="bg-gray-50 w-20 h-20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-blue transition-all duration-300 shadow-inner group-hover:rotate-6">

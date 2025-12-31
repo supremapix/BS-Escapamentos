@@ -9,7 +9,7 @@ const MESSAGES = [
   "SUSPENSÃO E FREIOS EM CURITIBA",
   "DIAGNÓSTICO COMPUTADORIZADO",
   "PEÇAS ORIGINAIS E GARANTIA",
-  "REFERÊNCIA EM ESCAPAMENTOS ESPORTIVOS"
+  "A MELHOR EQUIPE TÉCNICA DA REGIÃO"
 ];
 
 const Hero: React.FC = () => {
@@ -48,29 +48,25 @@ const Hero: React.FC = () => {
         : fullText.substring(0, text.length + 1)
       );
 
-      // Typing is slightly faster (60ms), Deleting is fast (30ms)
-      setTypingSpeed(isDeleting ? 30 : 60);
+      // Dynamic speeds for more natural feel
+      if (isDeleting) {
+        setTypingSpeed(30); // Fast delete
+      } else {
+        setTypingSpeed(Math.random() * (100 - 50) + 50); // Random typing variance
+      }
 
       if (!isDeleting && text === fullText) {
-        // Pause at the end of the sentence
-        setTimeout(() => setIsDeleting(true), 2000);
+        // Pause at end of sentence
+        setTimeout(() => setIsDeleting(true), 2500);
       } else if (isDeleting && text === '') {
+        // Switch to next sentence
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
+        setTypingSpeed(500); // Pause before starting new word
       }
     };
 
-    const i = loopNum % MESSAGES.length;
-    const fullText = MESSAGES[i];
-    
-    let timer: ReturnType<typeof setTimeout>;
-    
-    if (text === fullText && !isDeleting) {
-        // Paused handled by setTimeout above, but we need to ensure this doesn't conflict
-    } else {
-        timer = setTimeout(handleType, typingSpeed);
-    }
-
+    const timer = setTimeout(handleType, typingSpeed);
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed]);
 
@@ -96,13 +92,8 @@ const Hero: React.FC = () => {
       ))}
       
       {/* --- Overlay Layers for Readability & Style --- */}
-      {/* 1. Base Darkening */}
       <div className="absolute inset-0 bg-gray-900/60 z-0"></div>
-      
-      {/* 2. Texture (Carbon Fiber / Dot Pattern) */}
       <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>
-      
-      {/* 3. Gradient Vignette */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-transparent to-primary-dark/90 z-0"></div>
       
       
@@ -123,19 +114,19 @@ const Hero: React.FC = () => {
 
         {/* Brand Name - High Impact & Responsive */}
         <h1 className="relative w-full font-heading font-black mb-4 tracking-tighter animate-fade-in-up leading-none drop-shadow-2xl flex flex-col items-center justify-center" style={{ animationDelay: '0.2s' }}>
-          <span className="block text-white text-shadow-xl text-7xl sm:text-8xl md:text-9xl mb-1 md:mb-2">BS</span>
+          <span className="block text-white text-shadow-xl text-6xl sm:text-8xl md:text-9xl mb-1 md:mb-2">BS</span>
           {/* Using fluid text size (vw) for mobile to ensure "ESCAPAMENTOS" never overflows */}
           <span className="block text-transparent bg-clip-text bg-gradient-to-b from-primary-yellow via-yellow-400 to-yellow-600 drop-shadow-sm pb-2 text-[11vw] sm:text-6xl md:text-8xl lg:text-9xl whitespace-nowrap px-2">
             ESCAPAMENTOS
           </span>
         </h1>
         
-        {/* Typewriter Subheading */}
-        <div className="h-14 md:h-20 flex items-center justify-center animate-fade-in-up mb-8" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-black/40 backdrop-blur-sm border-x-2 md:border-x-4 border-primary-yellow px-4 py-3 md:px-6 rounded-lg max-w-[95vw]">
-            <span className="text-sm sm:text-xl md:text-3xl lg:text-4xl font-mono font-bold text-white tracking-wide block truncate">
+        {/* Typewriter Subheading - Responsive Refinement */}
+        <div className="w-full flex items-center justify-center animate-fade-in-up mb-8 px-2" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-black/50 backdrop-blur-md border-x-2 md:border-x-4 border-primary-yellow px-4 py-3 md:px-6 rounded-lg w-full max-w-4xl min-h-[60px] md:min-h-[80px] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+            <span className="text-xs sm:text-base md:text-2xl lg:text-3xl font-mono font-bold text-white tracking-wide block text-center">
               {text}
-              <span className="animate-pulse text-primary-yellow ml-1">_</span>
+              <span className="ml-1 inline-block text-primary-yellow font-black animate-[pulse_1s_ease-in-out_infinite] drop-shadow-[0_0_8px_rgba(250,204,21,1)] scale-110">_</span>
             </span>
           </div>
         </div>
@@ -149,7 +140,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-4 w-full max-w-xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '0.8s' }}>
           <Link 
             to="/contato"
-            className="flex-1 group relative bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-3.5 px-6 rounded-xl overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] flex items-center justify-center gap-3 text-base md:text-lg border-2 border-primary-yellow"
+            className="flex-1 group relative bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-4 px-6 rounded-xl overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] flex items-center justify-center gap-3 text-sm md:text-lg border-2 border-primary-yellow"
           >
             <Zap size={20} className="fill-primary-dark group-hover:scale-110 transition-transform" />
             <span>ORÇAMENTO RÁPIDO</span>
@@ -157,7 +148,7 @@ const Hero: React.FC = () => {
           
           <Link 
             to="/servicos"
-            className="flex-1 group bg-white/5 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:bg-white hover:text-primary-blue hover:border-white hover:shadow-lg flex items-center justify-center gap-2 text-base md:text-lg"
+            className="flex-1 group bg-white/5 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-6 rounded-xl transition-all hover:bg-white hover:text-primary-blue hover:border-white hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-lg"
           >
             <Wrench size={18} className="group-hover:rotate-12 transition-transform" />
             <span>Nossos Serviços</span>
