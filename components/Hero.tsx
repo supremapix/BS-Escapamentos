@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { HERO_IMAGES } from '../data/constants';
-import { ChevronRight, ShieldCheck, Zap, Wrench } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Zap, Wrench, Star, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const MESSAGES = [
   "ESCAPAMENTOS ESPECIAIS",
-  "SUSPENSÃO DE ALTA PERFORMANCE",
-  "FREIOS E SEGURANÇA",
-  "MECÂNICA PREMIUM",
-  "DIAGNÓSTICO COMPUTADORIZADO"
+  "SUSPENSÃO ESPORTIVA",
+  "FREIOS DE ALTA PERFORMANCE",
+  "DIAGNÓSTICO AVANÇADO",
+  "MECÂNICA PREMIUM"
 ];
 
 const Hero: React.FC = () => {
@@ -47,28 +47,23 @@ const Hero: React.FC = () => {
         : fullText.substring(0, text.length + 1)
       );
 
-      setTypingSpeed(isDeleting ? 40 : 100);
+      setTypingSpeed(isDeleting ? 40 : 80);
 
       if (!isDeleting && text === fullText) {
-        // Pause at the end of the sentence
-        setTimeout(() => setIsDeleting(true), 2000);
+        setTimeout(() => setIsDeleting(true), 2500);
       } else if (isDeleting && text === '') {
-        // Move to the next sentence
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
       }
     };
 
-    // Only set the timer if we are not in the "pause" state (where text equals fullText and we are waiting for isDeleting to become true)
-    // Actually, in the pause state, setText generates the same string, so useEffect wouldn't re-trigger if we relied solely on 'text'.
-    // However, to be safe and explicit:
     const i = loopNum % MESSAGES.length;
     const fullText = MESSAGES[i];
     
     let timer: ReturnType<typeof setTimeout>;
     
     if (text === fullText && !isDeleting) {
-        // We are paused, waiting for the timeout inside handleType to trigger state change
+        // Paused
     } else {
         timer = setTimeout(handleType, typingSpeed);
     }
@@ -77,8 +72,9 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center bg-primary-dark text-white overflow-hidden">
-      {/* Dynamic Background Slideshow with Cross-fade and Zoom */}
+    <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center bg-primary-dark text-white overflow-hidden">
+      
+      {/* --- Dynamic Background --- */}
       {HERO_IMAGES.map((slide, index) => (
         <div 
           key={index}
@@ -86,96 +82,109 @@ const Hero: React.FC = () => {
             index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'
           }`}
         >
-          {/* Image with Ken Burns Effect */}
           <img 
             src={slide} 
             alt="Oficina Mecânica BS Escapamentos" 
             className={`w-full h-full object-cover transform will-change-transform ${
-              index === currentSlide ? 'animate-[zoom-in_8s_ease-out_forwards]' : 'scale-100'
+              index === currentSlide ? 'animate-[zoom-in_8s_ease-out_forwards]' : 'scale-105'
             }`}
-            loading={index === 0 ? "eager" : "lazy"}
           />
-          {/* Dark Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-black/60"></div>
         </div>
       ))}
       
-      {/* Dramatic Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/50 z-0 pointer-events-none"></div>
+      {/* --- Overlay Layers for Readability & Style --- */}
+      {/* 1. Base Darkening */}
+      <div className="absolute inset-0 bg-gray-900/60 z-0"></div>
       
-      {/* Content Container with Parallax Parallax */}
+      {/* 2. Texture (Carbon Fiber / Dot Pattern) */}
+      <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>
+      
+      {/* 3. Gradient Vignette */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-transparent to-primary-dark/90 z-0"></div>
+      
+      
+      {/* --- Main Content --- */}
       <div 
-        className="container mx-auto px-4 z-10 text-center relative"
-        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+        className="container mx-auto px-4 z-10 text-center relative flex flex-col items-center justify-center h-full pt-20"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
         
-        {/* Floating Badge */}
-        <div className="mb-8 flex justify-center animate-fade-in-up">
-             <div className="bg-primary-blue/80 backdrop-blur-md border border-primary-yellow text-primary-yellow px-6 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest flex items-center gap-3 shadow-[0_0_20px_rgba(250,204,21,0.3)] animate-float">
-                <ShieldCheck size={16} className="text-primary-yellow" />
-                Referência em Curitiba e Região
-                <ShieldCheck size={16} className="text-primary-yellow" />
+        {/* Trust Badge */}
+        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest text-white shadow-lg">
+                <Star size={14} className="text-primary-yellow fill-current" />
+                <span>Auto Center Premium</span>
+                <Star size={14} className="text-primary-yellow fill-current" />
              </div>
         </div>
 
-        {/* Main Headings */}
-        <h2 className="text-5xl md:text-7xl lg:text-9xl font-heading font-black mb-2 tracking-tighter animate-fade-in-up text-shadow-xl" style={{ animationDelay: '0.1s' }}>
-          BS <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 drop-shadow-2xl">ESCAPAMENTOS</span>
-        </h2>
+        {/* Brand Name - High Impact */}
+        <h1 className="relative text-6xl md:text-8xl lg:text-9xl font-heading font-black mb-2 tracking-tighter animate-fade-in-up leading-none drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
+          <span className="block text-white text-shadow-xl">BS</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-primary-yellow via-yellow-400 to-yellow-600 drop-shadow-sm pb-2">
+            ESCAPAMENTOS
+          </span>
+        </h1>
         
-        <div className="h-24 md:h-32 flex flex-col items-center justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <p className="text-lg md:text-2xl text-gray-300 font-medium mb-1 tracking-wide uppercase text-shadow-lg">Somos especialistas em</p>
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-yellow drop-shadow-[0_0_25px_rgba(250,204,21,0.5)]">
-            {text}
-            <span className="animate-pulse text-primary-yellow font-light ml-1 opacity-80 inline-block align-middle">|</span>
-          </h1>
+        {/* Typewriter Subheading */}
+        <div className="h-16 md:h-20 flex items-center justify-center animate-fade-in-up mb-6" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-black/40 backdrop-blur-sm border-x-4 border-primary-yellow px-6 py-2 rounded-lg">
+            <span className="text-xl md:text-3xl lg:text-4xl font-mono font-bold text-white tracking-wide">
+              {text}
+              <span className="animate-pulse text-primary-yellow ml-1">_</span>
+            </span>
+          </div>
         </div>
 
-        <p className="mt-8 text-gray-100 max-w-3xl mx-auto text-base md:text-xl leading-relaxed animate-fade-in-up font-light text-shadow-lg bg-black/30 p-4 rounded-xl backdrop-blur-sm border border-white/10" style={{ animationDelay: '0.5s' }}>
-          Tecnologia automotiva avançada e atendimento premium. <br className="hidden md:block"/>
-          Transformamos a performance e segurança do seu veículo com peças originais e garantia total.
+        {/* Value Proposition */}
+        <p className="max-w-3xl mx-auto text-gray-200 text-base md:text-lg leading-relaxed animate-fade-in-up font-light mb-10 drop-shadow-md" style={{ animationDelay: '0.6s' }}>
+          A excelência que seu veículo merece. <strong className="text-white">Peças originais</strong>, <strong className="text-white">garantia estendida</strong> e a equipe mais qualificada de Curitiba.
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+        <div className="flex flex-col md:flex-row gap-5 w-full max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <Link 
             to="/contato"
-            className="w-full md:w-auto group relative bg-primary-yellow text-primary-blue font-black py-4 px-12 rounded-full overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(250,204,21,0.5)] flex items-center justify-center gap-3 text-lg border-2 border-primary-yellow"
+            className="flex-1 group relative bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-4 px-8 rounded-xl overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] flex items-center justify-center gap-3 text-lg border-2 border-primary-yellow"
           >
-            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-300 via-white/50 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <Zap size={24} className="relative z-10 fill-current animate-pulse" />
-            <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
-            <ChevronRight size={24} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+            <Zap size={24} className="fill-primary-dark group-hover:scale-110 transition-transform" />
+            <span>ORÇAMENTO RÁPIDO</span>
           </Link>
           
           <Link 
-            to="/areas"
-            className="w-full md:w-auto group bg-transparent backdrop-blur-md border-2 border-white text-white font-bold py-4 px-12 rounded-full transition-all hover:bg-white hover:text-primary-blue hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 text-lg"
+            to="/servicos"
+            className="flex-1 group bg-white/5 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-xl transition-all hover:bg-white hover:text-primary-blue hover:border-white hover:shadow-lg flex items-center justify-center gap-2 text-lg"
           >
-            <Wrench size={20} />
-            Ver Áreas de Atendimento
+            <Wrench size={20} className="group-hover:rotate-12 transition-transform" />
+            <span>Nossos Serviços</span>
           </Link>
         </div>
-      </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-        {HERO_IMAGES.map((_, index) => (
-            <button 
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentSlide ? 'bg-primary-yellow w-12 shadow-[0_0_10px_rgba(250,204,21,0.8)]' : 'bg-white/40 w-4 hover:bg-white/80'
-                }`}
-                aria-label={`Slide ${index + 1}`}
-            />
-        ))}
+        {/* Bottom Badges */}
+        <div className="mt-12 md:mt-16 flex gap-6 md:gap-12 justify-center opacity-70 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+           <div className="flex flex-col items-center gap-1">
+             <ShieldCheck size={28} className="text-green-400" />
+             <span className="text-[10px] uppercase font-bold tracking-widest">Garantia</span>
+           </div>
+           <div className="flex flex-col items-center gap-1">
+             <CheckCircle size={28} className="text-blue-400" />
+             <span className="text-[10px] uppercase font-bold tracking-widest">Certificado</span>
+           </div>
+           <div className="flex flex-col items-center gap-1">
+             <Star size={28} className="text-yellow-400 fill-current" />
+             <span className="text-[10px] uppercase font-bold tracking-widest">Avaliado 5/5</span>
+           </div>
+        </div>
       </div>
       
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce z-20 opacity-70">
-        <ChevronRight size={32} className="rotate-90 text-white" />
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-80 animate-bounce cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth'})}>
+        <span className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Descubra Mais</span>
+        <ChevronRight size={24} className="rotate-90 text-primary-yellow" />
       </div>
+
+      {/* Decorative Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent z-10"></div>
     </section>
   );
 };

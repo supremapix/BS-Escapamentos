@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 <h3 className="text-2xl font-heading font-bold text-white">BS Escapamentos</h3>
             </div>
             
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Há anos oferecendo serviços automotivos de excelência em Curitiba. 
               Referência em escapamentos, suspensão e freios.
             </p>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                     <span className="flex items-center gap-2"><div className="w-2 h-2 bg-yellow-500 rounded-full"></div> Sábado</span>
                     <span className="font-bold text-white text-lg">08:00 - 12:00</span>
                 </li>
-                <li className="flex justify-between items-center text-gray-500">
+                <li className="flex justify-between items-center text-gray-400">
                     <span className="flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"></div> Domingo</span>
                     <span>Fechado</span>
                 </li>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
                  Novo Mundo
               </div>
             </div>
-            <p className="text-xs text-gray-500 mt-2 text-center">
+            <p className="text-xs text-gray-400 mt-2 text-center">
                 Fácil acesso pela Via Rápida | Próximo ao Terminal Capão Raso
             </p>
           </div>
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright & Credits */}
-        <div className="border-t border-gray-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="border-t border-gray-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados.</p>
           
           <div className="flex items-center gap-2 mt-4 md:mt-0 bg-black/40 px-4 py-2 rounded-full border border-gray-800 hover:border-primary-blue transition-colors group">

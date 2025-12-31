@@ -125,6 +125,7 @@ const LocationPage: React.FC = () => {
   const isCity = location.type === 'city';
   const typeText = isCity ? "na cidade de" : "no bairro";
   const preposition = isCity ? "em" : "no";
+  const areaType = isCity ? 'City' : 'Neighborhood';
   
   const pageTitle = `Oficina Mecânica ${typeText} ${locName} - BS Escapamentos`;
   const pageDesc = `Procurando oficina mecânica ${typeText} ${locName}? Acesso fácil R. Pedro Gusso. Especialista em escapamentos, suspensão, freios e revisão geral.`;
@@ -138,6 +139,7 @@ const LocationPage: React.FC = () => {
         canonicalPath={`/local/${slug}`}
         keywords={keywords}
         schemaType="AutoRepair"
+        areaServed={[{ name: locName, type: areaType }]}
       />
       
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">

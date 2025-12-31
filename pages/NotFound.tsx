@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, Home, ArrowLeft } from 'lucide-react';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 
 const NotFound: React.FC = () => {
   return (
     <>
-      <SEO 
+      <EnhancedSEO 
         title="Página Não Encontrada" 
         description="A página que você está procurando não existe ou foi movida." 
+        noindex={true}
       />
       
       <div className="min-h-[70vh] flex items-center justify-center bg-gray-50 pt-24 pb-12 px-4">

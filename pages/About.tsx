@@ -1,15 +1,17 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 import { ShieldCheck, Award, Users, Wrench, Target, Clock, MapPin } from 'lucide-react';
 import { COMPANY_INFO, HERO_IMAGES } from '../data/constants';
 
 const About: React.FC = () => {
   return (
     <>
-      <SEO 
-        title="Sobre Nós" 
-        description="Conheça a BS Escapamentos, sua oficina mecânica de confiança em Curitiba. Mais de 12 anos de experiência em escapamentos, suspensão e freios." 
+      <EnhancedSEO 
+        title="Sobre a BS Escapamentos - Tradição e Confiança" 
+        description="Conheça a história da BS Escapamentos, sua oficina mecânica de confiança em Curitiba. Mais de 12 anos de experiência em escapamentos, suspensão e freios." 
         canonicalPath="/sobre"
+        keywords="sobre bs escapamentos, história oficina, equipe mecanica curitiba, auto center novo mundo"
+        schemaType="LocalBusiness"
       />
       
       <div className="pt-24 pb-16 bg-white">

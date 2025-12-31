@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 import { Link } from 'react-router-dom';
 import { LOCATIONS } from '../data/constants';
 import { MapPin } from 'lucide-react';
@@ -10,10 +10,11 @@ const Areas: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title="Áreas de Atendimento" 
-        description="Confira todas as cidades e bairros atendidos pela BS Escapamentos em Curitiba e Região Metropolitana." 
+      <EnhancedSEO 
+        title="Áreas de Atendimento - Oficina em Curitiba e Região" 
+        description="Confira todas as cidades e bairros atendidos pela BS Escapamentos. Oficina mecânica de referência em Curitiba, São José dos Pinhais, Colombo e região." 
         canonicalPath="/areas"
+        keywords="oficina curitiba, oficina região metropolitana, atendimento automotivo parana, bairros atendidos"
       />
       
       <div className="pt-24 pb-16 bg-white">

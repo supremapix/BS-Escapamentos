@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 import { SERVICES, COMPANY_INFO } from '../data/constants';
 import * as Icons from 'lucide-react';
 import { LucideIcon, ArrowRight } from 'lucide-react';
@@ -7,10 +7,11 @@ import { LucideIcon, ArrowRight } from 'lucide-react';
 const Services: React.FC = () => {
   return (
     <>
-      <SEO 
-        title="Nossos Serviços" 
-        description="Confira a lista completa de serviços automotivos da BS Escapamentos. Freios, suspensão, embreagem, correias e muito mais." 
+      <EnhancedSEO 
+        title="Serviços de Oficina Mecânica e Auto Center" 
+        description="Confira a lista completa de serviços automotivos da BS Escapamentos. Freios, suspensão, embreagem, correias, escapamentos esportivos e muito mais em Curitiba." 
         canonicalPath="/servicos"
+        keywords="serviços automotivos, mecânica geral, escapamentos, freios, suspensão, troca de óleo, embreagem, curitiba"
       />
       
       <div className="pt-24 pb-16 bg-gray-50">

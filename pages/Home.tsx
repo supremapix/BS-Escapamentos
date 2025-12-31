@@ -5,7 +5,7 @@ import { SERVICES, COMPANY_INFO, LOCATIONS } from '../data/constants';
 import * as Icons from 'lucide-react';
 import { LucideIcon, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 
 const Home: React.FC = () => {
   const { register, handleSubmit } = useForm();
@@ -31,9 +31,11 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title="Home" 
-        description="BS Escapamentos - Especialistas em escapamentos, freios e suspensão em Curitiba e Região Metropolitana." 
+      <EnhancedSEO 
+        title="Oficina Mecânica em Curitiba - Escapamentos, Freios e Suspensão" 
+        description="BS Escapamentos: Sua oficina de confiança em Curitiba. Especialistas em escapamentos, catalisadores, suspensão, freios, troca de óleo e revisão geral. Atendemos toda região metropolitana." 
+        canonicalPath="/"
+        schemaType="AutoRepair"
       />
       
       <Hero />

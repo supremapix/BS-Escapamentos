@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import EnhancedSEO from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/constants';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -21,10 +21,12 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title="Fale Conosco" 
-        description="Entre em contato com a BS Escapamentos. Solicite seu orçamento via WhatsApp, telefone ou venha nos visitar no bairro Novo Mundo." 
+      <EnhancedSEO 
+        title="Fale Conosco - Agende sua Revisão" 
+        description="Entre em contato com a BS Escapamentos. Solicite orçamento via WhatsApp, telefone ou visite nossa oficina no Novo Mundo, Curitiba." 
         canonicalPath="/contato"
+        keywords="contato oficina, telefone mecanico curitiba, agendar revisão, whatsapp oficina, endereço bs escapamentos"
+        schemaType="AutoRepair"
       />
       
       <div className="pt-24 pb-16 bg-gray-50">
