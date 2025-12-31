@@ -1,14 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import { SERVICES, COMPANY_INFO, LOCATIONS } from '../data/constants';
+import { SERVICES, COMPANY_INFO, LOCATIONS, BLOG_POSTS, FAQS, TESTIMONIALS, DIFFERENTIALS } from '../data/constants';
 import * as Icons from 'lucide-react';
-import { LucideIcon, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
+import { LucideIcon, MapPin, ChevronDown, ChevronRight, Star, Plus, Minus, Calendar, User } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import EnhancedSEO from '../components/EnhancedSEO';
 
 const Home: React.FC = () => {
   const { register, handleSubmit } = useForm();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   
   // Group locations for better display
   const cities = useMemo(() => LOCATIONS.filter(l => l.type === 'city'), []);
@@ -16,6 +17,10 @@ const Home: React.FC = () => {
 
   const visibleCities = cities.slice(0, 12);
   const visibleNeighborhoods = neighborhoods.slice(0, 24);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
   const onSubmit = (data: any) => {
     const message = `Olá! Vim pelo site.%0A%0A` +
@@ -32,13 +37,36 @@ const Home: React.FC = () => {
   return (
     <>
       <EnhancedSEO 
-        title="Oficina Mecânica em Curitiba - Escapamentos, Freios e Suspensão" 
-        description="BS Escapamentos: Sua oficina de confiança em Curitiba. Especialistas em escapamentos, catalisadores, suspensão, freios, troca de óleo e revisão geral. Atendemos toda região metropolitana." 
+        title="BS Escapamentos - Especialistas no CIC e Neo Ville Curitiba" 
+        description="Oficina mecânica referência no CIC e Neo Ville. Especialistas em escapamentos esportivos, catalisadores, suspensão e freios. Atendimento premium e garantia." 
         canonicalPath="/"
         schemaType="AutoRepair"
+        keywords="escapamentos cic, oficina neo ville, mecanica curitiba, catalisador cic, escapamento esportivo"
       />
       
       <Hero />
+
+      {/* Differentials Section */}
+      <section className="py-12 bg-primary-dark border-b border-white/10 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {DIFFERENTIALS.map((diff, index) => {
+              const Icon = (Icons as any)[diff.icon] as LucideIcon;
+              return (
+                <div key={index} className="flex items-center gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-primary-yellow/50 transition-colors group">
+                  <div className="p-3 rounded-full bg-primary-blue text-primary-yellow group-hover:scale-110 transition-transform">
+                    {Icon && <Icon size={24} />}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">{diff.title}</h3>
+                    <p className="text-gray-400 text-sm">{diff.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* About Section */}
       <section id="sobre" className="py-24 bg-white overflow-hidden">
@@ -49,7 +77,7 @@ const Home: React.FC = () => {
                 <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary-yellow rounded-tl-[3rem] z-0 opacity-20 group-hover:scale-110 transition-transform duration-700"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Oficina Mecânica BS Escapamentos" 
+                  alt="Oficina Mecânica BS Escapamentos no Neo Ville" 
                   className="relative z-10 rounded-2xl shadow-2xl w-full border-b-8 border-primary-blue transform transition-transform duration-500 hover:scale-[1.01]"
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-blue rounded-br-[3rem] z-0 group-hover:rotate-12 transition-transform duration-700"></div>
@@ -60,15 +88,15 @@ const Home: React.FC = () => {
                 <span className="w-12 h-1 bg-primary-yellow"></span> Sobre Nós
               </h2>
               <h3 className="text-4xl md:text-5xl font-heading font-black text-primary-dark mb-8 leading-tight">
-                Excelência Automotiva e <br/>Transparência Total
+                Referência Automotiva no <br/>Neo Ville e CIC
               </h3>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                A <span className="font-bold text-primary-blue">BS Escapamentos</span> redefine o conceito de Auto Center em Curitiba. 
-                Não somos apenas trocadores de peças; somos técnicos especialistas focados na saúde do seu carro.
+                A <span className="font-bold text-primary-blue">BS Escapamentos</span> é mais que uma oficina; é o seu centro de confiança automotiva na região sul de Curitiba. 
+                Localizados estrategicamente próximos ao Neo Ville, oferecemos uma estrutura moderna para diagnósticos precisos.
               </p>
               <p className="text-gray-600 mb-10 text-lg leading-relaxed">
-                Nossa oficina conta com estrutura moderna para diagnósticos precisos em escapamentos, suspensões e freios, 
-                garantindo que você e sua família rodem com segurança total pelas estradas.
+                Nossa equipe é especializada em sistemas de exaustão, suspensão e freios, 
+                garantindo que você rode com segurança pelas ruas do CIC e rodovias de todo o Brasil.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -137,14 +165,123 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-primary-blue font-bold uppercase tracking-wider text-sm mb-3">Dicas Automotivas</h2>
+            <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary-dark">Notícias BS Escapamentos</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {BLOG_POSTS.map((post) => (
+              <article key={post.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="h-48 overflow-hidden relative">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-primary-dark/20 group-hover:bg-primary-dark/0 transition-colors"></div>
+                  <div className="absolute top-4 left-4 bg-primary-yellow text-primary-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                     Dica
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                    <Calendar size={14} /> {post.date}
+                  </div>
+                  <h4 className="text-lg font-bold text-primary-dark mb-3 leading-tight group-hover:text-primary-blue transition-colors">
+                    {post.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <a href="#" className="text-primary-blue font-bold text-sm hover:text-primary-yellow transition-colors inline-flex items-center gap-1">
+                    Ler artigo <ChevronRight size={14} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-primary-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary-blue/30 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary-yellow/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+           <div className="text-center mb-16">
+             <h2 className="text-primary-yellow font-bold uppercase tracking-wider text-sm mb-3">Depoimentos</h2>
+             <h3 className="text-4xl md:text-5xl font-heading font-bold text-white">O que dizem nossos clientes</h3>
+           </div>
+           
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+             {TESTIMONIALS.map((t, i) => (
+               <div key={i} className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-colors">
+                 <div className="flex gap-1 mb-4">
+                   {[...Array(t.stars)].map((_, idx) => (
+                     <Star key={idx} size={18} className="text-primary-yellow fill-current" />
+                   ))}
+                 </div>
+                 <p className="text-gray-200 mb-6 italic">"{t.text}"</p>
+                 <div className="flex items-center gap-3">
+                   <div className="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold">
+                     {t.name.charAt(0)}
+                   </div>
+                   <div>
+                     <h4 className="text-white font-bold text-sm">{t.name}</h4>
+                     <span className="text-gray-400 text-xs">{t.location}</span>
+                   </div>
+                 </div>
+               </div>
+             ))}
+           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+               <h2 className="text-primary-blue font-bold uppercase tracking-wider text-sm mb-3">Dúvidas Comuns</h2>
+               <h3 className="text-3xl md:text-4xl font-heading font-bold text-primary-dark">Perguntas Frequentes</h3>
+            </div>
+            
+            <div className="space-y-4">
+              {FAQS.map((faq, index) => (
+                <div key={index} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <button 
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex items-center justify-between p-6 bg-gray-50 hover:bg-white transition-colors text-left"
+                  >
+                    <span className="font-bold text-gray-800 text-lg">{faq.question}</span>
+                    {openFaq === index ? <Minus className="text-primary-blue" /> : <Plus className="text-gray-400" />}
+                  </button>
+                  <div 
+                    className={`transition-all duration-300 ease-in-out ${
+                      openFaq === index ? 'max-h-96 opacity-100 p-6 pt-0' : 'max-h-0 opacity-0 p-0 overflow-hidden'
+                    }`}
+                  >
+                    <p className="text-gray-600 leading-relaxed bg-white border-t border-gray-100 pt-4">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Areas de Atendimento Section */}
-      <section id="areas" className="py-24 bg-white">
+      <section id="areas" className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-primary-blue font-bold uppercase tracking-wider text-sm mb-3">Cobertura Total</h2>
             <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary-dark mb-6">Onde Atendemos</h3>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Seja em Curitiba ou na Região Metropolitana, a BS Escapamentos é a sua oficina de confiança. 
+              Seja em Curitiba, <strong>CIC, Neo Ville</strong> ou na Região Metropolitana, a BS Escapamentos é a sua oficina de confiança. 
               Clique na sua localização para ver serviços exclusivos.
             </p>
           </div>
@@ -177,7 +314,7 @@ const Home: React.FC = () => {
                 <Link 
                   key={loc.slug} 
                   to={`/local/${loc.slug}`}
-                  className="flex items-center justify-center px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-600 font-medium text-xs md:text-sm hover:bg-primary-blue hover:text-white hover:border-primary-blue hover:shadow-md transition-all duration-200 text-center truncate"
+                  className="flex items-center justify-center px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-600 font-medium text-xs md:text-sm hover:bg-primary-blue hover:text-white hover:border-primary-blue hover:shadow-md transition-all duration-200 text-center truncate"
                   title={loc.name}
                 >
                   {loc.name}
@@ -193,6 +330,33 @@ const Home: React.FC = () => {
             >
               Ver Todas as Localidades ({LOCATIONS.length}) <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-20 bg-primary-blue text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Seu Carro Merece o Melhor do CIC</h2>
+          <p className="text-xl text-primary-yellow mb-10 font-bold max-w-2xl mx-auto">
+            Não arrisque a segurança da sua família. Traga seu veículo para quem entende de verdade.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+             <a 
+               href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`}
+               target="_blank"
+               rel="noreferrer"
+               className="bg-primary-yellow text-primary-dark font-black py-4 px-10 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(253,185,19,0.5)] flex items-center justify-center gap-2"
+             >
+               <Icons.MessageCircle size={24} /> Agendar via WhatsApp
+             </a>
+             <a 
+               href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+               className="bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary-blue transition-all flex items-center justify-center gap-2"
+             >
+               <Icons.Phone size={24} /> Ligar Agora
+             </a>
           </div>
         </div>
       </section>

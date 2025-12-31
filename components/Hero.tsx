@@ -4,12 +4,12 @@ import { ChevronRight, ShieldCheck, Zap, Wrench, Star, CheckCircle } from 'lucid
 import { Link } from 'react-router-dom';
 
 const MESSAGES = [
-  "REFERÊNCIA EM ESCAPAMENTOS",
-  "SUSPENSÃO E FREIOS PREMIUM",
+  "ESPECIALISTAS EM ESCAPAMENTOS NO CIC",
+  "AUTO CENTER PREMIUM NO NEO VILLE",
+  "SUSPENSÃO E FREIOS EM CURITIBA",
   "DIAGNÓSTICO COMPUTADORIZADO",
   "PEÇAS ORIGINAIS E GARANTIA",
-  "ORÇAMENTO JUSTO E TRANSPARENTE",
-  "MECÂNICA GERAL ESPECIALIZADA"
+  "REFERÊNCIA EM ESCAPAMENTOS ESPORTIVOS"
 ];
 
 const Hero: React.FC = () => {
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
         >
           <img 
             src={slide} 
-            alt="Oficina Mecânica BS Escapamentos" 
+            alt="Oficina Mecânica BS Escapamentos CIC Curitiba" 
             className={`w-full h-full object-cover transform will-change-transform ${
               index === currentSlide ? 'animate-[zoom-in_8s_ease-out_forwards]' : 'scale-105'
             }`}
@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
 
         {/* Value Proposition */}
         <p className="max-w-3xl mx-auto text-gray-200 text-sm md:text-lg leading-relaxed animate-fade-in-up font-light mb-8 md:mb-10 drop-shadow-md px-4" style={{ animationDelay: '0.6s' }}>
-          A excelência que seu veículo merece. <strong className="text-white">Peças originais</strong>, <strong className="text-white">garantia estendida</strong> e a equipe mais qualificada de Curitiba.
+          A excelência que seu veículo merece no <strong>CIC e Neo Ville</strong>. <strong className="text-white">Peças originais</strong>, <strong className="text-white">garantia estendida</strong> e a equipe mais qualificada de Curitiba.
         </p>
 
         {/* Action Buttons */}

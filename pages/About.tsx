@@ -7,10 +7,10 @@ const About: React.FC = () => {
   return (
     <>
       <EnhancedSEO 
-        title="Sobre a BS Escapamentos - Tradição e Confiança" 
-        description="Conheça a história da BS Escapamentos, sua oficina mecânica de confiança em Curitiba. Mais de 12 anos de experiência em escapamentos, suspensão e freios." 
+        title="Sobre a BS Escapamentos - Referência no CIC e Neo Ville" 
+        description="Conheça a história da BS Escapamentos, sua oficina mecânica de confiança no CIC/Neo Ville. Mais de 12 anos de experiência em escapamentos, suspensão e freios." 
         canonicalPath="/sobre"
-        keywords="sobre bs escapamentos, história oficina, equipe mecanica curitiba, auto center novo mundo"
+        keywords="sobre bs escapamentos, história oficina cic, mecanica neo ville, auto center novo mundo"
         schemaType="LocalBusiness"
       />
       
@@ -23,7 +23,7 @@ const About: React.FC = () => {
           <div className="container mx-auto px-4 relative z-10 text-center">
              <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">Nossa História</h1>
              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-               Tradição, honestidade e excelência técnica no cuidado com o seu veículo.
+               Tradição, honestidade e excelência técnica no coração do CIC.
              </p>
           </div>
         </div>
@@ -32,16 +32,16 @@ const About: React.FC = () => {
            <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
               <div className="w-full md:w-1/2">
                 <div className="relative p-2 bg-white rounded-2xl shadow-xl transform rotate-1">
-                   <img src={HERO_IMAGES[2]} alt="Equipe BS Escapamentos" className="rounded-xl w-full" />
+                   <img src={HERO_IMAGES[2]} alt="Equipe BS Escapamentos no CIC" className="rounded-xl w-full" />
                 </div>
               </div>
               <div className="w-full md:w-1/2">
                  <h2 className="text-3xl font-heading font-bold text-primary-dark mb-6">Quem Somos</h2>
                  <p className="text-gray-600 mb-4 leading-relaxed text-lg">
-                   A <strong>BS Escapamentos</strong> nasceu com um propósito claro: oferecer serviços automotivos com transparência e qualidade técnica superior em Curitiba.
+                   A <strong>BS Escapamentos</strong> nasceu com um propósito claro: oferecer serviços automotivos com transparência e qualidade técnica superior para os moradores do <strong>CIC, Neo Ville e Novo Mundo</strong>.
                  </p>
                  <p className="text-gray-600 mb-4 leading-relaxed text-lg">
-                   Localizada estrategicamente no bairro Novo Mundo, nossa oficina começou especializada em escapamentos e catalisadores. Com a crescente demanda de nossos clientes fiéis, expandimos nossa expertise para nos tornarmos um Auto Center completo.
+                   Localizada estrategicamente, nossa oficina começou especializada em escapamentos e catalisadores. Com a crescente demanda de nossos clientes fiéis da região, expandimos nossa expertise para nos tornarmos um Auto Center completo.
                  </p>
                  <p className="text-gray-600 leading-relaxed text-lg">
                    Hoje, somos referência em manutenção preventiva e corretiva, atendendo desde veículos de passeio até utilitários, sempre com o compromisso de entregar o carro em perfeitas condições de segurança.
@@ -54,12 +54,12 @@ const About: React.FC = () => {
               <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-yellow shadow-sm hover:shadow-md transition-shadow">
                  <Target className="text-primary-blue w-12 h-12 mb-4" />
                  <h3 className="text-xl font-bold text-primary-dark mb-3">Missão</h3>
-                 <p className="text-gray-600">Proporcionar segurança e conforto aos motoristas através de serviços automotivos de excelência, com atendimento ágil e honesto.</p>
+                 <p className="text-gray-600">Proporcionar segurança aos motoristas do CIC e região através de serviços automotivos de excelência e honestidade.</p>
               </div>
               <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-blue shadow-sm hover:shadow-md transition-shadow">
                  <Users className="text-primary-blue w-12 h-12 mb-4" />
                  <h3 className="text-xl font-bold text-primary-dark mb-3">Visão</h3>
-                 <p className="text-gray-600">Ser reconhecida como a oficina mecânica de maior confiança em Curitiba e Região Metropolitana.</p>
+                 <p className="text-gray-600">Ser reconhecida como a oficina mecânica de maior confiança no Neo Ville e Novo Mundo.</p>
               </div>
               <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-green shadow-sm hover:shadow-md transition-shadow">
                  <ShieldCheck className="text-primary-blue w-12 h-12 mb-4" />
@@ -73,10 +73,10 @@ const About: React.FC = () => {
              <h2 className="text-3xl font-heading font-bold text-primary-dark text-center mb-12">Nossa Estrutura</h2>
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { icon: Wrench, title: "Equipamentos Modernos", text: "Scanners de última geração para diagnóstico preciso." },
-                  { icon: Award, title: "Peças Originais", text: "Parceria com os melhores fornecedores do mercado." },
-                  { icon: Clock, title: "Agilidade", text: "Respeito ao seu tempo com prazos cumpridos." },
-                  { icon: MapPin, title: "Fácil Acesso", text: "Localização privilegiada no Novo Mundo." }
+                  { icon: Wrench, title: "Tecnologia", text: "Scanners avançados para diagnóstico." },
+                  { icon: Award, title: "Peças Certificadas", text: "Parceria com fornecedores líderes." },
+                  { icon: Clock, title: "Agilidade", text: "Respeito ao seu tempo com prazos." },
+                  { icon: MapPin, title: "Fácil Acesso", text: "Localização privilegiada no CIC/Neo Ville." }
                 ].map((item, idx) => (
                   <div key={idx} className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                     <div className="bg-primary-blue/10 p-4 rounded-full mb-4 text-primary-blue">
