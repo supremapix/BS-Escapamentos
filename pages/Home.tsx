@@ -200,34 +200,44 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      {/* Blog Section - Horizontal Looping Ticker (Premium Effects) */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 mb-16 relative z-20">
+          <div className="text-center">
             <h2 className="text-primary-blue font-bold uppercase tracking-wider text-sm mb-3">Dicas Automotivas</h2>
             <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary-dark">Notícias BS Escapamentos</h3>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {BLOG_POSTS.map((post) => (
-              <article key={post.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+        </div>
+        
+        {/* Gradient Fades for Premium Ticker Look */}
+        <div className="absolute top-0 left-0 w-24 md:w-48 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-24 md:w-48 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+        {/* Ticker Container */}
+        <div className="flex animate-scroll-left hover-pause w-max gap-8 px-4">
+          {/* Loop items twice to create seamless infinity effect */}
+          {[...BLOG_POSTS, ...BLOG_POSTS].map((post, idx) => (
+              <article 
+                key={`${post.id}-${idx}`} 
+                className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col w-[300px] md:w-[380px] shrink-0 transform hover:-translate-y-2"
+              >
                 <div className="h-48 overflow-hidden relative shrink-0">
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                     onError={handleImageError}
                   />
                   <div className="absolute inset-0 bg-primary-dark/20 group-hover:bg-primary-dark/0 transition-colors"></div>
-                  <div className="absolute top-4 left-4 bg-primary-yellow text-primary-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                     Dica
+                  <div className="absolute top-4 left-4 bg-primary-yellow text-primary-dark text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                     Novidade
                   </div>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col flex-grow relative bg-white">
                   <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                    <Calendar size={14} /> {post.date}
+                    <Calendar size={14} className="text-primary-blue" /> {post.date}
                   </div>
-                  <h4 className="text-lg font-bold text-primary-dark mb-3 leading-tight group-hover:text-primary-blue transition-colors">
+                  <h4 className="text-lg font-bold text-primary-dark mb-3 leading-tight group-hover:text-primary-blue transition-colors line-clamp-2">
                     {post.title}
                   </h4>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
@@ -235,14 +245,13 @@ const Home: React.FC = () => {
                   </p>
                   <Link 
                     to={`/blog/${post.slug || '#'}`} 
-                    className="text-primary-blue font-bold text-sm hover:text-primary-yellow transition-colors inline-flex items-center gap-1 mt-auto"
+                    className="text-primary-blue font-bold text-sm hover:text-primary-yellow transition-colors inline-flex items-center gap-1 mt-auto group/btn"
                   >
-                    Ler artigo <ChevronRight size={14} />
+                    Ler artigo <ChevronRight size={14} className="transform group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </article>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 

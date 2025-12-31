@@ -79,6 +79,58 @@ export const SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS = [
   {
+    id: 103,
+    slug: "revisao-ferias-janeiro-2026-premium",
+    title: "Férias Blindadas: O Checklist Premium de Janeiro 2026",
+    excerpt: "Não deixe sua viagem virar pesadelo. Descubra a Revisão Premium que garante segurança absoluta para sua família neste verão.",
+    date: "02 Jan 2026",
+    image: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Janeiro de 2026: Sua Família Merece Viajar com Segurança Absoluta</h2>
+      <p>As estradas em 2026 estão mais exigentes e o calor recorde deste verão coloca à prova qualquer veículo. Sair do <strong>CIC ou Neo Ville</strong> rumo ao litoral ou interior sem uma preparação de elite é um risco que você não pode correr.</p>
+
+      <h3>Por que a Revisão Padrão não é mais suficiente?</h3>
+      <p>Os carros modernos exigem precisão cirúrgica. Na BS Escapamentos, lançamos a <strong>Revisão Premium de Férias 2026</strong>, um protocolo rigoroso que vai muito além da troca de óleo.</p>
+
+      <div class="bg-gray-900 text-white p-6 rounded-xl shadow-xl my-8 border border-primary-yellow">
+        <h3 class="text-primary-yellow font-heading text-2xl mb-4 flex items-center gap-2">
+           🚀 O Que Inclui a Revisão Premium?
+        </h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 font-bold">✓</span>
+            <div>
+              <strong>Scanner de Profundidade 2026:</strong> Análise preditiva de falhas em sensores e módulos eletrônicos.
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 font-bold">✓</span>
+            <div>
+              <strong>Freios de Alta Performance:</strong> Verificação micrométrica de discos e teste de ebulição do fluido de freio (vital para a Serra do Mar).
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 font-bold">✓</span>
+            <div>
+              <strong>Arrefecimento Tropicalizado:</strong> Limpeza do sistema e aditivação correta para suportar as altas temperaturas de Janeiro.
+            </div>
+          </li>
+           <li class="flex items-start gap-2">
+            <span class="text-green-400 font-bold">✓</span>
+            <div>
+              <strong>Suspensão Inteligente:</strong> Checagem de buchas e amortecedores para garantir estabilidade em curvas perigosas.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <h3>Não conte com a sorte, conte com a BS</h3>
+      <p>Um carro parado no acostamento custa muito mais que uma revisão. Custa a paz das suas férias. Nossa equipe no Novo Mundo está pronta para entregar seu carro "blindado" contra imprevistos mecânicos.</p>
+
+      <p class="font-bold text-primary-blue text-lg mt-4">Agende agora sua Revisão Premium e viaje tranquilo em 2026!</p>
+    `
+  },
+  {
     id: 101,
     slug: "dicas-manutencao-automotiva-2025",
     title: "Guia 2025: O Que Muda na Manutenção do Seu Carro",
