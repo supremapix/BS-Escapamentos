@@ -47,6 +47,10 @@
               'zoom-in': 'zoomIn 20s ease-out forwards',
               'float': 'float 3s ease-in-out infinite',
               'scroll-up': 'scrollUp 60s linear infinite',
+              'scroll-vertical': 'scrollVertical 45s linear infinite',
+              'scroll-vertical-slow': 'scrollVertical 60s linear infinite',
+              'scroll-vertical-fast': 'scrollVertical 35s linear infinite',
+              'twinkle': 'twinkle 2s ease-in-out infinite',
             },
             keyframes: {
               heartbeat: {
@@ -72,6 +76,14 @@
               scrollUp: {
                 '0%': { transform: 'translateY(0)' },
                 '100%': { transform: 'translateY(-50%)' },
+              },
+              scrollVertical: {
+                '0%': { transform: 'translateY(0)' },
+                '100%': { transform: 'translateY(-50%)' },
+              },
+              twinkle: {
+                '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                '50%': { opacity: '0.6', transform: 'scale(0.8)' },
               }
             }
           },

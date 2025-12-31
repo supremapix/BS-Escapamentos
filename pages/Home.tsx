@@ -7,6 +7,30 @@ import { LucideIcon, MapPin, ChevronDown, ChevronRight, Star, Plus, Minus, Calen
 import { useForm } from 'react-hook-form';
 import EnhancedSEO from '../components/EnhancedSEO';
 
+// Helper component for Review Card
+const ReviewCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
+  <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-all duration-300 hover:bg-white/15 hover:shadow-[0_0_15px_rgba(253,185,19,0.2)] mb-6 break-inside-avoid">
+      <Quote className="text-white/20 mb-3 w-8 h-8" />
+      <p className="text-gray-200 mb-4 italic text-sm leading-relaxed">"{t.text}"</p>
+      <div className="flex items-center gap-1 mb-4">
+          {[...Array(t.stars)].map((_, idx) => (
+              <Star key={idx} size={14} className="text-primary-yellow fill-current animate-twinkle" style={{ animationDelay: `${idx * 0.2}s` }} />
+          ))}
+      </div>
+      <div className="flex items-center gap-3 border-t border-white/10 pt-3">
+          <div className="w-8 h-8 bg-gradient-to-br from-primary-blue to-blue-900 rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-lg text-xs ring-2 ring-white/10">
+              {t.name.charAt(0)}
+          </div>
+          <div>
+              <h4 className="text-white font-bold text-xs">{t.name}</h4>
+              <span className="text-primary-yellow text-[10px] flex items-center gap-1 uppercase tracking-wide font-semibold">
+                  <MapPin size={8} /> {t.location}
+              </span>
+          </div>
+      </div>
+  </div>
+);
+
 const Home: React.FC = () => {
   const { register, handleSubmit } = useForm();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -38,6 +62,11 @@ const Home: React.FC = () => {
     const url = `https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=${message}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
+
+  // Split testimonials for columns
+  const column1 = TESTIMONIALS.slice(0, 4);
+  const column2 = TESTIMONIALS.slice(4, 8);
+  const column3 = TESTIMONIALS.slice(8, 12);
 
   return (
     <>
@@ -217,50 +246,56 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-24 bg-primary-dark relative overflow-hidden">
+      {/* Testimonials Section - Infinite Vertical Scroll (Wall of Love) */}
+      <section className="py-24 bg-[#0B1120] relative overflow-hidden">
+        {/* Background Effects */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary-blue/30 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary-yellow/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary-blue/30 rounded-full blur-[128px]"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary-yellow/10 rounded-full blur-[128px]"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-           <div className="text-center mb-16">
-             <h2 className="text-primary-yellow font-bold uppercase tracking-wider text-sm mb-3">Depoimentos</h2>
-             <h3 className="text-4xl md:text-5xl font-heading font-bold text-white">O que dizem nossos clientes</h3>
-             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">A satisfação de quem confia na BS Escapamentos.</p>
+           <div className="text-center mb-12">
+             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-4">
+                <Star size={12} className="text-primary-yellow fill-current" />
+                <span className="text-gray-300 text-xs font-bold uppercase tracking-widest">5 Estrelas no Google</span>
+             </div>
+             <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">O que dizem nossos clientes</h3>
+             <p className="text-gray-400 max-w-2xl mx-auto">
+               Mais do que clientes, fazemos amigos. Veja a opinião de quem confia na BS Escapamentos no <strong>Neo Ville e CIC</strong>.
+             </p>
            </div>
            
-           {/* Masonry-like Grid with "Fade In Up" Staggered Animation */}
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             {TESTIMONIALS.map((t, i) => (
-               <div 
-                 key={i} 
-                 className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-all hover:-translate-y-2 duration-300 animate-fade-in-up flex flex-col h-full relative group"
-                 style={{ animationDelay: `${i * 150}ms` }}
-               >
-                 <Quote className="absolute top-6 right-6 text-white/10 group-hover:text-primary-yellow/20 transition-colors w-10 h-10" />
-                 
-                 <div className="flex gap-1 mb-4">
-                   {[...Array(t.stars)].map((_, idx) => (
-                     <Star key={idx} size={16} className="text-primary-yellow fill-current" />
-                   ))}
-                 </div>
-                 
-                 <p className="text-gray-200 mb-6 italic text-sm md:text-base flex-grow leading-relaxed">"{t.text}"</p>
-                 
-                 <div className="flex items-center gap-3 mt-auto border-t border-white/10 pt-4">
-                   <div className="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-lg">
-                     {t.name.charAt(0)}
-                   </div>
-                   <div>
-                     <h4 className="text-white font-bold text-sm">{t.name}</h4>
-                     <span className="text-gray-400 text-xs flex items-center gap-1">
-                       <MapPin size={10} /> {t.location}
-                     </span>
-                   </div>
-                 </div>
-               </div>
-             ))}
+           {/* Gradient Masks for Top/Bottom Fade */}
+           <div className="relative h-[600px] overflow-hidden mask-linear-gradient">
+              {/* Fade Overlays (CSS Mask Alternative fallback) */}
+              <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#0B1120] to-transparent z-20 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0B1120] to-transparent z-20 pointer-events-none"></div>
+
+              {/* Grid with 3 Infinite Scrolling Columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
+                  
+                  {/* Column 1 - Slower */}
+                  <div className="flex flex-col gap-0 animate-scroll-vertical-slow hover-pause">
+                      {[...column1, ...column1, ...column1].map((t, i) => (
+                          <ReviewCard key={`col1-${i}`} t={t} />
+                      ))}
+                  </div>
+
+                  {/* Column 2 - Normal Speed (Reverse direction visual trick or offset) */}
+                  <div className="hidden md:flex flex-col gap-0 animate-scroll-vertical hover-pause" style={{ animationDelay: '-15s' }}>
+                       {[...column2, ...column2, ...column2].map((t, i) => (
+                          <ReviewCard key={`col2-${i}`} t={t} />
+                      ))}
+                  </div>
+
+                  {/* Column 3 - Faster */}
+                  <div className="hidden lg:flex flex-col gap-0 animate-scroll-vertical-fast hover-pause" style={{ animationDelay: '-7s' }}>
+                       {[...column3, ...column3, ...column3].map((t, i) => (
+                          <ReviewCard key={`col3-${i}`} t={t} />
+                      ))}
+                  </div>
+
+              </div>
            </div>
         </div>
       </section>

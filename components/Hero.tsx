@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(100);
+  const [typingSpeed, setTypingSpeed] = useState(150);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
@@ -39,36 +39,48 @@ const Hero: React.FC = () => {
 
   // Typewriter Logic
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
     const handleType = () => {
       const i = loopNum % MESSAGES.length;
       const fullText = MESSAGES[i];
 
-      setText(isDeleting 
+      // Determine next text state
+      const nextText = isDeleting 
         ? fullText.substring(0, text.length - 1) 
-        : fullText.substring(0, text.length + 1)
-      );
+        : fullText.substring(0, text.length + 1);
 
-      // Dynamic speeds for more natural feel
+      setText(nextText);
+
+      // Determine speed for next tick
+      let nextSpeed = 100;
+
       if (isDeleting) {
-        setTypingSpeed(30); // Fast delete
+        nextSpeed = 30; // Faster delete speed
       } else {
-        setTypingSpeed(Math.random() * (100 - 50) + 50); // Random typing variance
+        // Natural typing variation (50ms to 150ms)
+        nextSpeed = 50 + Math.random() * 100; 
       }
 
-      if (!isDeleting && text === fullText) {
-        // Pause at end of sentence
-        setTimeout(() => setIsDeleting(true), 2500);
-      } else if (isDeleting && text === '') {
-        // Switch to next sentence
+      // Check boundaries to switch states
+      if (!isDeleting && nextText === fullText) {
+        // Sentence complete, pause before deleting
+        nextSpeed = 2500; 
+        setIsDeleting(true);
+      } else if (isDeleting && nextText === '') {
+        // Deletion complete, move to next sentence
         setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-        setTypingSpeed(500); // Pause before starting new word
+        setLoopNum((prev) => prev + 1);
+        nextSpeed = 500; // Pause before typing next
       }
+
+      setTypingSpeed(nextSpeed);
     };
 
-    const timer = setTimeout(handleType, typingSpeed);
+    timer = setTimeout(handleType, typingSpeed);
+
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed]);
+  }, [text, isDeleting, loopNum]); // Removed typingSpeed from deps to rely on state updates triggering re-renders
 
   return (
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center bg-primary-dark text-white overflow-hidden">
@@ -123,10 +135,10 @@ const Hero: React.FC = () => {
         
         {/* Typewriter Subheading - Responsive Refinement */}
         <div className="w-full flex items-center justify-center animate-fade-in-up mb-8 px-2" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-black/50 backdrop-blur-md border-x-2 md:border-x-4 border-primary-yellow px-4 py-3 md:px-6 rounded-lg w-full max-w-4xl min-h-[60px] md:min-h-[80px] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="bg-black/50 backdrop-blur-md border-x-2 md:border-x-4 border-primary-yellow px-4 py-3 md:px-6 rounded-lg w-full max-w-4xl min-h-[60px] md:min-h-[80px] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300">
             <span className="text-xs sm:text-base md:text-2xl lg:text-3xl font-mono font-bold text-white tracking-wide block text-center">
               {text}
-              <span className="ml-1 inline-block text-primary-yellow font-black animate-[pulse_1s_ease-in-out_infinite] drop-shadow-[0_0_8px_rgba(250,204,21,1)] scale-110">_</span>
+              <span className="ml-1 inline-block text-primary-yellow font-black animate-pulse drop-shadow-[0_0_8px_rgba(250,204,21,0.8)] scale-110">_</span>
             </span>
           </div>
         </div>

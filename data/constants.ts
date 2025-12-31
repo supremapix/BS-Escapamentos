@@ -1,3 +1,4 @@
+
 import { ServiceItem, LocationData } from '../types';
 
 export const COMPANY_INFO = {
@@ -220,7 +221,7 @@ export const TESTIMONIALS = [
   {
     name: "Ricardo Santos",
     location: "Novo Mundo",
-    text: "Rápido e preço justo. Fiz a revisão de freios e troca de óleo. O carro ficou ótimo e me entregaram no prazo combinado.",
+    text: "Rápido e preço justo. Fiz a revisão de freios e troca de óleo. O carro ficou ótimo e me entregaram no prazo combinado. Atendimento nota 10.",
     stars: 5
   },
   {
@@ -239,6 +240,42 @@ export const TESTIMONIALS = [
     name: "Marcos Vinicius",
     location: "Fazendinha",
     text: "Preço bom e peças de qualidade. Fiz toda a suspensão e alinhamento 3D. O carro parece zero km novamente. Valeu a pena vir até o Novo Mundo.",
+    stars: 5
+  },
+  {
+    name: "Eduardo Silva",
+    location: "Neo Ville",
+    text: "Moro aqui no Neo Ville e sempre tive dificuldade de achar mecânico de confiança. A BS me surpreendeu. Serviço limpo e transparente.",
+    stars: 5
+  },
+  {
+    name: "Beatriz Ferreira",
+    location: "Cidade Industrial (CIC)",
+    text: "Fui indicada por um amigo do trabalho no CIC. Troquei o catalisador e a luz da injeção apagou na hora. Preço bem melhor que na concessionária.",
+    stars: 5
+  },
+  {
+    name: "Jorge Mathias",
+    location: "Xaxim",
+    text: "Instalei um Catback em inox. O ronco ficou animal! A solda Tig deles é uma obra de arte. Recomendo pra quem curte carro preparado.",
+    stars: 5
+  },
+  {
+    name: "Ana Paula",
+    location: "Condomínio Neo Ville",
+    text: "Atendimento diferenciado. Explicaram tudo o que precisava ser feito no meu carro sem 'empurrar' serviços extras. Ganharam minha confiança.",
+    stars: 5
+  },
+  {
+    name: "Felipe Rodrigues",
+    location: "Portão",
+    text: "Fica pertinho do CIC, acesso super fácil. Fiz revisão de férias e fui para a praia tranquilo. O carro não deu um pio.",
+    stars: 5
+  },
+  {
+    name: "Sérgio Gomes",
+    location: "Cidade Industrial",
+    text: "Oficina top! Equipamentos novos e equipe que entende do assunto. Resolveram um barulho na suspensão que ninguém achava.",
     stars: 5
   }
 ];
