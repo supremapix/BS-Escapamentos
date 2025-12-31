@@ -10,6 +10,7 @@ import Services from './pages/Services';
 import Areas from './pages/Areas';
 import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
+import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 
 // Scroll to top on route change
@@ -37,6 +38,7 @@ const App: React.FC = () => {
               <Route path="/areas" element={<Areas />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/local/:slug" element={<LocationPage />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               {/* Catch-all route for 404 errors */}
               <Route path="*" element={<NotFound />} />
             </Routes>

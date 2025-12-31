@@ -13,7 +13,6 @@ export const COMPANY_INFO = {
 };
 
 // Imagens de Alta Resolução e Confiabilidade
-// Usando Placehold.co para garantir que nunca quebrem, ou Unsplash com IDs estáveis
 export const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
@@ -78,35 +77,104 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-// URLs atualizadas para placeholders confiáveis para evitar imagens quebradas
 export const BLOG_POSTS = [
   {
     id: 1,
+    slug: "legislacao-ruido-escapamento-curitiba-2024",
     title: "Nova Legislação de Ruído 2024",
     excerpt: "Saiba como evitar multas em Curitiba com as novas regras para escapamentos esportivos.",
     date: "12 Mar 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Legislação+de+Ruído"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Legislação+de+Ruído",
+    content: `
+      <h2>Fique atento às normas de ruído em Curitiba e Região do CIC</h2>
+      <p>Com o aumento da fiscalização em Curitiba, especialmente em bairros como <strong>CIC, Neo Ville e Novo Mundo</strong>, muitos motoristas estão sendo surpreendidos com multas relacionadas ao ruído excessivo do escapamento. A legislação de 2024 trouxe critérios mais rígidos baseados na resolução do CONTRAN.</p>
+      
+      <h3>O que diz a lei?</h3>
+      <p>A alteração no sistema de escapamento é permitida, desde que não ultrapasse os limites de decibéis estipulados no manual do fabricante do veículo. Em Curitiba, a Polícia Militar e a Guarda Municipal têm intensificado blitz com decibelímetros.</p>
+      
+      <h3>Escapamento Esportivo é Proibido?</h3>
+      <p>Não necessariamente. O uso de abafadores esportivos e ponteiras é legal, contanto que o nível de ruído se mantenha dentro da tolerância. Na <strong>BS Escapamentos</strong>, realizamos a instalação de difusores e sistemas esportivos que permitem controlar o ruído, garantindo a diversão na pista e o silêncio necessário em áreas residenciais como o Neo Ville.</p>
+      
+      <h3>Dicas para não ser multado:</h3>
+      <ul>
+        <li>Mantenha o catalisador original ou use um esportivo de alta performance.</li>
+        <li>Evite remover totalmente os abafadores (diretão) para uso urbano.</li>
+        <li>Faça um teste de ruído conosco antes de sair rodando.</li>
+      </ul>
+      
+      <p>Se você mora no CIC ou região e quer customizar seu carro dentro da lei, venha conversar com nossos especialistas.</p>
+    `
   },
   {
     id: 2,
+    slug: "sinais-catalisador-ruim",
     title: "5 Sinais do Catalisador Ruim",
     excerpt: "Perda de potência e aumento de consumo? Veja se é hora de trocar seu catalisador.",
     date: "05 Abr 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Catalisador+Problemas"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Catalisador+Problemas",
+    content: `
+      <h2>Seu carro está bebendo muito? Pode ser o catalisador.</h2>
+      <p>O catalisador é uma peça fundamental para o controle de emissões e para o bom funcionamento do motor. Moradores do <strong>CIC e Curitiba</strong> enfrentam trânsito pesado, o que pode acelerar o desgaste dessa peça.</p>
+      
+      <h3>Sinais de alerta:</h3>
+      <ol>
+        <li><strong>Luz da Injeção Acesa:</strong> O sinal mais comum no painel.</li>
+        <li><strong>Aumento no Consumo:</strong> O carro precisa injetar mais combustível para tentar compensar leituras erradas dos sensores.</li>
+        <li><strong>Perda de Potência:</strong> O carro "amarra" em subidas, comum nas ladeiras do Novo Mundo e Portão.</li>
+        <li><strong>Cheiro Forte:</strong> Odor de "ovo podre" saindo do escapamento.</li>
+        <li><strong>Barulho de Peças Soltas:</strong> Se ouvir algo chacoalhando embaixo do carro, a cerâmica interna pode ter quebrado.</li>
+      </ol>
+      
+      <h3>Onde trocar no Neo Ville?</h3>
+      <p>Nunca remova o catalisador sem colocar outro no lugar. Além de ser crime ambiental, desregula todo o sistema eletrônico do carro. Na <strong>BS Escapamentos</strong>, trabalhamos com catalisadores universais e originais homologados pelo INMETRO, com o melhor preço da região do CIC.</p>
+    `
   },
   {
     id: 3,
+    slug: "revisao-ferias-checklist",
     title: "Revisão de Férias: Checklist",
     excerpt: "Vai viajar saindo do CIC? Confira os itens essenciais para revisar antes da estrada.",
     date: "20 Mai 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Revisão+de+Férias"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Revisão+de+Férias",
+    content: `
+      <h2>Vai pegar a BR-376 ou BR-277? Revise antes!</h2>
+      <p>As férias estão chegando e quem mora em Curitiba sabe: a descida para a serra ou a ida para o interior exige freios e suspensão em dia. Sair do <strong>CIC</strong> sem revisar o carro é um risco para sua família.</p>
+      
+      <h3>Checklist Essencial BS Escapamentos:</h3>
+      <ul>
+        <li><strong>Freios:</strong> Verificação da espessura das pastilhas e condição dos discos. Em serras, o freio é vital.</li>
+        <li><strong>Pneus e Alinhamento:</strong> O asfalto irregular de Curitiba desalinha o carro facilmente. Faça o alinhamento 3D para evitar desgaste prematuro na viagem.</li>
+        <li><strong>Óleo e Fluidos:</strong> Verifique o nível do óleo, fluido de freio e, principalmente, a água do radiador.</li>
+        <li><strong>Escapamento:</strong> Um escapamento furado pode jogar gases tóxicos para dentro da cabine durante viagens longas com vidros fechados.</li>
+      </ul>
+      
+      <p>Não deixe para a última hora. Nossa oficina no Novo Mundo (próximo ao Neo Ville) oferece revisão expressa para você viajar tranquilo.</p>
+    `
   },
   {
     id: 4,
+    slug: "escapamento-inox-aco-carbono",
     title: "Escapamento Inox vs Aço Carbono",
     excerpt: "Entenda as diferenças de durabilidade e performance para o seu projeto automotivo.",
     date: "15 Jun 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Inox+vs+Carbono"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Inox+vs+Carbono",
+    content: `
+      <h2>Qual o melhor material para o clima de Curitiba?</h2>
+      <p>Curitiba é conhecida por seu clima úmido e frio. Isso é um inimigo natural dos metais. Quem vive no <strong>CIC</strong> ou qualquer bairro da capital paranaense sabe que a ferrugem ataca rápido.</p>
+      
+      <h3>Aço Carbono (Galvanizado)</h3>
+      <p>É o material original da maioria dos carros. É mais barato, mas tem menor durabilidade. Em Curitiba, um escapamento de aço carbono dura em média 2 a 3 anos devido à umidade.</p>
+      
+      <h3>Aço Inoxidável (Inox)</h3>
+      <p>O sonho de consumo dos entusiastas. O Inox 304 não enferruja, mantém o brilho e dissipa melhor o calor.
+      <br><strong>Vantagens:</strong>
+      <br>- Durabilidade vitalícia (praticamente eterno).
+      <br>- Ronco mais encorpado e metálico.
+      <br>- Estética superior (ponteiras azuis, polidas, etc).</p>
+      
+      <h3>Veredito BS Escapamentos</h3>
+      <p>Se você planeja ficar muito tempo com o carro ou quer performance, invista no Inox. Aqui na BS, fabricamos downpipes e catbacks em Inox sob medida para clientes exigentes do Neo Ville e toda Curitiba.</p>
+    `
   }
 ];
 
@@ -154,6 +222,24 @@ export const TESTIMONIALS = [
     name: "Ricardo Santos",
     location: "Novo Mundo",
     text: "Rápido e preço justo. Fiz a revisão de freios e troca de óleo. O carro ficou ótimo e me entregaram no prazo combinado.",
+    stars: 5
+  },
+  {
+    name: "Roberto Almeida",
+    location: "Capão Raso",
+    text: "A melhor oficina de escapamentos da região sul de Curitiba. Instalaram um difusor no meu carro e o acabamento ficou impecável. Nota 10!",
+    stars: 5
+  },
+  {
+    name: "Juliana Costa",
+    location: "Pinheirinho",
+    text: "Levei meu carro fazendo um barulho horrível. Diagnosticaram que era só uma borracha solta e resolveram na hora. Honestidade rara hoje em dia.",
+    stars: 5
+  },
+  {
+    name: "Marcos Vinicius",
+    location: "Fazendinha",
+    text: "Preço bom e peças de qualidade. Fiz toda a suspensão e alinhamento 3D. O carro parece zero km novamente. Valeu a pena vir até o Novo Mundo.",
     stars: 5
   }
 ];

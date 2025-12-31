@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import { SERVICES, COMPANY_INFO, LOCATIONS, BLOG_POSTS, FAQS, TESTIMONIALS, DIFFERENTIALS } from '../data/constants';
 import * as Icons from 'lucide-react';
-import { LucideIcon, MapPin, ChevronDown, ChevronRight, Star, Plus, Minus, Calendar, User } from 'lucide-react';
+import { LucideIcon, MapPin, ChevronDown, ChevronRight, Star, Plus, Minus, Calendar, User, Quote } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import EnhancedSEO from '../components/EnhancedSEO';
 
@@ -181,8 +181,8 @@ const Home: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {BLOG_POSTS.map((post) => (
-              <article key={post.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="h-48 overflow-hidden relative">
+              <article key={post.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                <div className="h-48 overflow-hidden relative shrink-0">
                   <img 
                     src={post.image} 
                     alt={post.title} 
@@ -194,19 +194,22 @@ const Home: React.FC = () => {
                      Dica
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
                     <Calendar size={14} /> {post.date}
                   </div>
                   <h4 className="text-lg font-bold text-primary-dark mb-3 leading-tight group-hover:text-primary-blue transition-colors">
                     {post.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
                     {post.excerpt}
                   </p>
-                  <a href="#" className="text-primary-blue font-bold text-sm hover:text-primary-yellow transition-colors inline-flex items-center gap-1">
+                  <Link 
+                    to={`/blog/${post.slug || '#'}`} 
+                    className="text-primary-blue font-bold text-sm hover:text-primary-yellow transition-colors inline-flex items-center gap-1 mt-auto"
+                  >
                     Ler artigo <ChevronRight size={14} />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -224,24 +227,36 @@ const Home: React.FC = () => {
            <div className="text-center mb-16">
              <h2 className="text-primary-yellow font-bold uppercase tracking-wider text-sm mb-3">Depoimentos</h2>
              <h3 className="text-4xl md:text-5xl font-heading font-bold text-white">O que dizem nossos clientes</h3>
+             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">A satisfação de quem confia na BS Escapamentos.</p>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+           {/* Masonry-like Grid with "Fade In Up" Staggered Animation */}
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
              {TESTIMONIALS.map((t, i) => (
-               <div key={i} className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-colors">
+               <div 
+                 key={i} 
+                 className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-all hover:-translate-y-2 duration-300 animate-fade-in-up flex flex-col h-full relative group"
+                 style={{ animationDelay: `${i * 150}ms` }}
+               >
+                 <Quote className="absolute top-6 right-6 text-white/10 group-hover:text-primary-yellow/20 transition-colors w-10 h-10" />
+                 
                  <div className="flex gap-1 mb-4">
                    {[...Array(t.stars)].map((_, idx) => (
-                     <Star key={idx} size={18} className="text-primary-yellow fill-current" />
+                     <Star key={idx} size={16} className="text-primary-yellow fill-current" />
                    ))}
                  </div>
-                 <p className="text-gray-200 mb-6 italic">"{t.text}"</p>
-                 <div className="flex items-center gap-3">
-                   <div className="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold">
+                 
+                 <p className="text-gray-200 mb-6 italic text-sm md:text-base flex-grow leading-relaxed">"{t.text}"</p>
+                 
+                 <div className="flex items-center gap-3 mt-auto border-t border-white/10 pt-4">
+                   <div className="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-lg">
                      {t.name.charAt(0)}
                    </div>
                    <div>
                      <h4 className="text-white font-bold text-sm">{t.name}</h4>
-                     <span className="text-gray-400 text-xs">{t.location}</span>
+                     <span className="text-gray-400 text-xs flex items-center gap-1">
+                       <MapPin size={10} /> {t.location}
+                     </span>
                    </div>
                  </div>
                </div>
