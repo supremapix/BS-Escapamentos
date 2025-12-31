@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import EnhancedSEO from '../components/EnhancedSEO';
 
 // Helper component for Review Card
-const ReviewCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
+const ReviewCard: React.FC<{ t: typeof TESTIMONIALS[0] }> = ({ t }) => (
   <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-primary-yellow/50 transition-all duration-300 hover:bg-white/15 hover:shadow-[0_0_15px_rgba(253,185,19,0.2)] mb-6 break-inside-avoid">
       <Quote className="text-white/20 mb-3 w-8 h-8" />
       <p className="text-gray-200 mb-4 italic text-sm leading-relaxed">"{t.text}"</p>

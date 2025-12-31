@@ -79,6 +79,68 @@ export const SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS = [
   {
+    id: 101,
+    slug: "dicas-manutencao-automotiva-2025",
+    title: "Guia 2025: O Que Muda na Manutenção do Seu Carro",
+    excerpt: "Novas tecnologias exigem novos cuidados. Confira as dicas essenciais para manter seu veículo valorizado em 2025.",
+    date: "10 Jan 2025",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Manutenção Automotiva em 2025: A Era da Eletrônica</h2>
+      <p>O ano de 2025 chegou consolidando uma tendência irreversível: a integração total entre mecânica e eletrônica. Quem mora no <strong>CIC e Neo Ville</strong> já percebeu que até os carros populares estão repletos de sensores. Mas o que isso muda na sua rotina de manutenção?</p>
+
+      <h3>1. Diagnóstico por Scanner é Obrigatório</h3>
+      <p>Esqueça o "achismo". Em 2025, tentar adivinhar o problema do carro pode custar caro. Sistemas de injeção direta e sensores de oxigênio (sonda lambda) de banda larga exigem equipamentos de ponta.</p>
+      <ul>
+        <li><strong>Dica BS:</strong> Nossa oficina no Novo Mundo atualizou todos os softwares de scanner para os protocolos 2025.</li>
+      </ul>
+
+      <h3>2. Óleos de Baixa Viscosidade (0W-20 e 0W-16)</h3>
+      <p>Para cumprir as normas de emissões, os motores estão trabalhando com folgas menores. O uso de óleos finos é crucial. Usar um óleo 15W-40 num motor projetado para 0W-20 pode fundir o motor em poucos meses.</p>
+
+      <h3>3. Catalisadores de Alta Eficiência</h3>
+      <p>Com a fiscalização ambiental mais rígida em Curitiba, o catalisador se tornou peça de ouro. Roubos aumentaram e a troca por peças paralelas baratas está reprovando carros em vistorias. Invista em peças homologadas.</p>
+
+      <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-primary-blue my-6">
+        <h4 class="font-bold text-primary-dark mb-2">Checklist Rápido 2025:</h4>
+        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <li>Verificar atualização de software da ECU.</li>
+          <li>Checar saúde da bateria (Start-Stop exige muito mais).</li>
+          <li>Alinhamento 3D a cada 10.000km devido aos buracos das chuvas recentes.</li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: 102,
+    slug: "previsoes-automotivas-2026",
+    title: "Futuro 2026: Previsões para o Setor Automotivo",
+    excerpt: "Híbridos populares, fim dos carros manuais e novas leis de ruído. Saiba o que esperar para 2026.",
+    date: "15 Jan 2025",
+    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>O Que Nos Espera em 2026?</h2>
+      <p>Olhando para o horizonte de 2026, o mercado automotivo brasileiro e, especificamente, a realidade de Curitiba, passarão por transformações profundas. Baseado em dados da indústria e tendências legislativas, preparamos este dossiê.</p>
+
+      <h3>1. O "Boom" dos Híbridos Usados</h3>
+      <p>Prevemos que em 2026, a manutenção de híbridos deixará de ser nicho. Oficinas como a <strong>BS Escapamentos</strong> já estão se equipando para lidar com sistemas de alta voltagem e manutenção de sistemas de freios regenerativos.</p>
+
+      <h3>2. Leis de Ruído Mais Rígidas (Lei do Silêncio 2.0)</h3>
+      <p>A tendência é que radares acústicos (já em teste na Europa) cheguem às grandes capitais brasileiras. Isso impacta diretamente quem gosta de escapamentos esportivos.</p>
+      <p><strong>A Solução:</strong> O uso de <em>Difusores Eletrônicos</em> de alta qualidade. Eles permitem fechar a válvula via controle remoto ou aplicativo, tornando o carro silencioso em áreas residenciais (como o Neo Ville) e esportivo na estrada.</p>
+
+      <h3>3. O Fim do Câmbio Manual?</h3>
+      <p>As montadoras estão descontinuando caixas manuais até em modelos de entrada. Isso significa que a manutenção de embreagem tradicional diminuirá, dando lugar à troca de fluido de câmbio automático e DSG.</p>
+
+      <blockquote class="border-l-4 border-primary-yellow pl-4 italic text-gray-600 my-6">
+        "Quem não se adaptar à eletrônica embarcada e à gestão térmica dos motores modernos ficará para trás. 2026 será o ano da oficina tecnológica."
+      </blockquote>
+
+      <h3>Prepare-se Hoje</h3>
+      <p>Não espere 2026 chegar para cuidar do seu carro. A valorização do veículo na revenda dependerá de um histórico de manutenção impecável e digitalizado.</p>
+    `
+  },
+  {
     id: 1,
     slug: "legislacao-ruido-escapamento-curitiba-2024",
     title: "Nova Legislação de Ruído 2024",
