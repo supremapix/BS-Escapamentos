@@ -22,6 +22,11 @@ const Home: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://placehold.co/600x400/1e3a8a/FFFFFF?text=BS+Escapamentos";
+    e.currentTarget.alt = "Imagem Indisponível";
+  };
+
   const onSubmit = (data: any) => {
     const message = `Olá! Vim pelo site.%0A%0A` +
                    `Nome: ${data.nome}%0A` +
@@ -79,6 +84,7 @@ const Home: React.FC = () => {
                   src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                   alt="Oficina Mecânica BS Escapamentos no Neo Ville" 
                   className="relative z-10 rounded-2xl shadow-2xl w-full border-b-8 border-primary-blue transform transition-transform duration-500 hover:scale-[1.01]"
+                  onError={handleImageError}
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-blue rounded-br-[3rem] z-0 group-hover:rotate-12 transition-transform duration-700"></div>
               </div>
@@ -177,7 +183,12 @@ const Home: React.FC = () => {
             {BLOG_POSTS.map((post) => (
               <article key={post.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-48 overflow-hidden relative">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={handleImageError}
+                  />
                   <div className="absolute inset-0 bg-primary-dark/20 group-hover:bg-primary-dark/0 transition-colors"></div>
                   <div className="absolute top-4 left-4 bg-primary-yellow text-primary-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">
                      Dica

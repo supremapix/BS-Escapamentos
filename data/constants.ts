@@ -12,18 +12,19 @@ export const COMPANY_INFO = {
   siteUrl: "https://www.bsescapamentos.com.br"
 };
 
-// Imagens de Alta Resolução e Confiabilidade (Unsplash)
+// Imagens de Alta Resolução e Confiabilidade
+// Usando Placehold.co para garantir que nunca quebrem, ou Unsplash com IDs estáveis
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
+  "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
-  "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
 ];
 
 export const PAGE_IMAGES = {
-  trust: "https://images.unsplash.com/photo-1605218427360-6dd24bfa9e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  exhaust: "https://images.unsplash.com/photo-1504222490245-4876363b5771?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  workshop: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  trust: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=BS+Equipe+Técnica",
+  exhaust: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=Escapamentos+Premium",
+  workshop: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=Nossa+Oficina+CIC"
 };
 
 export const SERVICES: ServiceItem[] = [
@@ -77,34 +78,35 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
+// URLs atualizadas para placeholders confiáveis para evitar imagens quebradas
 export const BLOG_POSTS = [
   {
     id: 1,
     title: "Nova Legislação de Ruído 2024",
     excerpt: "Saiba como evitar multas em Curitiba com as novas regras para escapamentos esportivos.",
     date: "12 Mar 2024",
-    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Legislação+de+Ruído"
   },
   {
     id: 2,
     title: "5 Sinais do Catalisador Ruim",
     excerpt: "Perda de potência e aumento de consumo? Veja se é hora de trocar seu catalisador.",
     date: "05 Abr 2024",
-    image: "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?auto=format&fit=crop&w=600&q=80"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Catalisador+Problemas"
   },
   {
     id: 3,
     title: "Revisão de Férias: Checklist",
     excerpt: "Vai viajar saindo do CIC? Confira os itens essenciais para revisar antes da estrada.",
     date: "20 Mai 2024",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Revisão+de+Férias"
   },
   {
     id: 4,
     title: "Escapamento Inox vs Aço Carbono",
     excerpt: "Entenda as diferenças de durabilidade e performance para o seu projeto automotivo.",
     date: "15 Jun 2024",
-    image: "https://images.unsplash.com/photo-1597762696614-2c0b76964263?auto=format&fit=crop&w=600&q=80"
+    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Inox+vs+Carbono"
   }
 ];
 
