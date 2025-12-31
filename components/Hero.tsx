@@ -105,31 +105,32 @@ const Hero: React.FC = () => {
       
       {/* --- Main Content --- */}
       <div 
-        className="container mx-auto px-4 z-10 text-center relative flex flex-col items-center justify-center h-full pt-20"
+        className="container mx-auto px-4 z-10 text-center relative flex flex-col items-center justify-center h-full pt-20 md:pt-0"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
         
         {/* Trust Badge */}
-        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest text-white shadow-lg">
-                <Star size={14} className="text-primary-yellow fill-current" />
+        <div className="mb-4 md:mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 md:px-4 rounded-full text-[10px] md:text-sm font-bold uppercase tracking-widest text-white shadow-lg">
+                <Star size={12} className="text-primary-yellow fill-current" />
                 <span>Auto Center Premium</span>
-                <Star size={14} className="text-primary-yellow fill-current" />
+                <Star size={12} className="text-primary-yellow fill-current" />
              </div>
         </div>
 
-        {/* Brand Name - High Impact */}
-        <h1 className="relative text-6xl md:text-8xl lg:text-9xl font-heading font-black mb-2 tracking-tighter animate-fade-in-up leading-none drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
-          <span className="block text-white text-shadow-xl">BS</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-primary-yellow via-yellow-400 to-yellow-600 drop-shadow-sm pb-2">
+        {/* Brand Name - High Impact & Responsive */}
+        <h1 className="relative w-full font-heading font-black mb-4 tracking-tighter animate-fade-in-up leading-none drop-shadow-2xl flex flex-col items-center justify-center" style={{ animationDelay: '0.2s' }}>
+          <span className="block text-white text-shadow-xl text-7xl sm:text-8xl md:text-9xl mb-1 md:mb-2">BS</span>
+          {/* Using fluid text size (vw) for mobile to ensure "ESCAPAMENTOS" never overflows */}
+          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-primary-yellow via-yellow-400 to-yellow-600 drop-shadow-sm pb-2 text-[11vw] sm:text-6xl md:text-8xl lg:text-9xl whitespace-nowrap px-2">
             ESCAPAMENTOS
           </span>
         </h1>
         
         {/* Typewriter Subheading */}
-        <div className="h-16 md:h-20 flex items-center justify-center animate-fade-in-up mb-6" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-black/40 backdrop-blur-sm border-x-4 border-primary-yellow px-6 py-2 rounded-lg">
-            <span className="text-xl md:text-3xl lg:text-4xl font-mono font-bold text-white tracking-wide">
+        <div className="h-12 md:h-20 flex items-center justify-center animate-fade-in-up mb-8" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-black/40 backdrop-blur-sm border-x-2 md:border-x-4 border-primary-yellow px-4 py-2 md:px-6 rounded-lg max-w-[95vw]">
+            <span className="text-sm sm:text-xl md:text-3xl lg:text-4xl font-mono font-bold text-white tracking-wide block truncate">
               {text}
               <span className="animate-pulse text-primary-yellow ml-1">_</span>
             </span>
@@ -137,41 +138,41 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Value Proposition */}
-        <p className="max-w-3xl mx-auto text-gray-200 text-base md:text-lg leading-relaxed animate-fade-in-up font-light mb-10 drop-shadow-md" style={{ animationDelay: '0.6s' }}>
+        <p className="max-w-3xl mx-auto text-gray-200 text-sm md:text-lg leading-relaxed animate-fade-in-up font-light mb-8 md:mb-10 drop-shadow-md px-4" style={{ animationDelay: '0.6s' }}>
           A excelência que seu veículo merece. <strong className="text-white">Peças originais</strong>, <strong className="text-white">garantia estendida</strong> e a equipe mais qualificada de Curitiba.
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col md:flex-row gap-5 w-full max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex flex-col md:flex-row gap-4 w-full max-w-xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '0.8s' }}>
           <Link 
             to="/contato"
-            className="flex-1 group relative bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-4 px-8 rounded-xl overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] flex items-center justify-center gap-3 text-lg border-2 border-primary-yellow"
+            className="flex-1 group relative bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-3.5 px-6 rounded-xl overflow-hidden transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] flex items-center justify-center gap-3 text-base md:text-lg border-2 border-primary-yellow"
           >
-            <Zap size={24} className="fill-primary-dark group-hover:scale-110 transition-transform" />
+            <Zap size={20} className="fill-primary-dark group-hover:scale-110 transition-transform" />
             <span>ORÇAMENTO RÁPIDO</span>
           </Link>
           
           <Link 
             to="/servicos"
-            className="flex-1 group bg-white/5 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-xl transition-all hover:bg-white hover:text-primary-blue hover:border-white hover:shadow-lg flex items-center justify-center gap-2 text-lg"
+            className="flex-1 group bg-white/5 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-3.5 px-6 rounded-xl transition-all hover:bg-white hover:text-primary-blue hover:border-white hover:shadow-lg flex items-center justify-center gap-2 text-base md:text-lg"
           >
-            <Wrench size={20} className="group-hover:rotate-12 transition-transform" />
+            <Wrench size={18} className="group-hover:rotate-12 transition-transform" />
             <span>Nossos Serviços</span>
           </Link>
         </div>
 
         {/* Bottom Badges */}
-        <div className="mt-12 md:mt-16 flex gap-6 md:gap-12 justify-center opacity-70 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+        <div className="mt-10 md:mt-16 flex gap-4 md:gap-12 justify-center opacity-70 animate-fade-in-up scale-90 md:scale-100" style={{ animationDelay: '1s' }}>
            <div className="flex flex-col items-center gap-1">
-             <ShieldCheck size={28} className="text-green-400" />
+             <ShieldCheck size={24} className="text-green-400" />
              <span className="text-[10px] uppercase font-bold tracking-widest">Garantia</span>
            </div>
            <div className="flex flex-col items-center gap-1">
-             <CheckCircle size={28} className="text-blue-400" />
+             <CheckCircle size={24} className="text-blue-400" />
              <span className="text-[10px] uppercase font-bold tracking-widest">Certificado</span>
            </div>
            <div className="flex flex-col items-center gap-1">
-             <Star size={28} className="text-yellow-400 fill-current" />
+             <Star size={24} className="text-yellow-400 fill-current" />
              <span className="text-[10px] uppercase font-bold tracking-widest">Avaliado 5/5</span>
            </div>
         </div>
