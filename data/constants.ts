@@ -14,7 +14,6 @@ export const COMPANY_INFO = {
 
 // Imagens de Alta Resolução e Confiabilidade
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1486262715619-72a6075f1ed8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
   "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
