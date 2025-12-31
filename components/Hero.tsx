@@ -4,11 +4,12 @@ import { ChevronRight, ShieldCheck, Zap, Wrench, Star, CheckCircle } from 'lucid
 import { Link } from 'react-router-dom';
 
 const MESSAGES = [
-  "ESCAPAMENTOS ESPECIAIS",
-  "SUSPENSÃO ESPORTIVA",
-  "FREIOS DE ALTA PERFORMANCE",
-  "DIAGNÓSTICO AVANÇADO",
-  "MECÂNICA PREMIUM"
+  "REFERÊNCIA EM ESCAPAMENTOS",
+  "SUSPENSÃO E FREIOS PREMIUM",
+  "DIAGNÓSTICO COMPUTADORIZADO",
+  "PEÇAS ORIGINAIS E GARANTIA",
+  "ORÇAMENTO JUSTO E TRANSPARENTE",
+  "MECÂNICA GERAL ESPECIALIZADA"
 ];
 
 const Hero: React.FC = () => {
@@ -47,10 +48,12 @@ const Hero: React.FC = () => {
         : fullText.substring(0, text.length + 1)
       );
 
-      setTypingSpeed(isDeleting ? 40 : 80);
+      // Typing is slightly faster (60ms), Deleting is fast (30ms)
+      setTypingSpeed(isDeleting ? 30 : 60);
 
       if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), 2500);
+        // Pause at the end of the sentence
+        setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && text === '') {
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
@@ -63,7 +66,7 @@ const Hero: React.FC = () => {
     let timer: ReturnType<typeof setTimeout>;
     
     if (text === fullText && !isDeleting) {
-        // Paused
+        // Paused handled by setTimeout above, but we need to ensure this doesn't conflict
     } else {
         timer = setTimeout(handleType, typingSpeed);
     }
@@ -128,8 +131,8 @@ const Hero: React.FC = () => {
         </h1>
         
         {/* Typewriter Subheading */}
-        <div className="h-12 md:h-20 flex items-center justify-center animate-fade-in-up mb-8" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-black/40 backdrop-blur-sm border-x-2 md:border-x-4 border-primary-yellow px-4 py-2 md:px-6 rounded-lg max-w-[95vw]">
+        <div className="h-14 md:h-20 flex items-center justify-center animate-fade-in-up mb-8" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-black/40 backdrop-blur-sm border-x-2 md:border-x-4 border-primary-yellow px-4 py-3 md:px-6 rounded-lg max-w-[95vw]">
             <span className="text-sm sm:text-xl md:text-3xl lg:text-4xl font-mono font-bold text-white tracking-wide block truncate">
               {text}
               <span className="animate-pulse text-primary-yellow ml-1">_</span>
