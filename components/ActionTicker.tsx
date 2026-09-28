@@ -195,11 +195,11 @@ const ActionTicker: React.FC = () => {
         {/* Continuous Running Ticker Track */}
         <div className="flex overflow-hidden w-full group select-none">
           {/* Track 1 */}
-          <div className="flex items-center shrink-0 animate-scroll-left group-hover:[animation-play-state:paused] [animation-duration:35s]">
+          <div className="flex items-center shrink-0 animate-scroll-left group-hover:[animation-play-state:paused] [animation-duration:18s]">
             {TICKER_ITEMS.map((item, idx) => renderItem(item, idx))}
           </div>
           {/* Track 2 (Duplicate for Seamless Loop) */}
-          <div className="flex items-center shrink-0 animate-scroll-left group-hover:[animation-play-state:paused] [animation-duration:35s]" aria-hidden="true">
+          <div className="flex items-center shrink-0 animate-scroll-left group-hover:[animation-play-state:paused] [animation-duration:18s]" aria-hidden="true">
             {TICKER_ITEMS.map((item, idx) => renderItem(item, idx + 100))}
           </div>
         </div>

@@ -147,8 +147,6 @@ const Hero: React.FC = () => {
         <span className="text-[10px] uppercase tracking-widest font-bold text-gray-300">Conheça nossos serviços</span>
         <ChevronRight size={18} className="rotate-90 text-primary-yellow animate-bounce" />
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-gray-50 to-transparent z-10 pointer-events-none"></div>
     </section>
   );
 };
