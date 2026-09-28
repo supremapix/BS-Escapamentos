@@ -214,14 +214,25 @@ const MaintenanceHub: React.FC = () => {
               <p className="text-gray-200 max-w-2xl mx-auto mb-8 text-lg">
                 Converse com a nossa equipe, informe os sintomas do carro e agende o melhor horário para avaliação no Novo Mundo.
               </p>
-              <a
-                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Quero agendar uma revisão na BS CAR CENTER.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary-yellow text-primary-dark hover:bg-yellow-400 font-black py-4 px-10 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-3 shadow-lg"
-              >
-                <MessageCircle size={22} /> AGENDAR ATENDIMENTO
-              </a>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
+                <a
+                  href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Quero agendar uma revisão na BS CAR CENTER.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary-yellow text-slate-950 hover:bg-yellow-400 font-black py-4 px-8 rounded-2xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-3 shadow-xl active:scale-95 text-sm sm:text-base"
+                >
+                  <MessageCircle size={22} className="fill-slate-950" /> 
+                  <span>AGENDAR NO WHATSAPP</span>
+                </a>
+
+                <a
+                  href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+                  className="bg-slate-900/90 hover:bg-slate-800 border-2 border-white/40 hover:border-primary-yellow text-white font-black py-4 px-8 rounded-2xl transition-all transform hover:-translate-y-0.5 shadow-xl flex items-center justify-center gap-3 active:scale-95 text-sm sm:text-base"
+                >
+                  <Phone size={20} className="text-primary-yellow fill-primary-yellow" /> 
+                  <span>LIGAR: {COMPANY_INFO.phone}</span>
+                </a>
+              </div>
             </div>
           </div>
 

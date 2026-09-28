@@ -11,7 +11,7 @@ import {
   DIFFERENTIALS 
 } from '../data/constants';
 import * as Icons from 'lucide-react';
-import { LucideIcon, MapPin, ChevronRight, Plus, Minus, Calendar, Quote, MessageCircle, Phone, ArrowRight, Wrench } from 'lucide-react';
+import { LucideIcon, MapPin, ChevronRight, Plus, Minus, Calendar, Quote, MessageCircle, Phone, ArrowRight, Wrench, Navigation } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import EnhancedSEO from '../components/EnhancedSEO';
 import InstagramSection from '../components/InstagramSection';
@@ -398,20 +398,63 @@ const Home: React.FC = () => {
           <p className="text-base text-gray-100 mb-8 max-w-xl mx-auto">
             Fale com nossa equipe técnica para tirar dúvidas, relatar barulhos ou agendar um horário sem compromisso.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+             {/* WhatsApp Button */}
              <a 
-               href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de agendar um atendimento no BS Auto Center.`}
+               href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar uma avaliação.`}
                target="_blank"
                rel="noreferrer"
-               className="bg-primary-yellow text-primary-dark font-black py-3.5 px-8 rounded-full hover:bg-yellow-400 transition-all flex items-center justify-center gap-2 text-sm shadow-lg"
+               className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black p-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] flex items-center justify-center gap-3.5 border border-emerald-300"
              >
-               <MessageCircle size={18} /> AGENDAR ATENDIMENTO
+               <div className="w-10 h-10 rounded-xl bg-slate-950 text-emerald-400 flex items-center justify-center shrink-0">
+                 <MessageCircle size={22} className="fill-emerald-400" />
+               </div>
+               <div className="text-left">
+                 <span className="block text-sm sm:text-base font-black tracking-wide leading-tight">
+                   AGENDAR NO WHATSAPP
+                 </span>
+                 <span className="block text-[11px] font-bold text-slate-900 opacity-90">
+                   {COMPANY_INFO.whatsappDisplay} • Rápido
+                 </span>
+               </div>
              </a>
+
+             {/* Phone Button */}
              <a 
                href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-               className="bg-transparent border border-white text-white font-bold py-3.5 px-8 rounded-full hover:bg-white hover:text-primary-blue transition-all flex items-center justify-center gap-2 text-sm"
+               className="bg-slate-900/90 hover:bg-slate-800 border-2 border-primary-yellow text-white font-black p-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.3)] flex items-center justify-center gap-3.5"
              >
-               <Phone size={18} /> FALAR POR TELEFONE
+               <div className="w-10 h-10 rounded-xl bg-primary-yellow text-slate-950 flex items-center justify-center shrink-0">
+                 <Phone size={20} className="fill-slate-950" />
+               </div>
+               <div className="text-left">
+                 <span className="block text-sm sm:text-base font-black tracking-wide text-primary-yellow leading-tight">
+                   LIGAR NA RECEPÇÃO
+                 </span>
+                 <span className="block text-[11px] font-bold text-gray-300">
+                   {COMPANY_INFO.phone} • Direto
+                 </span>
+               </div>
+             </a>
+
+             {/* GPS Route Button */}
+             <a 
+               href={COMPANY_INFO.mapsLink}
+               target="_blank"
+               rel="noreferrer"
+               className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold p-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-3.5"
+             >
+               <div className="w-10 h-10 rounded-xl bg-primary-blue text-white flex items-center justify-center shrink-0">
+                 <Navigation size={20} />
+               </div>
+               <div className="text-left">
+                 <span className="block text-sm sm:text-base font-bold leading-tight">
+                   COMO CHEGAR (GPS)
+                 </span>
+                 <span className="block text-[11px] text-gray-300">
+                   R. Pedro Gusso, 2340
+                 </span>
+               </div>
              </a>
           </div>
         </div>

@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageCircle, MapPin, ChevronDown } from 'lucide-react';
+import { 
+  Menu, 
+  X, 
+  Phone, 
+  MessageCircle, 
+  MapPin, 
+  ChevronDown, 
+  ChevronRight, 
+  Home, 
+  Wrench, 
+  Clock, 
+  Info, 
+  ShieldCheck, 
+  Navigation,
+  ZoomIn
+} from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO, SERVICES } from '../data/constants';
 
@@ -8,6 +23,7 @@ const Header: React.FC = () => {
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isLargeFont, setIsLargeFont] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -21,8 +37,9 @@ const Header: React.FC = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
+    const nextState = !isOpen;
+    setIsOpen(nextState);
+    if (nextState) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -154,167 +171,428 @@ const Header: React.FC = () => {
               Contato
             </Link>
 
-            {/* CTA Button */}
+            {/* Desktop CTA Button */}
             <a
               href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar um atendimento.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary-green hover:bg-green-600 text-white px-5 py-2 rounded-full transition-all text-xs font-bold shadow-md hover:scale-105"
+              className="inline-flex items-center gap-2 bg-primary-green hover:bg-green-600 text-white px-5 py-2 rounded-xl transition-all text-xs font-bold shadow-md hover:scale-105"
             >
               <MessageCircle size={15} />
               <span>AGENDAR</span>
             </a>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="flex xl:hidden items-center gap-3 z-50">
+          {/* Mobile Top Actions (Senior-Friendly: Direct Call + WhatsApp + Obvious Menu Button) */}
+          <div className="flex xl:hidden items-center gap-2 z-50">
+            {/* Quick Call direct button for older adults */}
             <a
-              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`}
+              href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+              className="flex items-center gap-1.5 bg-primary-yellow text-primary-dark font-black px-3 py-1.5 rounded-lg text-xs shadow transition-transform active:scale-95"
+              aria-label="Ligar para a oficina"
+              title="Ligar agora"
+            >
+              <Phone size={14} className="fill-primary-dark shrink-0" />
+              <span className="font-extrabold tracking-tight">LIGAR</span>
+            </a>
+
+            {/* Quick WhatsApp button */}
+            <a
+              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e preciso de atendimento.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary-green text-white p-2 rounded-full shadow"
-              aria-label="WhatsApp"
+              className="bg-primary-green text-white p-2 rounded-lg shadow transition-transform active:scale-95 flex items-center justify-center"
+              aria-label="Chamar no WhatsApp"
+              title="Conversar no WhatsApp"
             >
               <MessageCircle size={18} />
             </a>
 
+            {/* Main Menu Button with Text "MENU" so it's 100% obvious to seniors */}
             <button
               onClick={toggleMenu}
-              className={`p-2 rounded-lg transition-colors ${showDarkHeader ? 'text-white hover:bg-white/10' : 'text-white hover:bg-black/20'}`}
-              aria-label="Menu de Navegação"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-xs transition-colors border ${
+                isOpen
+                  ? 'bg-primary-yellow text-primary-dark border-primary-yellow'
+                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+              }`}
+              aria-label={isOpen ? "Fechar Menu" : "Abrir Menu de Opções"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X size={26} className="text-primary-yellow" /> : <Menu size={26} />}
+              {isOpen ? (
+                <>
+                  <X size={18} />
+                  <span>FECHAR</span>
+                </>
+              ) : (
+                <>
+                  <Menu size={18} className="text-primary-yellow" />
+                  <span>MENU</span>
+                </>
+              )}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer (Clean, no giant dropdown overflow) */}
+      {/* Senior-Friendly Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-40 xl:hidden transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 z-50 xl:hidden transition-all duration-300 ease-in-out ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
+        {/* Backdrop */}
         <div 
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm" 
+          className="absolute inset-0 bg-black/85 backdrop-blur-md" 
           onClick={closeMenu}
+          aria-hidden="true"
         />
 
+        {/* Drawer Sheet */}
         <div 
-          className={`absolute top-0 right-0 h-full w-[85%] max-w-sm bg-primary-dark border-l border-white/10 shadow-2xl transform transition-transform duration-300 ease-out flex flex-col ${
+          className={`absolute top-0 right-0 h-full w-[92%] sm:w-[85%] max-w-md bg-slate-950 text-white border-l border-white/15 shadow-2xl transform transition-transform duration-300 ease-out flex flex-col ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu principal de navegação"
         >
-          {/* Drawer Header */}
-          <div className="pt-16 pb-4 px-6 border-b border-white/10 bg-primary-blue/20">
-            <span className="text-primary-yellow font-black text-lg block">BS CAR CENTER</span>
-            <span className="text-gray-300 text-xs">Novo Mundo, Curitiba - PR</span>
-          </div>
-
-          {/* Links */}
-          <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1">
-            <Link
-              to="/"
-              onClick={closeMenu}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                isActive('/') ? 'bg-primary-blue text-primary-yellow' : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
-              Início
-            </Link>
-
-            <Link
-              to="/manutencao-automotiva-curitiba"
-              onClick={closeMenu}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                isActive('/manutencao-automotiva-curitiba') ? 'bg-primary-blue text-primary-yellow' : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
-              Manutenção Automotiva
-            </Link>
-
-            {/* Mobile Services Accordion */}
+          {/* Drawer Top Header: Close Button & Senior Font Scale */}
+          <div className="pt-4 pb-3 px-5 border-b border-white/10 bg-primary-dark flex items-center justify-between gap-2 shrink-0">
             <div>
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-200 hover:bg-white/5"
-              >
-                <span>Serviços</span>
-                <ChevronDown size={16} className={`transition-transform ${mobileServicesOpen ? 'rotate-180 text-primary-yellow' : ''}`} />
-              </button>
-
-              {mobileServicesOpen && (
-                <div className="pl-4 pr-2 py-1 space-y-1 bg-black/20 rounded-lg my-1">
-                  <Link
-                    to="/servicos"
-                    onClick={closeMenu}
-                    className="block px-3 py-1.5 text-xs font-bold text-primary-yellow hover:underline"
-                  >
-                    Ver Todos os Serviços
-                  </Link>
-                  {SERVICES.filter(s => s.slug !== 'manutencao-automotiva').map((srv) => (
-                    <Link
-                      key={srv.id}
-                      to={`/servicos/${srv.slug}`}
-                      onClick={closeMenu}
-                      className="block px-3 py-1.5 text-xs text-gray-300 hover:text-white"
-                    >
-                      {srv.shortTitle || srv.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <span className="text-primary-yellow font-black text-base sm:text-lg block tracking-wide">
+                BS CAR CENTER
+              </span>
+              <span className="text-gray-300 text-xs block">
+                Novo Mundo, Curitiba
+              </span>
             </div>
 
-            <Link
-              to="/sobre"
-              onClick={closeMenu}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                isActive('/sobre') ? 'bg-primary-blue text-primary-yellow' : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
-              Sobre
-            </Link>
+            <div className="flex items-center gap-2">
+              {/* Senior Accessibility Toggle: Font Size A- / A+ */}
+              <button
+                type="button"
+                onClick={() => setIsLargeFont(!isLargeFont)}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 border transition-colors ${
+                  isLargeFont 
+                    ? 'bg-primary-yellow text-primary-dark border-primary-yellow' 
+                    : 'bg-white/10 text-gray-200 border-white/20 hover:bg-white/20'
+                }`}
+                title="Aumentar o tamanho do texto para facilitar a leitura"
+                aria-label="Alternar tamanho da letra"
+              >
+                <ZoomIn size={14} />
+                <span>{isLargeFont ? 'Letra Maior ✓' : 'A+ Maior'}</span>
+              </button>
 
-            <Link
-              to="/areas"
-              onClick={closeMenu}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                isActive('/areas') ? 'bg-primary-blue text-primary-yellow' : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
-              Áreas Atendidas
-            </Link>
-
-            <Link
-              to="/contato"
-              onClick={closeMenu}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                isActive('/contato') ? 'bg-primary-blue text-primary-yellow' : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
-              Contato
-            </Link>
+              {/* Big High-Contrast Close Button */}
+              <button
+                onClick={closeMenu}
+                className="bg-red-600 hover:bg-red-700 text-white p-2 rounded-xl transition-colors flex items-center justify-center shadow"
+                aria-label="Fechar o menu agora"
+              >
+                <X size={22} />
+              </button>
+            </div>
           </div>
 
-          {/* Drawer Footer CTA */}
-          <div className="p-4 border-t border-white/10 bg-black/30 space-y-2">
-            <a 
-              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER.`}
-              className="flex items-center justify-center gap-2 bg-primary-green p-3 rounded-xl text-white font-bold text-sm shadow"
-            >
-              <MessageCircle size={18} />
-              <span>Agendar no WhatsApp</span>
-            </a>
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
             
-            <a 
-              href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-              className="flex items-center justify-center gap-2 bg-white/10 p-2.5 rounded-xl text-white font-semibold text-xs"
-            >
-              <Phone size={15} />
-              <span>{COMPANY_INFO.phone}</span>
-            </a>
+            {/* PRIORITY ACTION CARDS FOR SENIORS (Easy, Large Tap Targets) */}
+            <div className="space-y-2.5">
+              <p className="text-[11px] uppercase tracking-wider text-primary-yellow font-bold px-1">
+                Atendimento Rápido e Direto:
+              </p>
+
+              {/* Direct Call Button (Large Amber Card) */}
+              <a 
+                href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+                className="w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black shadow-lg transition-transform active:scale-[0.98] border border-amber-300 group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-slate-950 text-primary-yellow flex items-center justify-center shrink-0 shadow">
+                    <Phone size={24} className="fill-primary-yellow" />
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-extrabold text-slate-900 opacity-90">
+                      Ligar para a Recepção:
+                    </span>
+                    <span className="block text-base sm:text-lg font-black tracking-tight text-slate-950">
+                      {COMPANY_INFO.phone}
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-900">
+                      Toque para discar agora
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight size={22} className="text-slate-950 shrink-0 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              {/* WhatsApp Button (Large Green Card) */}
+              <a 
+                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de tirar uma dúvida ou agendar uma revisão.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 text-white font-black shadow-lg transition-transform active:scale-[0.98] border border-emerald-400/40 group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white text-emerald-600 flex items-center justify-center shrink-0 shadow">
+                    <MessageCircle size={26} className="fill-emerald-600" />
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-extrabold text-emerald-100">
+                      Mensagem no WhatsApp:
+                    </span>
+                    <span className="block text-base sm:text-lg font-black tracking-tight text-white">
+                      {COMPANY_INFO.whatsappDisplay}
+                    </span>
+                    <span className="text-[11px] font-medium text-emerald-100">
+                      Tire dúvidas e envie fotos do carro
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight size={22} className="text-white shrink-0 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              {/* GPS Route Card */}
+              <a
+                href={COMPANY_INFO.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-gray-200 border border-slate-700 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Navigation size={18} className="text-primary-yellow shrink-0" />
+                  <div className="text-left">
+                    <span className="block text-xs font-bold text-white">
+                      Como Chegar na Oficina (GPS)
+                    </span>
+                    <span className="block text-[11px] text-gray-300">
+                      Rua Pedro Gusso, 2340 - Novo Mundo
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[11px] text-primary-yellow font-bold uppercase tracking-wider shrink-0">
+                  Abrir Mapa
+                </span>
+              </a>
+            </div>
+
+            {/* NAVIGATION LINKS (Senior Readable & Clear) */}
+            <div className="pt-2">
+              <p className="text-[11px] uppercase tracking-wider text-gray-400 font-bold px-1 mb-2">
+                Páginas do Site:
+              </p>
+
+              <nav className="space-y-1.5">
+                {/* Home */}
+                <Link
+                  to="/"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    isActive('/') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Home size={isLargeFont ? 24 : 20} className="text-primary-yellow shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Página Inicial
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        Voltar para a página principal
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+
+                {/* Manutenção Hub */}
+                <Link
+                  to="/manutencao-automotiva-curitiba"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    isActive('/manutencao-automotiva-curitiba') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <ShieldCheck size={isLargeFont ? 24 : 20} className="text-emerald-400 shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Manutenção Automotiva
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        Revisão geral, garantia e diagnóstico
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+
+                {/* Serviços Accordion */}
+                <div className="rounded-xl border border-white/5 bg-slate-900/60 overflow-hidden">
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between px-4 py-3 text-left transition-colors hover:bg-slate-800"
+                    aria-expanded={mobileServicesOpen}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Wrench size={isLargeFont ? 24 : 20} className="text-primary-yellow shrink-0" />
+                      <div>
+                        <span className={`block font-bold leading-tight text-gray-100 ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                          Nossos Serviços Mecânicos
+                        </span>
+                        <span className="text-[11px] text-gray-400">
+                          Freios, suspensão, óleo, injeção, escapamentos
+                        </span>
+                      </div>
+                    </div>
+                    <ChevronDown size={20} className={`text-primary-yellow transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {mobileServicesOpen && (
+                    <div className="px-3 pb-3 pt-1 space-y-1.5 border-t border-white/10 bg-slate-950/70">
+                      <Link
+                        to="/servicos"
+                        onClick={closeMenu}
+                        className="block px-3 py-2 rounded-lg text-xs font-bold text-primary-yellow bg-primary-blue/30 border border-primary-yellow/20"
+                      >
+                        → Ver Todos os Serviços Mecânicos
+                      </Link>
+
+                      {SERVICES.filter(s => s.slug !== 'manutencao-automotiva').map((srv) => (
+                        <Link
+                          key={srv.id}
+                          to={`/servicos/${srv.slug}`}
+                          onClick={closeMenu}
+                          className="block px-3 py-2 rounded-lg text-xs font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                        >
+                          • {srv.shortTitle || srv.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Sobre */}
+                <Link
+                  to="/sobre"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    isActive('/sobre') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Info size={isLargeFont ? 24 : 20} className="text-primary-yellow shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Sobre a BS CAR CENTER
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        Nossa história e fotos da oficina
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+
+                {/* Áreas */}
+                <Link
+                  to="/areas"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    isActive('/areas') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <MapPin size={isLargeFont ? 24 : 20} className="text-primary-yellow shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Bairros Atendidos
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        Novo Mundo, CIC, Portão, Pinheirinho...
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+
+                {/* Contato */}
+                <Link
+                  to="/contato"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    isActive('/contato') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Phone size={isLargeFont ? 24 : 20} className="text-emerald-400 shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Contato e Localização
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        Telefones, horários e endereço completo
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+              </nav>
+            </div>
+
+            {/* HELPFUL STORE DETAILS FOR SENIORS */}
+            <div className="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-xs space-y-2 text-gray-300">
+              <div className="flex items-start gap-2">
+                <Clock size={16} className="text-primary-yellow shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-white block">Horário de Atendimento:</span>
+                  <span>Segunda a Sexta: 08:00 às 18:00</span>
+                  <br />
+                  <span>Sábado: 08:00 às 12:00</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2 pt-1 border-t border-slate-800">
+                <MapPin size={16} className="text-primary-yellow shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-white block">Endereço da Loja:</span>
+                  <span>Rua Pedro Gusso, 2340 e 2324</span>
+                  <br />
+                  <span className="text-gray-400">Novo Mundo, Curitiba - PR</span>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-gray-400 pt-1 border-t border-slate-800 italic">
+                Atendimento atencioso e honesto para você e sua família. Sala de espera climatizada com café cortesia.
+              </p>
+            </div>
+
           </div>
+
+          {/* Drawer Bottom Close Button */}
+          <div className="p-3 border-t border-white/10 bg-slate-900/90 shrink-0">
+            <button
+              onClick={closeMenu}
+              className="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-sm transition-colors flex items-center justify-center gap-2"
+            >
+              <X size={18} />
+              <span>Fechar Este Menu</span>
+            </button>
+          </div>
+
         </div>
       </div>
     </>

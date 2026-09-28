@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { COMPANY_INFO } from '../data/constants';
-import { ChevronRight, ShieldCheck, Wrench, MessageCircle, MapPin, Gauge } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Wrench, MessageCircle, MapPin, Gauge, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const MESSAGES = [
@@ -128,24 +128,35 @@ const Hero: React.FC = () => {
         </p>
 
         {/* Primary and Secondary CTA (Item 8) */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md mx-auto animate-fade-in-up px-2 sm:px-4 mb-4 md:mb-0">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-lg mx-auto animate-fade-in-up px-2 sm:px-4 mb-2">
           <a 
             href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar um atendimento.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 group bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-black py-3.5 px-5 sm:py-4 sm:px-6 rounded-xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-2.5 text-sm sm:text-base border border-primary-yellow shadow-lg"
+            className="flex-1 group bg-primary-yellow hover:bg-yellow-400 text-slate-950 font-black py-4 px-6 rounded-2xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-2.5 text-sm sm:text-base border border-primary-yellow shadow-xl active:scale-95"
           >
-            <MessageCircle size={18} className="fill-primary-dark" />
+            <MessageCircle size={20} className="fill-slate-950 shrink-0" />
             <span>AGENDAR ATENDIMENTO</span>
           </a>
           
           <Link 
             to="/servicos"
-            className="flex-1 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold py-3.5 px-5 sm:py-4 sm:px-6 rounded-xl transition-all hover:bg-white hover:text-primary-dark hover:shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="flex-1 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-6 rounded-2xl transition-all hover:bg-white hover:text-slate-950 hover:shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
           >
-            <Wrench size={18} />
+            <Wrench size={18} className="shrink-0" />
             <span>VER SERVIÇOS</span>
           </Link>
+        </div>
+
+        {/* Quick Phone Call option for mobile and seniors */}
+        <div className="animate-fade-in-up text-center mb-4 sm:mb-6">
+          <a
+            href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-200 hover:text-primary-yellow transition-colors font-medium bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10"
+          >
+            <Phone size={14} className="text-primary-yellow shrink-0 fill-primary-yellow" />
+            <span>Prefere ligar direto? <strong className="text-primary-yellow underline font-bold">{COMPANY_INFO.phone}</strong></span>
+          </a>
         </div>
 
         {/* Factual Badges (Item 24 & 52: Audited and truthful) */}

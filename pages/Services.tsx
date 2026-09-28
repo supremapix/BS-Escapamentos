@@ -126,20 +126,20 @@ const Services: React.FC = () => {
                <p className="text-gray-600 text-base mb-6 leading-relaxed">
                  Consulte compatibilidade para diagnóstico e reprogramação de módulos automotivos específicos, bem como manutenções personalizadas para o seu veículo. Nossa equipe atende com transparência e clareza.
                </p>
-               <div className="flex flex-wrap justify-center gap-4">
+               <div className="flex flex-col sm:flex-row justify-center gap-4">
                  <a 
-                   href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`}
+                   href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de consultar orçamento para serviços mecânicos na BS CAR CENTER.`}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="bg-primary-green hover:bg-green-600 text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-md inline-flex items-center gap-2"
+                   className="bg-primary-green hover:bg-green-500 text-white font-black py-4 px-8 rounded-2xl transition-all shadow-md inline-flex items-center justify-center gap-2.5 active:scale-95 text-sm sm:text-base"
                  >
-                   <MessageCircle size={18} /> Falar pelo WhatsApp
+                   <MessageCircle size={20} /> Falar pelo WhatsApp
                  </a>
                  <a 
                    href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-                   className="border border-gray-300 hover:border-primary-blue text-gray-800 font-bold py-3.5 px-8 rounded-full transition-all inline-flex items-center gap-2"
+                   className="border-2 border-slate-700 hover:border-primary-blue bg-white hover:bg-slate-50 text-gray-900 font-bold py-4 px-8 rounded-2xl transition-all inline-flex items-center justify-center gap-2.5 active:scale-95 text-sm sm:text-base"
                  >
-                   <Phone size={18} /> Ligar {COMPANY_INFO.phone}
+                   <Phone size={18} className="text-primary-blue" /> Ligar {COMPANY_INFO.phone}
                  </a>
                </div>
              </div>

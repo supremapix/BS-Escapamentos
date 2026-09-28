@@ -160,7 +160,7 @@ export const StoreShowcase: React.FC<StoreShowcaseProps> = ({ className = '' }) 
               href={COMPANY_INFO.mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-bold py-3 px-6 rounded-2xl transition shadow-lg inline-flex items-center justify-center gap-2 text-sm text-center"
+              className="bg-primary-yellow hover:bg-yellow-400 text-slate-950 font-black py-3.5 px-6 rounded-2xl transition-all shadow-lg inline-flex items-center justify-center gap-2 text-sm text-center transform hover:-translate-y-0.5 active:scale-95"
             >
               <Navigation size={18} />
               <span>Abrir Rota no GPS</span>
@@ -170,7 +170,7 @@ export const StoreShowcase: React.FC<StoreShowcaseProps> = ({ className = '' }) 
               href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=${encodeURIComponent('Olá! Gostaria de agendar uma visita na oficina BS CAR CENTER na Rua Pedro Gusso.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary-green hover:bg-green-600 text-white font-bold py-3 px-6 rounded-2xl transition shadow-lg inline-flex items-center justify-center gap-2 text-sm text-center"
+              className="bg-primary-green hover:bg-green-500 text-white font-black py-3.5 px-6 rounded-2xl transition-all shadow-lg inline-flex items-center justify-center gap-2 text-sm text-center transform hover:-translate-y-0.5 active:scale-95"
             >
               <MessageSquare size={18} />
               <span>Falar no WhatsApp</span>
