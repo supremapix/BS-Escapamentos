@@ -26,7 +26,7 @@ const FloatingActions: React.FC = () => {
   const labelClass = "absolute right-14 bg-gray-900 text-white text-xs font-bold px-3 py-1.5 rounded-md shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none";
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 sm:gap-4 pointer-events-none">
+    <div data-ga-context="botao_flutuante" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 sm:gap-4 pointer-events-none">
       {/* Container for interactive elements (re-enabling pointer events) */}
       <div className="flex flex-col items-end gap-3 pointer-events-auto">
 
@@ -50,6 +50,7 @@ const FloatingActions: React.FC = () => {
             <span className={labelClass}>Orçamento Online</span>
             <Link
               to="/contato"
+              data-ga-event="orcamento"
               onClick={() => setIsOpen(false)}
               className={`${subBtnClass} bg-gray-700 hover:bg-gray-600`}
               aria-label="Enviar Mensagem pelo Formulário"

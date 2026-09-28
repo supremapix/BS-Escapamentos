@@ -3,6 +3,7 @@ import EnhancedSEO from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/constants';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { trackFormSubmit } from '../lib/analytics';
 
 const Contact: React.FC = () => {
   const { register, handleSubmit } = useForm();
@@ -16,6 +17,8 @@ const Contact: React.FC = () => {
                    `Mensagem: ${data.mensagem}`;
     
     const url = `https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=${message}`;
+    // GA4: só chega aqui após validação do react-hook-form. Nenhum campo digitado é enviado.
+    trackFormSubmit('contato');
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 

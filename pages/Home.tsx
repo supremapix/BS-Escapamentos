@@ -13,6 +13,7 @@ import {
 import * as Icons from 'lucide-react';
 import { LucideIcon, MapPin, ChevronRight, Plus, Minus, Calendar, Quote, MessageCircle, Phone, ArrowRight, Wrench, Navigation } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { trackFormSubmit } from '../lib/analytics';
 import EnhancedSEO from '../components/EnhancedSEO';
 import InstagramSection from '../components/InstagramSection';
 
@@ -33,6 +34,8 @@ const Home: React.FC = () => {
                    `Mensagem: ${data.mensagem}`;
     
     const url = `https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=${message}`;
+    // GA4: só chega aqui após validação do react-hook-form. Nenhum campo digitado é enviado.
+    trackFormSubmit('home_orcamento');
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
