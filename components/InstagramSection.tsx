@@ -93,12 +93,13 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({
             </div>
 
             {/* Responsive Embed Container */}
-            <div className="w-full relative rounded-2xl overflow-hidden bg-gray-100 border border-gray-100">
+            <div className="w-full relative rounded-2xl overflow-hidden bg-white border border-gray-100">
               <iframe
                 src={`${instagramUrl.replace(/\/$/, '')}/embed`}
                 title="Instagram Feed BS Car Center"
-                className="w-full aspect-[9/11] md:aspect-[4/5] border-0"
+                className="w-full h-[175px] sm:h-[205px] border-0 block"
                 loading="lazy"
+                scrolling="no"
                 allow="encrypted-media"
               />
             </div>
