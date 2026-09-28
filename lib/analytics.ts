@@ -37,9 +37,12 @@ declare global {
 // prioridade; o fallback garante funcionamento no preview do AI Studio, onde
 // import.meta.env pode não existir.
 const DEFAULT_MEASUREMENT_ID = 'G-6HCDNNYJ1C';
+const DEFAULT_ADS_ID = 'AW-18481418685';
 const ENV = ((import.meta as unknown as { env?: Record<string, string | undefined> }).env) || {};
 const RAW_ID = (ENV.VITE_GA4_MEASUREMENT_ID || DEFAULT_MEASUREMENT_ID).trim();
 export const GA_MEASUREMENT_ID = /^G-[A-Z0-9]{4,}$/i.test(RAW_ID) ? RAW_ID.toUpperCase() : '';
+const RAW_ADS_ID = (ENV.VITE_GOOGLE_ADS_ID || DEFAULT_ADS_ID).trim();
+export const GOOGLE_ADS_ID = /^AW-[A-Z0-9]{4,}$/i.test(RAW_ADS_ID) ? RAW_ADS_ID.toUpperCase() : '';
 const DEBUG_MODE = String(ENV.VITE_GA4_DEBUG ?? '').toLowerCase() === 'true';
 const DEDUPE_MS = 1500;
 
@@ -50,7 +53,7 @@ let lastPageLocation: string | null = null;
 const recentEvents = new Map<string, number>();
 
 export const isAnalyticsEnabled = (): boolean =>
-  typeof window !== 'undefined' && GA_MEASUREMENT_ID !== '';
+  typeof window !== 'undefined' && (GA_MEASUREMENT_ID !== '' || GOOGLE_ADS_ID !== '');
 
 /** Ponto único para integrar um mecanismo de consentimento no futuro. */
 function applyConsentDefaults(): void {
@@ -64,10 +67,7 @@ function applyConsentDefaults(): void {
 
 export function initAnalytics(): void {
   if (initialized || !isAnalyticsEnabled()) return;
-  // Evita segunda instalação caso outro gtag/GTM seja adicionado no futuro.
-  if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`)) {
-    initialized = true;
-  }
+  const hasGtagScript = !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
 
   window.dataLayer = window.dataLayer || [];
   if (!window.gtag) {
@@ -81,15 +81,24 @@ export function initAnalytics(): void {
   if (!initialized) {
     applyConsentDefaults();
     window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      send_page_view: false,
-      ...(DEBUG_MODE ? { debug_mode: true } : {}),
-    });
 
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(script);
+    if (GA_MEASUREMENT_ID) {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        send_page_view: false,
+        ...(DEBUG_MODE ? { debug_mode: true } : {}),
+      });
+    }
+
+    if (GOOGLE_ADS_ID) {
+      window.gtag('config', GOOGLE_ADS_ID);
+    }
+
+    if (!hasGtagScript && GA_MEASUREMENT_ID) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+    }
     initialized = true;
   }
 
