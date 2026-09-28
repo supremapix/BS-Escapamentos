@@ -6,10 +6,14 @@ interface EnhancedSEOProps {
   title: string;
   description: string;
   canonicalPath?: string;
-  schemaType?: 'AutoRepair' | 'LocalBusiness' | 'AutomotiveBusiness';
+  schemaType?: 'AutoRepair' | 'LocalBusiness' | 'Article';
   keywords?: string;
   image?: string;
   noindex?: boolean;
+  serviceData?: {
+    name: string;
+    description: string;
+  };
   areaServed?: {
     name: string;
     type: 'City' | 'Neighborhood' | 'AdministrativeArea';
@@ -21,17 +25,22 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   description, 
   canonicalPath = '', 
   schemaType = 'AutoRepair',
-  keywords = 'escapamentos, oficina mecânica, curitiba, suspensão, freios, troca de óleo, auto center, revisão automotiva',
-  image = 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  keywords = 'auto center curitiba, manutenção automotiva curitiba, oficina mecanica novo mundo, freios curitiba, suspensão curitiba, geometria e balanceamento curitiba, scanner automotivo, troca de oleo, escapamentos curitiba',
+  image = 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   noindex = false,
+  serviceData,
   areaServed
 }) => {
-  const fullUrl = `${COMPANY_INFO.siteUrl}${canonicalPath}`;
-  const displayTitle = title.includes('|') ? title : `${title} | BS Escapamentos`;
+  const cleanPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+  const fullUrl = `${COMPANY_INFO.siteUrl}${cleanPath === '/' ? '' : cleanPath}`;
+  
+  // Format title without duplicating brand
+  const displayTitle = title.includes('|') ? title : `${title} | BS CAR CENTER`;
 
-  // Default areas served if not specified
   const defaultAreaServed = [
     { "@type": "City", "name": "Curitiba" },
+    { "@type": "Neighborhood", "name": "Novo Mundo" },
+    { "@type": "Neighborhood", "name": "Cidade Industrial de Curitiba" },
     { "@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba" }
   ];
 
@@ -39,20 +48,23 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     ? areaServed.map(area => ({ "@type": area.type, "name": area.name }))
     : defaultAreaServed;
 
-  const structuredData = {
+  // Single source of truth for the local business entity
+  const businessSchema: Record<string, any> = {
     "@context": "https://schema.org",
-    "@type": schemaType,
+    "@type": "AutoRepair",
+    "@id": `${COMPANY_INFO.siteUrl}/#business`,
     "name": COMPANY_INFO.name,
+    "alternateName": COMPANY_INFO.historicalName,
     "image": image,
-    "url": fullUrl,
+    "url": COMPANY_INFO.siteUrl,
     "telephone": COMPANY_INFO.whatsappDisplay,
     "email": COMPANY_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "R. Pedro Gusso, 2340",
-      "addressLocality": "Curitiba",
-      "addressRegion": "PR",
-      "postalCode": "81900-080",
+      "streetAddress": COMPANY_INFO.streetAddress,
+      "addressLocality": COMPANY_INFO.city,
+      "addressRegion": COMPANY_INFO.state,
+      "postalCode": COMPANY_INFO.zip,
       "addressCountry": "BR"
     },
     "geo": {
@@ -79,10 +91,28 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     "currenciesAccepted": "BRL",
     "areaServed": schemaAreaServed,
     "sameAs": [
-        COMPANY_INFO.facebook,
-        "https://www.instagram.com/bsescapamentos"
+      COMPANY_INFO.facebook,
+      COMPANY_INFO.instagram,
+      COMPANY_INFO.mapsLink
     ]
   };
+
+  const schemas: any[] = [businessSchema];
+
+  // If page is a specific service, add Service schema
+  if (serviceData) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": serviceData.name,
+      "description": serviceData.description,
+      "provider": {
+        "@id": `${COMPANY_INFO.siteUrl}/#business`
+      },
+      "areaServed": schemaAreaServed,
+      "url": fullUrl
+    });
+  }
 
   return (
     <Helmet>
@@ -90,22 +120,19 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <title>{displayTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow" />
+      )}
       <link rel="canonical" href={fullUrl} />
-      <meta name="author" content="Suprema Mídia" />
       <meta name="theme-color" content="#1e3a8a" />
 
       {/* Geolocation Meta Tags */}
       <meta name="geo.region" content="BR-PR" />
-      <meta name="geo.placename" content="Curitiba" />
+      <meta name="geo.placename" content="Curitiba, Novo Mundo" />
       <meta name="geo.position" content="-25.5098;-49.2935" />
       <meta name="ICBM" content="-25.5098, -49.2935" />
-
-      {/* Resource Hints */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="https://api.whatsapp.com" />
-      <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -124,9 +151,11 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta name="twitter:image" content={image} />
 
       {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
+      {schemas.map((s, idx) => (
+        <script key={idx} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
     </Helmet>
   );
 };

@@ -7,6 +7,8 @@ import FloatingActions from './components/FloatingActions';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
+import MaintenanceHub from './pages/MaintenanceHub';
 import Areas from './pages/Areas';
 import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
@@ -26,15 +28,17 @@ const App: React.FC = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <div className="flex flex-col min-h-screen font-sans bg-white">
+        <div className="flex flex-col min-h-screen font-sans bg-white text-gray-900">
           <ScrollToTop />
           <Header />
           
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/sobre" element={<About />} />
+              <Route path="/manutencao-automotiva-curitiba" element={<MaintenanceHub />} />
               <Route path="/servicos" element={<Services />} />
+              <Route path="/servicos/:slug" element={<ServiceDetail />} />
+              <Route path="/sobre" element={<About />} />
               <Route path="/areas" element={<Areas />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/local/:slug" element={<LocationPage />} />

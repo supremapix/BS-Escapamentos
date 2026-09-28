@@ -1,109 +1,145 @@
 import React from 'react';
 import EnhancedSEO from '../components/EnhancedSEO';
-import { ShieldCheck, Award, Users, Wrench, Target, Clock, MapPin } from 'lucide-react';
+import { ShieldCheck, Award, Target, Clock, MapPin, Wrench, Cpu, CheckCircle } from 'lucide-react';
 import { COMPANY_INFO, HERO_IMAGES } from '../data/constants';
+import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   return (
     <>
       <EnhancedSEO 
-        title="Sobre a BS Escapamentos - Referência no CIC e Neo Ville" 
-        description="Conheça a história da BS Escapamentos, sua oficina mecânica de confiança no CIC/Neo Ville. Mais de 12 anos de experiência em escapamentos, suspensão e freios." 
+        title="Sobre a BS CAR CENTER | Manutenção Automotiva em Curitiba" 
+        description="Conheça a BS CAR CENTER (anteriormente conhecida como BS Escapamentos) no Novo Mundo, Curitiba. Tradição em escapamentos e estrutura completa para manutenção automotiva preventiva e corretiva." 
         canonicalPath="/sobre"
-        keywords="sobre bs escapamentos, história oficina cic, mecanica neo ville, auto center novo mundo"
-        schemaType="LocalBusiness"
+        keywords="sobre bs car center, oficina mecanica novo mundo, auto center cic curitiba, historia bs escapamentos"
+        schemaType="AutoRepair"
       />
       
-      <div className="pt-24 pb-16 bg-white">
+      <div className="pt-24 pb-16 bg-white min-h-screen">
         
         {/* Header Section */}
-        <div className="bg-primary-dark py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/90 to-primary-dark/90"></div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-             <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">Nossa História</h1>
-             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-               Tradição, honestidade e excelência técnica no coração do CIC.
-             </p>
+        <div className="bg-primary-dark py-16 text-white text-center relative overflow-hidden border-b-4 border-primary-yellow mb-12">
+          <div className="absolute inset-0 bg-primary-blue/20"></div>
+          <div className="container mx-auto px-4 relative z-10 max-w-4xl">
+            <span className="text-primary-yellow font-bold uppercase tracking-wider text-xs md:text-sm mb-2 block">
+              Tradição e Evolução Técnica no Novo Mundo
+            </span>
+            <h1 className="text-3xl md:text-5xl font-heading font-black mb-4">
+              Nossa História e Reposicionamento
+            </h1>
+            <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Da especialidade histórica em escapamentos a uma oficina completa de manutenção automotiva em Curitiba.
+            </p>
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-16">
-           <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
-              <div className="w-full md:w-1/2">
-                <div className="relative p-2 bg-white rounded-2xl shadow-xl transform rotate-1">
-                   <img src={HERO_IMAGES[2]} alt="Equipe BS Escapamentos no CIC" className="rounded-xl w-full" />
-                </div>
+        <div className="container mx-auto px-4 max-w-5xl">
+          
+          {/* Main Story */}
+          <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
+            <div className="w-full md:w-1/2">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+                <img 
+                  src={HERO_IMAGES[1]} 
+                  alt="Oficina Mecânica BS CAR CENTER Curitiba" 
+                  className="w-full h-80 object-cover" 
+                  loading="lazy"
+                />
               </div>
-              <div className="w-full md:w-1/2">
-                 <h2 className="text-3xl font-heading font-bold text-primary-dark mb-6">Quem Somos</h2>
-                 <p className="text-gray-600 mb-4 leading-relaxed text-lg">
-                   A <strong>BS Escapamentos</strong> nasceu com um propósito claro: oferecer serviços automotivos com transparência e qualidade técnica superior para os moradores do <strong>CIC, Neo Ville e Novo Mundo</strong>.
-                 </p>
-                 <p className="text-gray-600 mb-4 leading-relaxed text-lg">
-                   Localizada estrategicamente, nossa oficina começou especializada em escapamentos e catalisadores. Com a crescente demanda de nossos clientes fiéis da região, expandimos nossa expertise para nos tornarmos um Auto Center completo.
-                 </p>
-                 <p className="text-gray-600 leading-relaxed text-lg">
-                   Hoje, somos referência em manutenção preventiva e corretiva, atendendo desde veículos de passeio até utilitários, sempre com o compromisso de entregar o carro em perfeitas condições de segurança.
-                 </p>
-              </div>
-           </div>
+            </div>
+            
+            <div className="w-full md:w-1/2 space-y-4 text-sm md:text-base text-gray-700 leading-relaxed">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary-dark">
+                Quem Somos
+              </h2>
+              <p>
+                A empresa iniciou sua trajetória focada fortemente em sistemas de exaustão, catalisadores e silenciosos como <strong>BS Escapamentos</strong>, consolidando uma clientela fiel em Curitiba, especialmente na região sul, no <strong>Novo Mundo</strong> e nas proximidades do <strong>CIC</strong> e da <strong>região do Neo Ville</strong>.
+              </p>
+              <p>
+                Com o passar do tempo e o aumento da demanda por serviços mecânicos de confiança no mesmo local, a oficina investiu em novos equipamentos de diagnóstico e ampliou suas rotinas operacionais para a <strong>manutenção automotiva completa</strong>.
+              </p>
+              <p>
+                Hoje, operando sob a marca <strong>BS CAR CENTER</strong> (anteriormente conhecida como BS Escapamentos), realizamos manutenções preventivas e corretivas em suspensão, freios, geometria, balanceamento, injeção eletrônica, diagnóstico computadorizado com scanner, troca de óleo, manutenção de transmissão automática e componentes de motores, mantendo os escapamentos como uma de nossas mais importantes especialidades.
+              </p>
+            </div>
+          </div>
 
-           {/* Mission Vision Values */}
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-              <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-yellow shadow-sm hover:shadow-md transition-shadow">
-                 <Target className="text-primary-blue w-12 h-12 mb-4" />
-                 <h3 className="text-xl font-bold text-primary-dark mb-3">Missão</h3>
-                 <p className="text-gray-600">Proporcionar segurança aos motoristas do CIC e região através de serviços automotivos de excelência e honestidade.</p>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-blue shadow-sm hover:shadow-md transition-shadow">
-                 <Users className="text-primary-blue w-12 h-12 mb-4" />
-                 <h3 className="text-xl font-bold text-primary-dark mb-3">Visão</h3>
-                 <p className="text-gray-600">Ser reconhecida como a oficina mecânica de maior confiança no Neo Ville e Novo Mundo.</p>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-2xl border-t-4 border-primary-green shadow-sm hover:shadow-md transition-shadow">
-                 <ShieldCheck className="text-primary-blue w-12 h-12 mb-4" />
-                 <h3 className="text-xl font-bold text-primary-dark mb-3">Valores</h3>
-                 <p className="text-gray-600">Transparência no diagnóstico, qualidade nas peças, respeito ao cliente e responsabilidade ambiental.</p>
-              </div>
-           </div>
+          {/* Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="bg-gray-50 p-6 rounded-2xl border-t-4 border-primary-blue shadow-sm">
+              <Target className="text-primary-blue w-10 h-10 mb-3" />
+              <h3 className="text-lg font-bold text-primary-dark mb-2">Compromisso Técnico</h3>
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                Diagnósticos baseados em dados reais, leitura de parâmetros eletrônicos e inspeção mecânica minuciosa antes de qualquer substituição de peças.
+              </p>
+            </div>
 
-           {/* Why Choose Us */}
-           <div className="mb-20">
-             <h2 className="text-3xl font-heading font-bold text-primary-dark text-center mb-12">Nossa Estrutura</h2>
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { icon: Wrench, title: "Tecnologia", text: "Scanners avançados para diagnóstico." },
-                  { icon: Award, title: "Peças Certificadas", text: "Parceria com fornecedores líderes." },
-                  { icon: Clock, title: "Agilidade", text: "Respeito ao seu tempo com prazos." },
-                  { icon: MapPin, title: "Fácil Acesso", text: "Localização privilegiada no CIC/Neo Ville." }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                    <div className="bg-primary-blue/10 p-4 rounded-full mb-4 text-primary-blue">
-                      <item.icon size={32} />
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                    <p className="text-gray-500">{item.text}</p>
+            <div className="bg-gray-50 p-6 rounded-2xl border-t-4 border-primary-yellow shadow-sm">
+              <Wrench className="text-primary-blue w-10 h-10 mb-3" />
+              <h3 className="text-lg font-bold text-primary-dark mb-2">Transparência</h3>
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                Orçamentos claros e detalhados. O cliente é informado exatamente sobre o que precisa de reparo imediato e o que pode ser programado para revisões futuras.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-2xl border-t-4 border-primary-green shadow-sm">
+              <ShieldCheck className="text-primary-blue w-10 h-10 mb-3" />
+              <h3 className="text-lg font-bold text-primary-dark mb-2">Garantia Legal</h3>
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                Cumprimento integral da garantia legal de 90 dias para mão de obra (Art. 26 do Código de Defesa do Consumidor) e termos de garantia dos fabricantes de autopeças.
+              </p>
+            </div>
+          </div>
+
+          {/* Infrastructure */}
+          <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm mb-16">
+            <h2 className="text-2xl font-heading font-bold text-primary-dark text-center mb-8">
+              Estrutura para Atendimento no Novo Mundo
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: Cpu, title: "Diagnóstico com Scanner", text: "Leitura de códigos e monitoramento de falhas eletrônicas." },
+                { icon: Wrench, title: "Elevadores e Equipamentos", text: "Infraestrutura para inspeção segura de freios e suspensão." },
+                { icon: MapPin, title: "Acesso Facilitado", text: "Localizado na R. Pedro Gusso, 2340, perto do CIC e Capão Raso." },
+                { icon: Clock, title: "Horários Estruturados", text: "Segunda a sexta das 08h às 18h e sábados das 08h às 12h." }
+              ].map((item, idx) => (
+                <div key={idx} className="text-center p-4 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-primary-blue/10 rounded-full flex items-center justify-center mx-auto mb-3 text-primary-blue">
+                    <item.icon size={22} />
                   </div>
-                ))}
-             </div>
-           </div>
+                  <h4 className="font-bold text-sm text-gray-900 mb-1">{item.title}</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-           {/* CTA */}
-           <div className="bg-primary-blue text-white rounded-3xl p-12 text-center relative overflow-hidden">
-              <div className="relative z-10">
-                 <h2 className="text-3xl font-bold mb-4">Venha nos conhecer!</h2>
-                 <p className="mb-8 text-xl opacity-90">Traga seu veículo para uma avaliação sem compromisso e tome um café conosco.</p>
-                 <a 
-                   href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`} 
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="inline-block bg-primary-yellow text-primary-blue font-black py-4 px-10 rounded-full hover:bg-white transition-colors"
-                 >
-                   Agendar Visita
-                 </a>
-              </div>
-           </div>
+          {/* CTA */}
+          <div className="bg-primary-blue text-white rounded-3xl p-8 md:p-10 text-center relative overflow-hidden">
+            <h2 className="text-2xl md:text-3xl font-heading font-black mb-3">
+              Traga Seu Veículo Para Uma Avaliação
+            </h2>
+            <p className="text-gray-100 max-w-xl mx-auto mb-6 text-sm">
+              Visite nossa oficina no Novo Mundo ou converse diretamente com nossa equipe técnica pelo WhatsApp.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pela página Sobre e gostaria de agendar uma avaliação.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-yellow text-primary-dark font-black py-3 px-8 rounded-full hover:bg-yellow-400 transition-colors text-sm shadow-md"
+              >
+                AGENDAR ATENDIMENTO
+              </a>
+              <Link
+                to="/manutencao-automotiva-curitiba"
+                className="bg-white/10 border border-white/30 text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-primary-dark transition-colors text-sm"
+              >
+                VER MANUTENÇÃO AUTOMOTIVA
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </>

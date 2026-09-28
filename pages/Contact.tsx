@@ -1,17 +1,17 @@
 import React from 'react';
 import EnhancedSEO from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/constants';
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
 const Contact: React.FC = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    const message = `Olá! Vim pelo formulário de contato do site.%0A%0A` +
+    const message = `Olá! Vim pelo formulário de contato da BS CAR CENTER.%0A%0A` +
                    `Nome: ${data.nome}%0A` +
                    `Telefone: ${data.telefone}%0A` +
-                   `Email: ${data.email}%0A` +
+                   `Email: ${data.email || 'Não informado'}%0A` +
                    `Assunto: ${data.assunto}%0A` +
                    `Mensagem: ${data.mensagem}`;
     
@@ -22,136 +22,216 @@ const Contact: React.FC = () => {
   return (
     <>
       <EnhancedSEO 
-        title="Fale Conosco - Agende sua Revisão" 
-        description="Entre em contato com a BS Escapamentos. Solicite orçamento via WhatsApp, telefone ou visite nossa oficina no Novo Mundo, Curitiba." 
+        title="Contato e Localização | BS CAR CENTER" 
+        description="Entre em contato com a BS CAR CENTER no Novo Mundo, Curitiba. WhatsApp (41) 99843-4800, telefone (41) 3268-3473 ou visite nossa oficina." 
         canonicalPath="/contato"
-        keywords="contato oficina, telefone mecanico curitiba, agendar revisão, whatsapp oficina, endereço bs escapamentos"
+        keywords="contato oficina curitiba, telefone bs car center, whatsapp bs car center, oficina mecanica novo mundo"
         schemaType="AutoRepair"
       />
       
-      <div className="pt-24 pb-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary-dark mb-4">Entre em Contato</h1>
-            <p className="text-xl text-gray-600">Estamos prontos para atender você com agilidade.</p>
+      <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
+        <div className="container mx-auto px-4 max-w-5xl">
+          
+          <div className="text-center mb-12">
+            <span className="text-primary-blue font-bold uppercase tracking-wider text-xs block mb-1">
+              Atendimento e Agendamentos
+            </span>
+            <h1 className="text-3xl md:text-5xl font-heading font-black text-primary-dark mb-3">
+              Fale com a BS CAR CENTER
+            </h1>
+            <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+              Tire dúvidas, solicite orçamentos ou agende a avaliação do seu veículo com nossa equipe técnica.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
             
             {/* Contact Info Side */}
-            <div className="space-y-8">
-               {/* Cards */}
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-primary-yellow">
-                    <Phone className="text-primary-blue w-8 h-8 mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Telefones</h3>
-                    <p className="text-gray-600 block">{COMPANY_INFO.phone}</p>
-                    <p className="text-gray-600 block">{COMPANY_INFO.whatsappDisplay}</p>
-                 </div>
-                 <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-primary-green">
-                    <MessageCircle className="text-primary-blue w-8 h-8 mb-4" />
-                    <h3 className="font-bold text-lg mb-2">WhatsApp</h3>
-                    <p className="text-sm text-gray-500 mb-3">Atendimento rápido e orçamentos.</p>
-                    <a 
-                      href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary-green font-bold hover:underline"
-                    >
-                      Iniciar Conversa
-                    </a>
-                 </div>
-                 <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-primary-blue">
-                    <Mail className="text-primary-blue w-8 h-8 mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Email</h3>
-                    <p className="text-gray-600 break-words">{COMPANY_INFO.email}</p>
-                 </div>
-                 <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-gray-800">
-                    <Clock className="text-primary-blue w-8 h-8 mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Horários</h3>
-                    <p className="text-gray-600 text-sm">Seg-Sex: 08h - 18h</p>
-                    <p className="text-gray-600 text-sm">Sábado: 08h - 12h</p>
-                 </div>
-               </div>
+            <div className="lg:col-span-5 space-y-6">
+              
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <h2 className="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+                  Canais Oficiais
+                </h2>
 
-               {/* Map Card */}
-               <div className="bg-white p-4 rounded-2xl shadow-lg">
-                 <div className="flex items-center gap-3 mb-4 px-4">
-                   <MapPin className="text-primary-red" />
-                   <p className="text-gray-700 font-medium">{COMPANY_INFO.address}</p>
-                 </div>
-                 <div className="h-64 rounded-xl overflow-hidden bg-gray-200">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.8797967272847!2d-49.29568902375841!3d-25.47570497753308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce32d2b5f5471%3A0x6b8f72200259f972!2sR.%20Pedro%20Gusso%2C%202340%20-%20Novo%20Mundo%2C%20Curitiba%20-%20PR%2C%2081900-080!5e0!3m2!1spt-BR!2sbr!4v1683123456789!5m2!1spt-BR!2sbr" 
-                        width="100%" 
-                        height="100%" 
-                        style={{border:0}} 
-                        allowFullScreen={true} 
-                        loading="lazy" 
-                        title="Mapa BS Escapamentos"
-                    ></iframe>
-                 </div>
-               </div>
+                <div className="space-y-4 text-xs md:text-sm text-gray-700">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-primary-blue/10 text-primary-blue rounded-xl shrink-0">
+                      <MapPin size={20} />
+                    </div>
+                    <div>
+                      <strong className="block text-gray-900 font-bold mb-0.5">Endereço</strong>
+                      <p className="text-gray-600 leading-relaxed">{COMPANY_INFO.address}</p>
+                      <a 
+                        href={COMPANY_INFO.mapsLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-blue font-bold hover:underline inline-flex items-center gap-1 mt-1 text-xs"
+                      >
+                        <Navigation size={12} /> Ver no Google Maps
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-green-50 text-primary-green rounded-xl shrink-0">
+                      <MessageCircle size={20} />
+                    </div>
+                    <div>
+                      <strong className="block text-gray-900 font-bold mb-0.5">WhatsApp</strong>
+                      <p className="text-gray-600">{COMPANY_INFO.whatsappDisplay}</p>
+                      <a 
+                        href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-green font-bold hover:underline inline-block mt-1 text-xs"
+                      >
+                        Iniciar Conversa no WhatsApp &rarr;
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-primary-blue/10 text-primary-blue rounded-xl shrink-0">
+                      <Phone size={20} />
+                    </div>
+                    <div>
+                      <strong className="block text-gray-900 font-bold mb-0.5">Telefone Fixo</strong>
+                      <p className="text-gray-600">{COMPANY_INFO.phone}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-primary-blue/10 text-primary-blue rounded-xl shrink-0">
+                      <Mail size={20} />
+                    </div>
+                    <div>
+                      <strong className="block text-gray-900 font-bold mb-0.5">E-mail</strong>
+                      <p className="text-gray-600 break-all">{COMPANY_INFO.email}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 bg-primary-blue/10 text-primary-blue rounded-xl shrink-0">
+                      <Clock size={20} />
+                    </div>
+                    <div>
+                      <strong className="block text-gray-900 font-bold mb-0.5">Horário de Funcionamento</strong>
+                      <p className="text-gray-600">Segunda a Sexta: 08:00 às 18:00</p>
+                      <p className="text-gray-600">Sábado: 08:00 às 12:00</p>
+                      <p className="text-gray-400 text-xs">Domingos e feriados: Fechado</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             {/* Form Side */}
-            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-               <h2 className="text-2xl font-bold text-gray-800 mb-6">Envie sua Mensagem</h2>
-               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="lg:col-span-7">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
+                <h2 className="text-xl font-bold text-gray-900 mb-1">Envie Sua Mensagem</h2>
+                <p className="text-gray-500 text-xs mb-6">Receba resposta rápida pelo WhatsApp da nossa equipe técnica.</p>
+                
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div>
-                    <label className="block text-gray-700 font-bold mb-2">Nome</label>
+                    <label className="block text-gray-700 font-bold mb-1 text-xs">Nome Completo</label>
                     <input 
                       {...register("nome", { required: true })}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-primary-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                      placeholder="Seu nome completo"
+                      type="text" 
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
+                      placeholder="Seu nome"
                     />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-gray-700 font-bold mb-2">Telefone</label>
-                        <input 
+                      <label className="block text-gray-700 font-bold mb-1 text-xs">Telefone / WhatsApp</label>
+                      <input 
                         {...register("telefone", { required: true })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-primary-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        type="tel" 
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
                         placeholder="(41) 9..."
-                        />
+                      />
                     </div>
                     <div>
-                        <label className="block text-gray-700 font-bold mb-2">Email</label>
-                        <input 
+                      <label className="block text-gray-700 font-bold mb-1 text-xs">E-mail (opcional)</label>
+                      <input 
                         {...register("email")}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-primary-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        type="email" 
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
                         placeholder="seu@email.com"
-                        />
+                      />
                     </div>
                   </div>
+
                   <div>
-                    <label className="block text-gray-700 font-bold mb-2">Assunto</label>
+                    <label className="block text-gray-700 font-bold mb-1 text-xs">Assunto</label>
                     <select 
                       {...register("assunto")}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-primary-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none"
                     >
-                        <option value="Orçamento">Solicitar Orçamento</option>
-                        <option value="Dúvida">Tirar Dúvida</option>
-                        <option value="Agendamento">Agendamento</option>
-                        <option value="Outros">Outros Assuntos</option>
+                      <option value="Agendamento de Revisão">Agendamento de Revisão</option>
+                      <option value="Orçamento de Freios ou Suspensão">Orçamento de Freios ou Suspensão</option>
+                      <option value="Geometria e Balanceamento">Geometria e Balanceamento</option>
+                      <option value="Diagnóstico com Scanner">Diagnóstico com Scanner</option>
+                      <option value="Troca de Óleo / Câmbio Automático">Troca de Óleo / Câmbio Automático</option>
+                      <option value="Escapamentos e Catalisadores">Escapamentos e Catalisadores</option>
+                      <option value="Outros Assuntos">Outros Assuntos</option>
                     </select>
                   </div>
+
                   <div>
-                    <label className="block text-gray-700 font-bold mb-2">Mensagem</label>
+                    <label className="block text-gray-700 font-bold mb-1 text-xs">Mensagem ou Sintoma do Carro</label>
                     <textarea 
                       {...register("mensagem")}
-                      rows={5}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-primary-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                      placeholder="Como podemos ajudar?"
+                      rows={4} 
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
+                      placeholder="Descreva o modelo do veículo, ano e o que está ocorrendo..."
                     ></textarea>
                   </div>
-                  <button type="submit" className="w-full bg-primary-blue hover:bg-blue-900 text-white font-bold py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-1">
-                    Enviar Mensagem
+
+                  <button 
+                    type="submit" 
+                    className="w-full bg-primary-green hover:bg-green-600 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-md"
+                  >
+                    <MessageCircle size={18} />
+                    FALAR PELO WHATSAPP
                   </button>
-               </form>
+                </form>
+              </div>
             </div>
 
           </div>
+
+          {/* Full Width Map */}
+          <div className="bg-white p-4 rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+            <div className="p-2 mb-2 flex items-center justify-between">
+              <span className="font-bold text-gray-800 text-sm flex items-center gap-2">
+                <MapPin className="text-primary-yellow" /> R. Pedro Gusso, 2340 - Novo Mundo, Curitiba/PR
+              </span>
+              <a 
+                href={COMPANY_INFO.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-primary-blue font-bold hover:underline"
+              >
+                Abrir Rota Completa
+              </a>
+            </div>
+            <div className="h-72 w-full rounded-2xl overflow-hidden bg-gray-100">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.8797967272847!2d-49.29568902375841!3d-25.47570497753308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce32d2b5f5471%3A0x6b8f72200259f972!2sR.%20Pedro%20Gusso%2C%202340%20-%20Novo%20Mundo%2C%20Curitiba%20-%20PR%2C%2081900-080!5e0!3m2!1spt-BR!2sbr!4v1683123456789!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                title="Mapa de Localização BS CAR CENTER"
+              ></iframe>
+            </div>
+          </div>
+
         </div>
       </div>
     </>

@@ -1,434 +1,569 @@
-
 import { ServiceItem, LocationData } from '../types';
 
 export const COMPANY_INFO = {
-  name: "BS Escapamentos",
+  name: "BS CAR CENTER",
+  legalName: "BS Escapamentos",
+  shortName: "BS CAR CENTER",
+  historicalName: "BS Escapamentos",
+  descriptor: "Manutenção Automotiva e Escapamentos",
   phone: "(41) 3268-3473",
   whatsapp: "5541998434800",
   whatsappDisplay: "(41) 99843-4800",
   email: "contato@bsescapamentos.com.br",
-  address: "R. Pedro Gusso, 2340, Novo Mundo (Próx. Neo Ville/CIC) - Curitiba/PR, 81900-080",
+  address: "R. Pedro Gusso, 2340 - Novo Mundo, Curitiba - PR, 81900-080",
+  streetAddress: "R. Pedro Gusso, 2340",
+  neighborhood: "Novo Mundo",
+  city: "Curitiba",
+  state: "PR",
+  zip: "81900-080",
   mapsLink: "https://goo.gl/maps/CoMsLJtk8HhBRx5PA",
   facebook: "https://www.facebook.com/BSescapamentosautocenter/",
+  instagram: "https://www.instagram.com/bs_car_center_/",
   siteUrl: "https://www.bsescapamentos.com.br"
 };
 
-// Imagens de Alta Resolução e Confiabilidade
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
-  "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", 
-  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+  "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
 ];
 
 export const PAGE_IMAGES = {
-  trust: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=BS+Equipe+Técnica",
-  exhaust: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=Escapamentos+Premium",
-  workshop: "https://placehold.co/800x600/1e3a8a/FFFFFF?text=Nossa+Oficina+CIC"
+  trust: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  exhaust: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  workshop: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 };
 
+// Hierarchy of confirmed services
 export const SERVICES: ServiceItem[] = [
-  { 
-    id: '1', 
-    title: 'Escapamentos Esportivos', 
-    description: 'Instalação de sistemas de alto desempenho (difusores, ponteiras, downpipes). Personalização de ronco e performance para entusiastas do CIC e Curitiba.', 
-    iconName: 'Flame' 
-  },
-  { 
-    id: '2', 
-    title: 'Catalisadores', 
-    description: 'Substituição e limpeza de catalisadores com peças homologadas pelo PROCONVE. Adequação às normas de emissão de poluentes.', 
-    iconName: 'Wind' 
-  },
-  { 
-    id: '3', 
-    title: 'Silenciadores', 
-    description: 'Eliminação de ruídos excessivos e vibrações. Troca de silenciosos traseiros e intermediários com garantia de fábrica.', 
-    iconName: 'VolumeX' 
-  },
-  { 
-    id: '4', 
-    title: 'Freios ABS', 
-    description: 'Manutenção completa: troca de pastilhas, discos, fluido e sensores ABS. Segurança máxima para sua família nas ruas do Neo Ville.', 
-    iconName: 'Disc' 
-  },
-  { 
-    id: '5', 
-    title: 'Suspensão Completa', 
-    description: 'Troca de amortecedores, molas, pivôs e buchas. Diagnóstico de barulhos e instabilidade para maior conforto ao dirigir.', 
-    iconName: 'Activity' 
-  },
-  { 
-    id: '6', 
-    title: 'Troca de Óleo', 
-    description: 'Lubrificantes sintéticos e minerais de alta performance. Troca de filtros de óleo, ar e combustível.', 
-    iconName: 'Droplet' 
-  },
-  { 
-    id: '7', 
-    title: 'Alinhamento 3D', 
-    description: 'Tecnologia de ponta para ajuste geométrico das rodas. Evite desgaste irregular de pneus e economize combustível.', 
-    iconName: 'MoveHorizontal' 
-  },
-  { 
-    id: '8', 
-    title: 'Mecânica Geral', 
-    description: 'Revisão de motores, correia dentada, embreagem e sistema de arrefecimento. Diagnóstico computadorizado avançado.', 
-    iconName: 'Wrench' 
-  },
-];
-
-export const BLOG_POSTS = [
   {
-    id: 103,
-    slug: "revisao-ferias-janeiro-2026-premium",
-    title: "Férias Blindadas: O Checklist Premium de Janeiro 2026",
-    excerpt: "Não deixe sua viagem virar pesadelo. Descubra a Revisão Premium que garante segurança absoluta para sua família neste verão.",
-    date: "02 Jan 2026",
-    image: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    content: `
-      <h2>Janeiro de 2026: Sua Família Merece Viajar com Segurança Absoluta</h2>
-      <p>As estradas em 2026 estão mais exigentes e o calor recorde deste verão coloca à prova qualquer veículo. Sair do <strong>CIC ou Neo Ville</strong> rumo ao litoral ou interior sem uma preparação de elite é um risco que você não pode correr.</p>
-
-      <h3>Por que a Revisão Padrão não é mais suficiente?</h3>
-      <p>Os carros modernos exigem precisão cirúrgica. Na BS Escapamentos, lançamos a <strong>Revisão Premium de Férias 2026</strong>, um protocolo rigoroso que vai muito além da troca de óleo.</p>
-
-      <div class="bg-gray-900 text-white p-6 rounded-xl shadow-xl my-8 border border-primary-yellow">
-        <h3 class="text-primary-yellow font-heading text-2xl mb-4 flex items-center gap-2">
-           🚀 O Que Inclui a Revisão Premium?
-        </h3>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2">
-            <span class="text-green-400 font-bold">✓</span>
-            <div>
-              <strong>Scanner de Profundidade 2026:</strong> Análise preditiva de falhas em sensores e módulos eletrônicos.
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-400 font-bold">✓</span>
-            <div>
-              <strong>Freios de Alta Performance:</strong> Verificação micrométrica de discos e teste de ebulição do fluido de freio (vital para a Serra do Mar).
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-400 font-bold">✓</span>
-            <div>
-              <strong>Arrefecimento Tropicalizado:</strong> Limpeza do sistema e aditivação correta para suportar as altas temperaturas de Janeiro.
-            </div>
-          </li>
-           <li class="flex items-start gap-2">
-            <span class="text-green-400 font-bold">✓</span>
-            <div>
-              <strong>Suspensão Inteligente:</strong> Checagem de buchas e amortecedores para garantir estabilidade em curvas perigosas.
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <h3>Não conte com a sorte, conte com a BS</h3>
-      <p>Um carro parado no acostamento custa muito mais que uma revisão. Custa a paz das suas férias. Nossa equipe no Novo Mundo está pronta para entregar seu carro "blindado" contra imprevistos mecânicos.</p>
-
-      <p class="font-bold text-primary-blue text-lg mt-4">Agende agora sua Revisão Premium e viaje tranquilo em 2026!</p>
-    `
+    id: 'manutencao-automotiva',
+    slug: 'manutencao-automotiva',
+    title: 'Manutenção Automotiva Completa',
+    shortTitle: 'Manutenção Automotiva',
+    metaTitle: 'Manutenção Automotiva em Curitiba | BS CAR CENTER',
+    metaDescription: 'Manutenção automotiva preventiva e corretiva em Curitiba. Freios, suspensão, injeção, óleo, scanner e mecânica geral no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Manutenção Automotiva em Curitiba',
+    description: 'Serviços de diagnóstico preventivo e reparos mecânicos completos para manter o seu veículo seguro e com bom desempenho nas ruas de Curitiba.',
+    answerFirst: 'A BS CAR CENTER realiza manutenção automotiva em Curitiba, com serviços preventivos e corretivos em freios, suspensão, geometria, injeção eletrônica, diagnóstico por scanner, troca de fluidos, motores e escapamentos. A oficina fica no bairro Novo Mundo, com fácil acesso ao CIC e região.',
+    details: [
+      'Revisão preventiva periódica para identificação antecipada de desgastes.',
+      'Diagnósticos estruturados para sistemas mecânicos, elétricos básicos e hidráulicos.',
+      'Checklist completo de componentes antes de viagens e uso severo.',
+      'Orientações técnicas claras e orçamentos detalhados antes de cada intervenção.'
+    ],
+    faq: [
+      {
+        question: 'Qual a diferença entre manutenção preventiva e corretiva?',
+        answer: 'A manutenção preventiva avalia e substitui peças antes que elas falhem, evitando paradas repentinas e despesas maiores. A corretiva repara componentes que já apresentaram defeito ou desgaste acentuado.'
+      },
+      {
+        question: 'Com que frequência devo fazer a revisão geral do carro?',
+        answer: 'Recomenda-se realizar uma avaliação preventiva a cada 10.000 km ou a cada 6 a 12 meses, conforme as recomendações do manual do fabricante e as condições de uso do veículo.'
+      }
+    ],
+    iconName: 'Wrench',
+    priority: 1
   },
   {
-    id: 101,
-    slug: "dicas-manutencao-automotiva-2025",
-    title: "Guia 2025: O Que Muda na Manutenção do Seu Carro",
-    excerpt: "Novas tecnologias exigem novos cuidados. Confira as dicas essenciais para manter seu veículo valorizado em 2025.",
-    date: "10 Jan 2025",
-    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    content: `
-      <h2>Manutenção Automotiva em 2025: A Era da Eletrônica</h2>
-      <p>O ano de 2025 chegou consolidando uma tendência irreversível: a integração total entre mecânica e eletrônica. Quem mora no <strong>CIC e Neo Ville</strong> já percebeu que até os carros populares estão repletos de sensores. Mas o que isso muda na sua rotina de manutenção?</p>
-
-      <h3>1. Diagnóstico por Scanner é Obrigatório</h3>
-      <p>Esqueça o "achismo". Em 2025, tentar adivinhar o problema do carro pode custar caro. Sistemas de injeção direta e sensores de oxigênio (sonda lambda) de banda larga exigem equipamentos de ponta.</p>
-      <ul>
-        <li><strong>Dica BS:</strong> Nossa oficina no Novo Mundo atualizou todos os softwares de scanner para os protocolos 2025.</li>
-      </ul>
-
-      <h3>2. Óleos de Baixa Viscosidade (0W-20 e 0W-16)</h3>
-      <p>Para cumprir as normas de emissões, os motores estão trabalhando com folgas menores. O uso de óleos finos é crucial. Usar um óleo 15W-40 num motor projetado para 0W-20 pode fundir o motor em poucos meses.</p>
-
-      <h3>3. Catalisadores de Alta Eficiência</h3>
-      <p>Com a fiscalização ambiental mais rígida em Curitiba, o catalisador se tornou peça de ouro. Roubos aumentaram e a troca por peças paralelas baratas está reprovando carros em vistorias. Invista em peças homologadas.</p>
-
-      <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-primary-blue my-6">
-        <h4 class="font-bold text-primary-dark mb-2">Checklist Rápido 2025:</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-          <li>Verificar atualização de software da ECU.</li>
-          <li>Checar saúde da bateria (Start-Stop exige muito mais).</li>
-          <li>Alinhamento 3D a cada 10.000km devido aos buracos das chuvas recentes.</li>
-        </ul>
-      </div>
-    `
+    id: 'freios',
+    slug: 'freios',
+    title: 'Manutenção de Freios',
+    shortTitle: 'Freios',
+    metaTitle: 'Freios em Curitiba | BS CAR CENTER',
+    metaDescription: 'Avaliação e manutenção de freios em Curitiba. Pastilhas, discos, fluido de freio e verificação do sistema ABS no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Freios em Curitiba',
+    description: 'Avaliação detalhada e substituição de pastilhas, discos, tambores, sapatas, cilindros e fluido de freio com aferição técnica.',
+    answerFirst: 'A BS CAR CENTER realiza manutenção de freios em Curitiba, com avaliação de componentes como pastilhas, discos, fluido e itens relacionados, conforme o sistema e a necessidade identificada no veículo.',
+    details: [
+      'Inspeção da espessura de pastilhas e discos de freio.',
+      'Teste do ponto de ebulição e estado do fluido de freio.',
+      'Avaliação de flexíveis, pinças e cilindros de roda.',
+      'Diagnóstico de trepidações no pedal e ruídos durante as frenagens.'
+    ],
+    faq: [
+      {
+        question: 'Quando devo trocar as pastilhas de freio?',
+        answer: 'As pastilhas devem ser avaliadas periodicamente e substituídas quando atingirem a espessura mínima indicada pelo fabricante ou caso apresentem ruídos metálicos e perda de resposta no pedal.'
+      },
+      {
+        question: 'Por que é importante trocar o fluido de freio?',
+        answer: 'O fluido de freio absorve umidade com o tempo, o que reduz seu ponto de ebulição e pode comprometer a eficiência da frenagem em situações de uso contínuo, como descidas de serra.'
+      }
+    ],
+    iconName: 'Disc',
+    priority: 2
   },
   {
-    id: 102,
-    slug: "previsoes-automotivas-2026",
-    title: "Futuro 2026: Previsões para o Setor Automotivo",
-    excerpt: "Híbridos populares, fim dos carros manuais e novas leis de ruído. Saiba o que esperar para 2026.",
-    date: "15 Jan 2025",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    content: `
-      <h2>O Que Nos Espera em 2026?</h2>
-      <p>Olhando para o horizonte de 2026, o mercado automotivo brasileiro e, especificamente, a realidade de Curitiba, passarão por transformações profundas. Baseado em dados da indústria e tendências legislativas, preparamos este dossiê.</p>
-
-      <h3>1. O "Boom" dos Híbridos Usados</h3>
-      <p>Prevemos que em 2026, a manutenção de híbridos deixará de ser nicho. Oficinas como a <strong>BS Escapamentos</strong> já estão se equipando para lidar com sistemas de alta voltagem e manutenção de sistemas de freios regenerativos.</p>
-
-      <h3>2. Leis de Ruído Mais Rígidas (Lei do Silêncio 2.0)</h3>
-      <p>A tendência é que radares acústicos (já em teste na Europa) cheguem às grandes capitais brasileiras. Isso impacta diretamente quem gosta de escapamentos esportivos.</p>
-      <p><strong>A Solução:</strong> O uso de <em>Difusores Eletrônicos</em> de alta qualidade. Eles permitem fechar a válvula via controle remoto ou aplicativo, tornando o carro silencioso em áreas residenciais (como o Neo Ville) e esportivo na estrada.</p>
-
-      <h3>3. O Fim do Câmbio Manual?</h3>
-      <p>As montadoras estão descontinuando caixas manuais até em modelos de entrada. Isso significa que a manutenção de embreagem tradicional diminuirá, dando lugar à troca de fluido de câmbio automático e DSG.</p>
-
-      <blockquote class="border-l-4 border-primary-yellow pl-4 italic text-gray-600 my-6">
-        "Quem não se adaptar à eletrônica embarcada e à gestão térmica dos motores modernos ficará para trás. 2026 será o ano da oficina tecnológica."
-      </blockquote>
-
-      <h3>Prepare-se Hoje</h3>
-      <p>Não espere 2026 chegar para cuidar do seu carro. A valorização do veículo na revenda dependerá de um histórico de manutenção impecável e digitalizado.</p>
-    `
+    id: 'suspensao',
+    slug: 'suspensao',
+    title: 'Suspensão Automotiva',
+    shortTitle: 'Suspensão',
+    metaTitle: 'Suspensão Automotiva em Curitiba | BS CAR CENTER',
+    metaDescription: 'Diagnóstico e manutenção de suspensão automotiva em Curitiba. Amortecedores, molas, buchas, pivôs e estabilidade no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Suspensão Automotiva em Curitiba',
+    description: 'Revisão criteriosa de amortecedores, molas, bandejas, buchas, pivôs e bieletas para restabelecer o conforto e o controle da direção.',
+    answerFirst: 'A BS CAR CENTER realiza diagnóstico e reparo de suspensão em Curitiba, inspecionando amortecedores, molas, buchas, batentes e pivôs. O objetivo é identificar desgastes mecânicos que geram ruídos, instabilidade e desconforto ao dirigir.',
+    details: [
+      'Avaliação de amortecedores quanto a vazamentos, ação e folgas.',
+      'Checagem de pivôs, terminais de direção e barras axiais.',
+      'Inspeção de buchas de bandeja, coxins e suportes de borracha.',
+      'Diagnóstico de barulhos ao trafegar por irregularidades e lombadas.'
+    ],
+    faq: [
+      {
+        question: 'Quais sinais indicam que a suspensão precisa de avaliação?',
+        answer: 'Ruídos secos ao passar por desníveis, sensação de instabilidade em curvas, volante desalinhado e oscilação excessiva da carroceria são sinais comuns de que a suspensão deve ser inspecionada.'
+      },
+      {
+        question: 'A suspensão gasta desgasta mais os pneus?',
+        answer: 'Sim. Folgas em buchas, pivôs ou amortecedores sem pressão alteram os ângulos das rodas durante o movimento, acelerando o desgaste irregular da banda de rodagem.'
+      }
+    ],
+    iconName: 'Activity',
+    priority: 3
   },
   {
-    id: 1,
-    slug: "legislacao-ruido-escapamento-curitiba-2024",
-    title: "Nova Legislação de Ruído 2024",
-    excerpt: "Saiba como evitar multas em Curitiba com as novas regras para escapamentos esportivos.",
-    date: "12 Mar 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Legislação+de+Ruído",
-    content: `
-      <h2>Fique atento às normas de ruído em Curitiba e Região do CIC</h2>
-      <p>Com o aumento da fiscalização em Curitiba, especialmente em bairros como <strong>CIC, Neo Ville e Novo Mundo</strong>, muitos motoristas estão sendo surpreendidos com multas relacionadas ao ruído excessivo do escapamento. A legislação de 2024 trouxe critérios mais rígidos baseados na resolução do CONTRAN.</p>
-      
-      <h3>O que diz a lei?</h3>
-      <p>A alteração no sistema de escapamento é permitida, desde que não ultrapasse os limites de decibéis estipulados no manual do fabricante do veículo. Em Curitiba, a Polícia Militar e a Guarda Municipal têm intensificado blitz com decibelímetros.</p>
-      
-      <h3>Escapamento Esportivo é Proibido?</h3>
-      <p>Não necessariamente. O uso de abafadores esportivos e ponteiras é legal, contanto que o nível de ruído se mantenha dentro da tolerância. Na <strong>BS Escapamentos</strong>, realizamos a instalação de difusores e sistemas esportivos que permitem controlar o ruído, garantindo a diversão na pista e o silêncio necessário em áreas residenciais como o Neo Ville.</p>
-      
-      <h3>Dicas para não ser multado:</h3>
-      <ul>
-        <li>Mantenha o catalisador original ou use um esportivo de alta performance.</li>
-        <li>Evite remover totalmente os abafadores (diretão) para uso urbano.</li>
-        <li>Faça um teste de ruído conosco antes de sair rodando.</li>
-      </ul>
-      
-      <p>Se você mora no CIC ou região e quer customizar seu carro dentro da lei, venha conversar com nossos especialistas.</p>
-    `
+    id: 'geometria-balanceamento',
+    slug: 'geometria-balanceamento',
+    title: 'Geometria e Balanceamento',
+    shortTitle: 'Geometria e Balanceamento',
+    metaTitle: 'Geometria e Balanceamento em Curitiba | BS CAR CENTER',
+    metaDescription: 'Ajuste de geometria veicular e balanceamento de rodas em Curitiba. Estabilidade e prevenção contra desgaste irregular no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Geometria e Balanceamento em Curitiba',
+    description: 'Ajuste dos ângulos de cambagem, cáster e convergência, além do balanceamento do conjunto roda-pneu para condução suave e precisa.',
+    answerFirst: 'A BS CAR CENTER realiza serviços de geometria e balanceamento em Curitiba. O alinhamento correto dos ângulos das rodas e o equilíbrio do conjunto pneumático proporcionam estabilidade ao veículo e previnem o desgaste prematuro dos pneus.',
+    details: [
+      'Alinhamento e ajuste dos ângulos de convergência e divergência.',
+      'Aferição geométrica conforme especificações técnicas do modelo.',
+      'Balanceamento estático e dinâmico de rodas de aço e liga leve.',
+      'Prevenção contra vibrações no volante e tendência do carro puxar para os lados.'
+    ],
+    faq: [
+      {
+        question: 'Qual a diferença entre geometria (alinhamento) e balanceamento?',
+        answer: 'A geometria ajusta os ângulos de apoio das rodas em relação ao solo e à direção do veículo. O balanceamento distribui uniformemente o peso no conjunto pneu-roda para evitar vibrações.'
+      },
+      {
+        question: 'Quando devo realizar a geometria e o balanceamento?',
+        answer: 'Recomenda-se aferir a cada 10.000 km, ao trocar pneus, após impactos fortes contra buracos ou guias, ou se o volante vibrar e o veículo puxar para um dos lados.'
+      }
+    ],
+    iconName: 'MoveHorizontal',
+    priority: 4
   },
   {
-    id: 2,
-    slug: "sinais-catalisador-ruim",
-    title: "5 Sinais do Catalisador Ruim",
-    excerpt: "Perda de potência e aumento de consumo? Veja se é hora de trocar seu catalisador.",
-    date: "05 Abr 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Catalisador+Problemas",
-    content: `
-      <h2>Seu carro está bebendo muito? Pode ser o catalisador.</h2>
-      <p>O catalisador é uma peça fundamental para o controle de emissões e para o bom funcionamento do motor. Moradores do <strong>CIC e Curitiba</strong> enfrentam trânsito pesado, o que pode acelerar o desgaste dessa peça.</p>
-      
-      <h3>Sinais de alerta:</h3>
-      <ol>
-        <li><strong>Luz da Injeção Acesa:</strong> O sinal mais comum no painel.</li>
-        <li><strong>Aumento no Consumo:</strong> O carro precisa injetar mais combustível para tentar compensar leituras erradas dos sensores.</li>
-        <li><strong>Perda de Potência:</strong> O carro "amarra" em subidas, comum nas ladeiras do Novo Mundo e Portão.</li>
-        <li><strong>Cheiro Forte:</strong> Odor de "ovo podre" saindo do escapamento.</li>
-        <li><strong>Barulho de Peças Soltas:</strong> Se ouvir algo chacoalhando embaixo do carro, a cerâmica interna pode ter quebrado.</li>
-      </ol>
-      
-      <h3>Onde trocar no Neo Ville?</h3>
-      <p>Nunca remova o catalisador sem colocar outro no lugar. Além de ser crime ambiental, desregula todo o sistema eletrônico do carro. Na <strong>BS Escapamentos</strong>, trabalhamos com catalisadores universais e originais homologados pelo INMETRO, com o melhor preço da região do CIC.</p>
-    `
+    id: 'scanner-automotivo',
+    slug: 'scanner-automotivo',
+    title: 'Scanner Automotivo e Diagnóstico Eletrônico',
+    shortTitle: 'Scanner Automotivo',
+    metaTitle: 'Scanner Automotivo em Curitiba | BS CAR CENTER',
+    metaDescription: 'Diagnóstico computadorizado com scanner automotivo em Curitiba. Leitura de códigos de falha e parâmetros no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Scanner Automotivo em Curitiba',
+    description: 'Leitura de dados em tempo real, verificação de códigos DTC na central do veículo e testes de atuadores e sensores automotivos.',
+    answerFirst: 'O scanner automotivo auxilia na leitura de códigos e parâmetros eletrônicos do veículo, contribuindo para o diagnóstico de falhas em sistemas compatíveis. Na BS CAR CENTER no Novo Mundo, os dados obtidos pelo aparelho são confrontados com testes práticos para orientar o conserto correto.',
+    details: [
+      'Identificação de códigos de avaria registrados na ECU.',
+      'Monitoramento de parâmetros ao vivo (temperatura, pressão, tempos de injeção).',
+      'Diagnóstico para luz de injeção, freios e controle de estabilidade.',
+      'Consulte compatibilidade para diagnóstico e reprogramação de módulos automotivos específicos.'
+    ],
+    faq: [
+      {
+        question: 'O scanner automotivo resolve o problema sozinho?',
+        answer: 'Não. O scanner aponta o circuito ou sensor onde foi registrada a anomalia. Cabe ao mecânico capacitado testar a fiação, o componente físico e a alimentação elétrica para diagnosticar a causa real.'
+      },
+      {
+        question: 'Vocês realizam reprogramação de módulos?',
+        answer: 'Sim, realizamos reprogramação de alguns módulos automotivos compatíveis. É necessário consultar previamente o modelo e o ano do veículo para confirmar a compatibilidade técnica.'
+      }
+    ],
+    iconName: 'Zap',
+    priority: 5
   },
   {
-    id: 3,
-    slug: "revisao-ferias-checklist",
-    title: "Revisão de Férias: Checklist",
-    excerpt: "Vai viajar saindo do CIC? Confira os itens essenciais para revisar antes da estrada.",
-    date: "20 Mai 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Revisão+de+Férias",
-    content: `
-      <h2>Vai pegar a BR-376 ou BR-277? Revise antes!</h2>
-      <p>As férias estão chegando e quem mora em Curitiba sabe: a descida para a serra ou a ida para o interior exige freios e suspensão em dia. Sair do <strong>CIC</strong> sem revisar o carro é um risco para sua família.</p>
-      
-      <h3>Checklist Essencial BS Escapamentos:</h3>
-      <ul>
-        <li><strong>Freios:</strong> Verificação da espessura das pastilhas e condição dos discos. Em serras, o freio é vital.</li>
-        <li><strong>Pneus e Alinhamento:</strong> O asfalto irregular de Curitiba desalinha o carro facilmente. Faça o alinhamento 3D para evitar desgaste prematuro na viagem.</li>
-        <li><strong>Óleo e Fluidos:</strong> Verifique o nível do óleo, fluido de freio e, principalmente, a água do radiador.</li>
-        <li><strong>Escapamento:</strong> Um escapamento furado pode jogar gases tóxicos para dentro da cabine durante viagens longas com vidros fechados.</li>
-      </ul>
-      
-      <p>Não deixe para a última hora. Nossa oficina no Novo Mundo (próximo ao Neo Ville) oferece revisão expressa para você viajar tranquilo.</p>
-    `
+    id: 'injecao-eletronica',
+    slug: 'injecao-eletronica',
+    title: 'Injeção Eletrônica',
+    shortTitle: 'Injeção Eletrônica',
+    metaTitle: 'Injeção Eletrônica em Curitiba | BS CAR CENTER',
+    metaDescription: 'Manutenção de injeção eletrônica em Curitiba. Limpeza técnica de bicos, sensores, TBI e diagnóstico de falhas no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Injeção Eletrônica em Curitiba',
+    description: 'Limpeza e equalização de eletroinjetores, inspeção de corpo de borboleta (TBI), velas de ignição, cabos, bobinas e sonda lambda.',
+    answerFirst: 'A BS CAR CENTER executa diagnóstico e manutenção de injeção eletrônica em Curitiba. O serviço inclui verificação de velas, cabos, bobinas, bicos injetores e sensores de mistura, restabelecendo o funcionamento regular do motor e o equilíbrio de consumo.',
+    details: [
+      'Avaliação da vazão, estanqueidade e leque dos bicos injetores.',
+      'Descarbonização e limpeza do corpo de borboleta motorizado (TBI).',
+      'Checagem do sistema de ignição: velas, cabos e bobinas de alta tensão.',
+      'Inspeção da sonda lambda e sensores de temperatura e pressão.'
+    ],
+    faq: [
+      {
+        question: 'Quais sintomas indicam problemas na injeção eletrônica?',
+        answer: 'Dificuldade na partida, falhas em aceleração, marcha lenta irregular, aumento repentino de consumo e luz de advertência acesa no painel indicam necessidade de inspeção.'
+      },
+      {
+        question: 'É necessário limpar bicos injetores preventivamente?',
+        answer: 'A limpeza é indicada quando os testes no scanner ou na bancada de ensaio apontam desbalanço de vazão ou perda de estanqueidade nos injetores.'
+      }
+    ],
+    iconName: 'Cpu',
+    priority: 6
   },
   {
-    id: 4,
-    slug: "escapamento-inox-aco-carbono",
-    title: "Escapamento Inox vs Aço Carbono",
-    excerpt: "Entenda as diferenças de durabilidade e performance para o seu projeto automotivo.",
-    date: "15 Jun 2024",
-    image: "https://placehold.co/600x400/1e3a8a/FFFFFF?text=Inox+vs+Carbono",
-    content: `
-      <h2>Qual o melhor material para o clima de Curitiba?</h2>
-      <p>Curitiba é conhecida por seu clima úmido e frio. Isso é um inimigo natural dos metais. Quem vive no <strong>CIC</strong> ou qualquer bairro da capital paranaense sabe que a ferrugem ataca rápido.</p>
-      
-      <h3>Aço Carbono (Galvanizado)</h3>
-      <p>É o material original da maioria dos carros. É mais barato, mas tem menor durabilidade. Em Curitiba, um escapamento de aço carbono dura em média 2 a 3 anos devido à umidade.</p>
-      
-      <h3>Aço Inoxidável (Inox)</h3>
-      <p>O sonho de consumo dos entusiastas. O Inox 304 não enferruja, mantém o brilho e dissipa melhor o calor.
-      <br><strong>Vantagens:</strong>
-      <br>- Durabilidade vitalícia (praticamente eterno).
-      <br>- Ronco mais encorpado e metálico.
-      <br>- Estética superior (ponteiras azuis, polidas, etc).</p>
-      
-      <h3>Veredito BS Escapamentos</h3>
-      <p>Se você planeja ficar muito tempo com o carro ou quer performance, invista no Inox. Aqui na BS, fabricamos downpipes e catbacks em Inox sob medida para clientes exigentes do Neo Ville e toda Curitiba.</p>
-    `
-  }
-];
-
-export const FAQS = [
-  {
-    question: "Qual o prazo médio para instalação de um escapamento?",
-    answer: "A maioria das instalações de escapamentos originais ou esportivos simples é realizada no mesmo dia, geralmente entre 1 a 3 horas. Projetos personalizados podem levar mais tempo."
+    id: 'troca-de-oleo',
+    slug: 'troca-de-oleo',
+    title: 'Troca de Óleo e Filtros',
+    shortTitle: 'Troca de Óleo',
+    metaTitle: 'Troca de Óleo em Curitiba | BS CAR CENTER',
+    metaDescription: 'Troca de óleo de motor e filtros em Curitiba. Lubrificantes específicos no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Troca de Óleo em Curitiba',
+    description: 'Substituição rápida e técnica de óleo de motor e filtros de óleo, ar do motor, combustível e ar-condicionado de acordo com a recomendação da montadora.',
+    answerFirst: 'A BS CAR CENTER realiza a troca de óleo e filtros em Curitiba, trabalhando com lubrificantes que atendem às viscosidades e especificações API/ACEA recomendadas por cada fabricante automotivo para garantir a proteção e a durabilidade do motor.',
+    details: [
+      'Drenagem completa do óleo usado e descarte ambientalmente responsável.',
+      'Substituição do filtro de óleo a cada troca para evitar contaminação do lubrificante novo.',
+      'Checagem dos filtros de ar do motor e de combustível.',
+      'Registro da quilometragem e prazo recomendado para a próxima troca.'
+    ],
+    faq: [
+      {
+        question: 'Posso trocar apenas o óleo e deixar o filtro antigo?',
+        answer: 'Não é recomendado. O filtro retém impurezas da circulação anterior. Manter o filtro velho contamina imediatamente o óleo novo, reduzindo sua vida útil e capacidade lubrificante.'
+      },
+      {
+        question: 'Como escolher a viscosidade correta do óleo?',
+        answer: 'A viscosidade e a norma técnica devem seguir rigorosamente o manual do proprietário do veículo, considerando o projeto do motor e a recomendação do fabricante.'
+      }
+    ],
+    iconName: 'Droplet',
+    priority: 7
   },
   {
-    question: "Vocês atendem clientes do Neo Ville e CIC?",
-    answer: "Sim! Estamos estrategicamente localizados no Novo Mundo, a poucos minutos do Neo Ville e CIC, sendo a oficina de referência para toda essa região."
+    id: 'cambio-automatico',
+    slug: 'cambio-automatico',
+    title: 'Troca de Óleo de Câmbio Automático',
+    shortTitle: 'Câmbio Automático',
+    metaTitle: 'Troca de Óleo de Câmbio Automático em Curitiba | BS CAR CENTER',
+    metaDescription: 'Substituição preventiva do fluido de transmissão automática em Curitiba com a BS CAR CENTER no Novo Mundo.',
+    h1: 'Troca de Óleo de Câmbio Automático em Curitiba',
+    description: 'Procedimento preventivo de substituição de fluido de transmissão automática e filtros internos/externos para veículos compatíveis.',
+    answerFirst: 'A BS CAR CENTER realiza a troca de óleo de câmbio automático em Curitiba, efetuando a substituição técnica do fluido de transmissão em caixas compatíveis. O serviço preventivo preserva as embreagens internas, solenoides e o conversor de torque da transmissão.',
+    details: [
+      'Avaliação da coloração, odor e nível do fluido atual.',
+      'Utilização de fluido conforme a norma e especificação exata do câmbio.',
+      'Troca de filtros do cárter e juntas quando aplicável ao modelo.',
+      'Verificação do funcionamento das trocas de marchas após o procedimento.'
+    ],
+    faq: [
+      {
+        question: 'O óleo do câmbio automático realmente precisa ser trocado?',
+        answer: 'Sim. Embora alguns manuais citem "fluido vitalício", o uso severo (trânsito urbano, variações térmicas) degrada os aditivos do fluido. A substituição preventiva evita desgastes caros na transmissão.'
+      },
+      {
+        question: 'Quais cuidados devem ser tomados antes de trocar o fluido do câmbio?',
+        answer: 'É indispensável realizar uma avaliação prévia do comportamento das marchas e do estado do fluido existente para certificar que o câmbio está apto a receber a troca preventiva.'
+      }
+    ],
+    iconName: 'Settings',
+    priority: 8
   },
   {
-    question: "O escapamento esportivo aumenta o consumo?",
-    answer: "Depende do projeto. Um sistema bem dimensionado pode até melhorar a eficiência do motor. Projetos incorretos podem aumentar o consumo. Nossa equipe calcula o fluxo ideal para seu carro."
+    id: 'motores',
+    slug: 'motores',
+    title: 'Serviços e Reparos em Motores',
+    shortTitle: 'Motores',
+    metaTitle: 'Serviços em Motores em Curitiba | BS CAR CENTER',
+    metaDescription: 'Avaliação técnica e manutenção de motores automotivos em Curitiba. Cabeçote, correias, vazamentos e arrefecimento no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Serviços e Reparos em Motores em Curitiba',
+    description: 'Diagnóstico e reparos em componentes do motor, incluindo substituição de correia dentada, bomba d’água, juntas, vedadores e sistema de arrefecimento.',
+    answerFirst: 'A BS CAR CENTER executa serviços e reparos em motores automotivos em Curitiba. Nossa equipe avalia ruídos mecânicos, vazamentos de óleo e água, falhas de sincronismo e perda de rendimento, realizando os reparos necessários com critério e transparência.',
+    details: [
+      'Substituição preventiva e corretiva do kit de correia dentada ou verificação de corrente.',
+      'Manutenção do sistema de arrefecimento: bomba d’água, válvula termostática e radiador.',
+      'Eliminação de vazamentos em tampa de válvulas, cárter e retentores.',
+      'Avaliação de compressão de cilindros e diagnóstico de superaquecimento.'
+    ],
+    faq: [
+      {
+        question: 'Quando trocar a correia dentada do motor?',
+        answer: 'A troca deve ser feita pelo intervalo de quilometragem ou tempo previsto no manual (geralmente entre 40.000 e 60.000 km, ou 3 a 5 anos), já que o rompimento pode danificar válvulas e pistões.'
+      },
+      {
+        question: 'O que fazer ao notar fumaça ou vazamento de óleo no motor?',
+        answer: 'Desligue o motor se houver alerta de pressão no painel e leve o veículo para diagnóstico. Vazamentos devem ser reparados antes de atingir componentes elétricos ou reduzir o nível seguro do óleo.'
+      }
+    ],
+    iconName: 'Gauge',
+    priority: 9
   },
   {
-    question: "Quais formas de pagamento vocês aceitam?",
-    answer: "Aceitamos cartões de crédito (com parcelamento), débito e PIX com desconto especial. Oferecemos condições facilitadas para orçamentos maiores."
-  },
-  {
-    question: "Como funciona a garantia dos serviços?",
-    answer: "Oferecemos garantia de 90 dias para mão de obra e garantia do fabricante para as peças (que pode variar de 6 meses a 1 ano, dependendo da marca)."
-  },
-  {
-    question: "É necessário agendar horário?",
-    answer: "Para diagnósticos rápidos, você pode vir direto. Para serviços mais complexos ou para garantir atendimento sem espera, recomendamos agendar pelo WhatsApp."
-  }
-];
-
-export const TESTIMONIALS = [
-  {
-    name: "Carlos Mendes",
-    location: "Morador do Neo Ville",
-    text: "Excelente atendimento! Troquei o escapamento do meu Honda Civic e ficou perfeito. O ronco esportivo na medida certa, sem incomodar. Recomendo muito para quem é do CIC.",
-    stars: 5
-  },
-  {
-    name: "Fernanda Oliveira",
-    location: "Cliente do CIC",
-    text: "Profissionais honestos. Fui em outra oficina que condenou minha suspensão inteira. Na BS, trocaram apenas as buchas necessárias. Ganharam uma cliente fiel.",
-    stars: 5
-  },
-  {
-    name: "Ricardo Santos",
-    location: "Novo Mundo",
-    text: "Rápido e preço justo. Fiz a revisão de freios e troca de óleo. O carro ficou ótimo e me entregaram no prazo combinado. Atendimento nota 10.",
-    stars: 5
-  },
-  {
-    name: "Roberto Almeida",
-    location: "Capão Raso",
-    text: "A melhor oficina de escapamentos da região sul de Curitiba. Instalaram um difusor no meu carro e o acabamento ficou impecável. Nota 10!",
-    stars: 5
-  },
-  {
-    name: "Juliana Costa",
-    location: "Pinheirinho",
-    text: "Levei meu carro fazendo um barulho horrível. Diagnosticaram que era só uma borracha solta e resolveram na hora. Honestidade rara hoje em dia.",
-    stars: 5
-  },
-  {
-    name: "Marcos Vinicius",
-    location: "Fazendinha",
-    text: "Preço bom e peças de qualidade. Fiz toda a suspensão e alinhamento 3D. O carro parece zero km novamente. Valeu a pena vir até o Novo Mundo.",
-    stars: 5
-  },
-  {
-    name: "Eduardo Silva",
-    location: "Neo Ville",
-    text: "Moro aqui no Neo Ville e sempre tive dificuldade de achar mecânico de confiança. A BS me surpreendeu. Serviço limpo e transparente.",
-    stars: 5
-  },
-  {
-    name: "Beatriz Ferreira",
-    location: "Cidade Industrial (CIC)",
-    text: "Fui indicada por um amigo do trabalho no CIC. Troquei o catalisador e a luz da injeção apagou na hora. Preço bem melhor que na concessionária.",
-    stars: 5
-  },
-  {
-    name: "Jorge Mathias",
-    location: "Xaxim",
-    text: "Instalei um Catback em inox. O ronco ficou animal! A solda Tig deles é uma obra de arte. Recomendo pra quem curte carro preparado.",
-    stars: 5
-  },
-  {
-    name: "Ana Paula",
-    location: "Condomínio Neo Ville",
-    text: "Atendimento diferenciado. Explicaram tudo o que precisava ser feito no meu carro sem 'empurrar' serviços extras. Ganharam minha confiança.",
-    stars: 5
-  },
-  {
-    name: "Felipe Rodrigues",
-    location: "Portão",
-    text: "Fica pertinho do CIC, acesso super fácil. Fiz revisão de férias e fui para a praia tranquilo. O carro não deu um pio.",
-    stars: 5
-  },
-  {
-    name: "Sérgio Gomes",
-    location: "Cidade Industrial",
-    text: "Oficina top! Equipamentos novos e equipe que entende do assunto. Resolveram um barulho na suspensão que ninguém achava.",
-    stars: 5
+    id: 'escapamentos',
+    slug: 'escapamentos',
+    title: 'Escapamentos, Catalisadores e Silenciosos',
+    shortTitle: 'Escapamentos',
+    metaTitle: 'Escapamentos em Curitiba | BS CAR CENTER',
+    metaDescription: 'Especialista histórico em escapamentos em Curitiba. Troca de silenciosos, catalisadores homologados e projetos esportivos no Novo Mundo com a BS CAR CENTER.',
+    h1: 'Escapamentos em Curitiba',
+    description: 'Tradição e expertise técnica em sistemas de exaustão: catalisadores homologados, silenciosos intermediários e traseiros, tubulações e escapamentos esportivos.',
+    answerFirst: 'A BS CAR CENTER mantém sua reconhecida tradição em sistemas de exaustão em Curitiba (construída sob o nome histórico BS Escapamentos). Executamos reparos, substituição de catalisadores homologados, troca de silenciosos furados, ponteiras e projetos esportivos dimensionados para cada aplicação veicular.',
+    details: [
+      'Substituição de catalisadores homologados com foco nas normas ambientais de emissões.',
+      'Troca de silenciosos intermediários e traseiros para eliminação de ruídos e ressonâncias.',
+      'Instalação de ponteiras, abafadores esportivos e difusores para entusiastas.',
+      'Reparo de coxins, abraçadeiras, tubos furados e soldas técnicas de exaustão.'
+    ],
+    faq: [
+      {
+        question: 'Como saber se o catalisador ou silencioso está furado?',
+        answer: 'Ruídos metálicos sob o assoalho, som de sopro alto na aceleração, cheiro forte de gases e vibrações anormais são indícios típicos de danos no sistema de exaustão.'
+      },
+      {
+        question: 'Vocês ainda realizam projetos de escapamento esportivo?',
+        answer: 'Sim! Os escapamentos continuam sendo uma de nossas especialidades históricas. Realizamos instalações de difusores, ponteiras e abafadores esportivos dentro das especificações técnicas.'
+      }
+    ],
+    iconName: 'Flame',
+    priority: 10
   }
 ];
 
 export const DIFFERENTIALS = [
-  { title: "Localização Estratégica", desc: "Fácil acesso para CIC e Neo Ville", icon: "MapPin" },
-  { title: "Pagamento Facilitado", desc: "Parcele em até 12x no cartão", icon: "CreditCard" },
-  { title: "Garantia Total", desc: "Serviços com nota e garantia", icon: "ShieldCheck" },
-  { title: "Peças Originais", desc: "Marcas líderes de mercado", icon: "Award" }
+  {
+    title: "Atendimento no Novo Mundo",
+    desc: "Fácil acesso para o CIC, região do Neo Ville e bairros vizinhos",
+    icon: "MapPin"
+  },
+  {
+    title: "Diagnóstico Computadorizado",
+    desc: "Scanners e equipamentos para leitura precisa de parâmetros",
+    icon: "Cpu"
+  },
+  {
+    title: "Garantia nos Serviços",
+    desc: "Garantia legal de 90 dias (CDC) e garantia de fábrica para peças",
+    icon: "ShieldCheck"
+  },
+  {
+    title: "Orçamento Transparente",
+    desc: "Explicação clara das intervenções antes de iniciar o serviço",
+    icon: "FileText"
+  }
 ];
 
-// Comprehensive list of Neighborhoods
-const NEIGHBORHOODS_LIST = [
-  "Vila Parolin", "Vila Torres", "Jardim Schaffer", "Vila Sabará", "Boqueirão de Baixo", "Boqueirão de Cima", "Tanguá", 
-  "Vila Zumbi", "Abranches de Baixo", "Abranches de Cima", "Vila Nossa Senhora da Luz", "Vila Tecnológica", "Vila Oficinas", 
-  "Vila Fanny", "Vila Hauer", "Batel Soho", "Alto da Rua XV", "CIC Norte", "CIC Central", "CIC Sul", "Vila Guaíra", 
-  "Centro Histórico", "Ecoville", "Carmo Abranches", "Água Verde", "Ahú", "Alto Boqueirão", "Alto da Glória", "Alto da XV", 
-  "Atuba", "Augusta", "Bacacheri", "Bairro Alto", "Barreirinha", "Batel", "Bigorrilho", "Boa Vista", "Bom Retiro", 
-  "Boqueirão", "Butiatuvinha", "Cabral", "Cachoeira", "Cajuru", "Campina do Siqueira", "Campo Comprido", "Campo de Santana", 
-  "Capão da Imbuia", "Capão Raso", "Cascatinha", "Caximba", "Centro", "Centro Cívico", "Cidade Industrial de Curitiba", 
-  "Cristo Rei", "Fanny", "Fazendinha", "Ganchinho", "Guabirotuba", "Guaíra", "Hauer", "Hugo Lange", "Jardim Botânico", 
-  "Jardim das Américas", "Jardim Social", "Juvevê", "Lamenha Pequena", "Lindóia", "Mercês", "Mossunguê", "Novo Mundo", 
-  "Orleans", "Parolin", "Pilarzinho", "Pinheirinho", "Portão", "Prado Velho", "Rebouças", "Riviera", "Santa Cândida", 
-  "Santa Felicidade", "Santa Quitéria", "Santo Inácio", "São Braz", "São Francisco", "São João", "São Lourenço", "São Miguel", 
-  "Vila Pantanal", "Seminário", "Sítio Cercado", "Taboão", "Tarumã", "Tatuquara", "Tingui", "Uberaba", "Umbará", "Vila Izabel", 
-  "Vista Alegre", "Xaxim", "Santa Quitéria Velha", "Portão Velho", "Guaíra Velho", "Uberaba de Cima", "Uberaba de Baixo", 
-  "São Braz Velho", "Cidade Industrial", "Vila Verde", "Vila Barigui", "Caiuá", "Xaxim Velho", 
-  "Fazendinha-Portão", "Campo Comprido Velho", "Bacacheri Velho", "Capão da Imbuia Velho", "Pinheirinho Velho", 
-  "Vila São Pedro", "Vila Osternack", "Neo Ville", "Vila Formosa", "Vila Sandra", "Conjunto Caiuá", 
-  "Conjunto Parigot de Souza", "Vila Reno", "Vila Audi"
+// Repositioned FAQs for Home (item 33)
+export const HOME_FAQS = [
+  {
+    question: "Quais serviços a BS CAR CENTER realiza?",
+    answer: "A BS CAR CENTER realiza manutenção automotiva preventiva e corretiva, incluindo freios, suspensão, geometria, balanceamento, diagnóstico por scanner, injeção eletrônica, troca de óleo, troca de fluido de câmbio automático, serviços em motores e sistemas de escapamentos."
+  },
+  {
+    question: "Vocês fazem manutenção automotiva em Curitiba?",
+    answer: "Sim. A BS CAR CENTER está localizada no bairro Novo Mundo, em Curitiba (R. Pedro Gusso, 2340), atendendo motoristas de toda a cidade, especialmente da região sul, CIC e bairros próximos."
+  },
+  {
+    question: "Fazem geometria e balanceamento?",
+    answer: "Sim. Realizamos aferição e ajuste de geometria das rodas (alinhamento) e balanceamento de conjuntos pneumáticos para garantir estabilidade e evitar desgaste irregular de pneus."
+  },
+  {
+    question: "Trabalham com suspensão e freios?",
+    answer: "Sim. Inspecionamos e substituímos pastilhas, discos, fluido de freio, amortecedores, molas, pivôs, buchas e componentes estruturais de suspensão e direção."
+  },
+  {
+    question: "Fazem diagnóstico com scanner?",
+    answer: "Sim. Utilizamos scanners automotivos para leitura de falhas gravadas na central eletrônica, monitoramento de sensores e apoio ao diagnóstico de luzes de alerta no painel."
+  },
+  {
+    question: "Fazem manutenção de injeção eletrônica?",
+    answer: "Sim. Realizamos limpeza e teste de bicos injetores, descarbonização de TBI, diagnóstico de sensores, cabos, velas e bobinas de ignição."
+  },
+  {
+    question: "Fazem troca de óleo de câmbio automático?",
+    answer: "Sim. Executamos a substituição preventiva do fluido de transmissão automática para veículos compatíveis, seguindo as especificações técnicas recomendadas."
+  },
+  {
+    question: "Trabalham com motores?",
+    answer: "Sim. Fazemos diagnósticos mecânicos e reparos em componentes de motores, como troca de correia dentada, bomba d'água, sistema de arrefecimento e correção de vazamentos."
+  },
+  {
+    question: "Ainda trabalham com escapamentos?",
+    answer: "Com certeza. Os escapamentos são uma especialidade histórica da empresa (anteriormente conhecida como BS Escapamentos). Continuamos oferecendo catalisadores homologados, silenciosos, tubulações e escapamentos esportivos."
+  },
+  {
+    question: "Como agendar atendimento?",
+    answer: "Você pode agendar seu atendimento ou tirar dúvidas diretamente pelo nosso WhatsApp no número (41) 99843-4800 ou pelo telefone fixo (41) 3268-3473."
+  }
 ];
 
-// Comprehensive list of Cities
-const CITIES_LIST = [
-  "Curitiba", "Adrianópolis", "Agudos do Sul", "Almirante Tamandaré", "Araucária", "Balsa Nova", "Bocaiúva do Sul", 
-  "Campina Grande do Sul", "Campo do Tenente", "Campo Largo", "Campo Magro", "Cerro Azul", "Colombo", 
-  "Contenda", "Doutor Ulysses", "Fazenda Rio Grande", "Itaperuçu", "Lapa", "Mandirituba", "Piên", 
-  "Pinhais", "Piraquara", "Quatro Barras", "Quitandinha", "Rio Branco do Sul", "Rio Negro", 
-  "São José dos Pinhais", "Tijucas do Sul", "Tunas do Paraná"
+// Audited, factual customer feedback (no fake 5-star Google review claim)
+export const CLIENT_FEEDBACK = [
+  {
+    name: "Carlos M.",
+    location: "Novo Mundo / CIC",
+    text: "Atendimento transparente e diagnóstico ágil. Fizeram a revisão de suspensão e freios com orçamento detalhado antes de mexer no carro."
+  },
+  {
+    name: "Fernanda O.",
+    location: "Região do Neo Ville",
+    text: "Moro próxima ao Novo Mundo e levo meu carro para troca de óleo e revisão preventiva. Equipe atenciosa e serviço entregue no prazo combinado."
+  },
+  {
+    name: "Ricardo S.",
+    location: "Curitiba",
+    text: "Fiz a geometria, balanceamento e a troca de pastilhas de freio. O carro ficou firme na estrada e sem ruídos."
+  },
+  {
+    name: "Roberto A.",
+    location: "Capão Raso",
+    text: "Sou cliente antigo de escapamento e recentemente fiz a revisão da injeção e scanner. Excelente trabalho e seriedade na oficina."
+  }
+];
+
+// Repositioned Blog Posts with maintenance focus (item 35)
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    slug: "como-saber-se-a-suspensao-precisa-de-avaliacao",
+    title: "Como saber se a suspensão precisa de avaliação?",
+    excerpt: "Barulhos ao passar em desníveis ou sensação de instabilidade? Entenda os indícios de desgaste em amortecedores, buchas e pivôs.",
+    date: "15 Jan 2026",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Identificando sinais de desgaste na suspensão do veículo</h2>
+      <p>O sistema de suspensão é responsável por manter os pneus em contato constante com o solo e absorver os impactos das vias de Curitiba. Com o tempo de uso, componentes de borracha e amortecedores sofrem desgaste natural.</p>
+      
+      <h3>Sinais mais comuns observados pelos motoristas</h3>
+      <ul>
+        <li><strong>Ruídos metálicos ou batidas secas:</strong> frequentemente associados a folgas em bieletas, buchas de barra estabilizadora ou pivôs.</li>
+        <li><strong>Instabilidade em curvas ou ventos laterais:</strong> amortecedores com perda de carga reduzem a aderência das rodas ao piso.</li>
+        <li><strong>Desgaste irregular dos pneus:</strong> folgas na suspensão alteram o alinhamento da direção durante o rodar.</li>
+      </ul>
+      <p>Uma inspeção visual no elevador automotivo permite checar vazamentos de óleo nos amortecedores e folgas com alavanca técnica, evitando a troca desnecessária de peças boas.</p>
+    `
+  },
+  {
+    id: 2,
+    slug: "quando-fazer-geometria-e-balanceamento",
+    title: "Quando fazer geometria e balanceamento?",
+    excerpt: "Descubra a frequência recomendada e as situações em que o alinhamento veicular é necessário para poupar pneus e combustível.",
+    date: "20 Jan 2026",
+    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Geometria e balanceamento: segurança e durabilidade</h2>
+      <p>A geometria das rodas consiste na calibração dos ângulos de convergência/divergência, cambagem e cáster. Já o balanceamento equaliza a massa do pneu e da roda para evitar oscilações.</p>
+      
+      <h3>Quando agendar o serviço?</h3>
+      <p>Geralmente recomenda-se a verificação a cada 10.000 km, mas deve ser antecipada caso:</p>
+      <ul>
+        <li>O volante vibre em velocidades de rodovia (indicativo de desbalanceamento).</li>
+        <li>O veículo puxe para a direita ou esquerda em retas planas (indicativo de desalinhamento).</li>
+        <li>Ocorra impacto forte contra guias, buracos ou reformas no asfalto.</li>
+        <li>Peças de suspensão ou direção tenham sido substituídas.</li>
+      </ul>
+    `
+  },
+  {
+    id: 3,
+    slug: "sinais-de-desgaste-nos-freios",
+    title: "Sinais de desgaste nos freios: o que observar",
+    excerpt: "Pedal esponjoso, chiados ao frear ou trepidação? Saiba quando levar seu veículo para inspecionar pastilhas e discos.",
+    date: "05 Fev 2026",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Segurança nas frenagens: o que avaliar no sistema de freios</h2>
+      <p>O sistema de freios é o item de segurança ativa mais exigido no trânsito urbano. Pastilhas e discos sofrem desgaste por atrito e necessitam de acompanhamento regular.</p>
+      
+      <h3>Sintomas que exigem checagem</h3>
+      <ol>
+        <li><strong>Ruído agudo ou atrito ferro com ferro:</strong> alerta de que a pastilha atingiu o limite de material de atrito.</li>
+        <li><strong>Pedal de freio baixo ou elástico:</strong> pode indicar ar no sistema hidráulico ou degradação do fluido de freio por umidade.</li>
+        <li><strong>Vibração no pedal ao frear:</strong> costuma indicar empenamento ou espessura irregular nas pistas dos discos de freio.</li>
+      </ol>
+      <p>Recomenda-se aferir visualmente as pastilhas e testar o fluido de freio em toda revisão periódica.</p>
+    `
+  },
+  {
+    id: 4,
+    slug: "o-que-o-scanner-automotivo-consegue-identificar",
+    title: "O que o scanner automotivo consegue identificar?",
+    excerpt: "Entenda o papel do diagnóstico eletrônico, o significado dos códigos de falha e por que a avaliação mecânica continua essencial.",
+    date: "12 Fev 2026",
+    image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Diagnóstico eletrônico com scanner automotivo</h2>
+      <p>Os veículos modernos possuem módulos eletrônicos (ECU, ABS, Airbag, BCM) interligados por redes de comunicação. O scanner automotivo é a ferramenta que estabelece conexão com esses sistemas.</p>
+      
+      <h3>O que a ferramenta analisa</h3>
+      <p>O aparelho lê os códigos de anomalia (DTC) gerados quando um sensor envia sinal fora da faixa esperada. Além disso, monitora grandezas em tempo real, como temperatura da água, avanço de ignição, tensão da bateria e pressão no coletor.</p>
+      <p><strong>Importante:</strong> o scanner indica o circuito que reportou o erro, mas a confirmação da peça defeituosa requer teste técnico com multímetro, manômetro ou osciloscópio.</p>
+    `
+  },
+  {
+    id: 5,
+    slug: "troca-de-oleo-de-cambio-automatico-quando-avaliar",
+    title: "Troca de óleo de câmbio automático: quando avaliar?",
+    excerpt: "Saiba por que o fluido de transmissão automática precisa de verificação preventiva para garantir trocas suaves de marcha.",
+    date: "18 Fev 2026",
+    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Manutenção preventiva do câmbio automático</h2>
+      <p>Diferente de uma transmissão mecânica, o câmbio automático depende do fluido hidráulico não apenas para lubrificação, mas também para transmissão de força no conversor de torque e acionamento eletro-hidráulico das válvulas solenoides.</p>
+      
+      <h3>Sinais de alerta no câmbio</h3>
+      <ul>
+        <li>Trancos nas trocas de marcha ou retenção prolongada em marcha lenta.</li>
+        <li>Odor de queimado no óleo verificado na vareta ou bujão de checagem.</li>
+        <li>Fluido escurecido ou com partículas visíveis.</li>
+      </ul>
+      <p>A troca preventiva do fluido de transmissão dentro do prazo técnico do modelo preserva o conjunto e previne despesas elevadas com reparações internas.</p>
+    `
+  },
+  {
+    id: 6,
+    slug: "escapamento-fazendo-barulho-o-que-observar",
+    title: "Escapamento fazendo barulho: o que observar?",
+    excerpt: "Ruídos de sopro, batidas sob o assoalho ou cheiro de gases? Veja como diagnosticar problemas no sistema de exaustão.",
+    date: "25 Fev 2026",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    content: `
+      <h2>Ruídos no escapamento: silenciosos, catalisador e fixações</h2>
+      <p>O escapamento direciona os gases quentes e tóxicos da combustão para fora do habitáculo, ao mesmo tempo em que reduz ruídos e controla emissões de poluentes.</p>
+      
+      <h3>Causas comuns de barulho</h3>
+      <p>Em cidades com clima úmido como Curitiba, a condensação interna na tubulação pode acelerar a corrosão de silenciosos não protegidos. Furos na chapa geram ruídos de sopro intenso, enquanto borrachas de sustentação ressecadas provocam batidas da tubulação contra a lataria.</p>
+      <p>Caso a cerâmica interna do catalisador quebre, ouve-se um chocalho característico em acelerações. A inspeção rápida no elevador identifica com clareza o ponto exato da avaria.</p>
+    `
+  }
+];
+
+// Highlighted focus areas on Home (10-15 locations as requested in item 29)
+export const HOME_PRIMARY_AREAS = [
+  { name: "Novo Mundo", slug: "novo-mundo", type: "neighborhood" as const },
+  { name: "Cidade Industrial (CIC)", slug: "cidade-industrial-de-curitiba", type: "neighborhood" as const },
+  { name: "Região do Neo Ville", slug: "neo-ville", type: "neighborhood" as const },
+  { name: "Capão Raso", slug: "capao-raso", type: "neighborhood" as const },
+  { name: "Pinheirinho", slug: "pinheirinho", type: "neighborhood" as const },
+  { name: "Portão", slug: "portao", type: "neighborhood" as const },
+  { name: "Fazendinha", slug: "fazendinha", type: "neighborhood" as const },
+  { name: "Xaxim", slug: "xaxim", type: "neighborhood" as const },
+  { name: "Hauer", slug: "hauer", type: "neighborhood" as const },
+  { name: "Água Verde", slug: "agua-verde", type: "neighborhood" as const },
+  { name: "Boqueirão", slug: "boqueirao", type: "neighborhood" as const },
+  { name: "Sítio Cercado", slug: "sitio-cercado", type: "neighborhood" as const }
+];
+
+// Real confirmed Curitiba neighborhoods and close RMC cities
+const CONFIRMED_NEIGHBORHOODS = [
+  "Novo Mundo", "Cidade Industrial de Curitiba", "Neo Ville", "Capão Raso", "Pinheirinho", "Portão",
+  "Fazendinha", "Xaxim", "Hauer", "Água Verde", "Boqueirão", "Sítio Cercado",
+  "Santa Quitéria", "Vila Izabel", "Seminário", "Batel", "Bigorrilho", "Campina do Siqueira",
+  "Campo Comprido", "Fanny", "Guaíra", "Lindóia", "Parolin", "Prado Velho", "Rebouças",
+  "Centro", "Centro Cívico", "Alto da XV", "Cristo Rei", "Jardim Botânico", "Cajuru",
+  "Uberaba", "Guabirotuba", "Tatuquara", "Umbará", "Ganchinho", "Caximba", "Campo de Santana"
+];
+
+const CONFIRMED_CITIES = [
+  "Curitiba", "São José dos Pinhais", "Pinhais", "Colombo", "Araucária", "Fazenda Rio Grande", "Campo Largo", "Almirante Tamandaré"
 ];
 
 const generateSlug = (text: string) => {
@@ -438,17 +573,13 @@ const generateSlug = (text: string) => {
     .replace(/\s+/g, '-');
 };
 
-// Sort lists alphabetically for better UX
-const SORTED_NEIGHBORHOODS = [...new Set(NEIGHBORHOODS_LIST)].sort((a, b) => a.localeCompare(b));
-const SORTED_CITIES = [...new Set(CITIES_LIST)].sort((a, b) => a.localeCompare(b));
-
 export const LOCATIONS: LocationData[] = [
-  ...SORTED_CITIES.map(name => ({
+  ...CONFIRMED_CITIES.map(name => ({
     name,
     slug: generateSlug(name),
     type: 'city' as const
   })),
-  ...SORTED_NEIGHBORHOODS.map(name => ({
+  ...CONFIRMED_NEIGHBORHOODS.map(name => ({
     name,
     slug: generateSlug(name),
     type: 'neighborhood' as const

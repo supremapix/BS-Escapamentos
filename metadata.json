@@ -1,5 +1,6 @@
 {
   "name": "BS Escapamentos - Auto Center",
   "description": "Oficina mecânica especializada em escapamentos, suspensão e manutenção automotiva em Curitiba e Região.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }

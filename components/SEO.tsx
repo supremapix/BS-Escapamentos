@@ -15,15 +15,17 @@ const SEO: React.FC<SEOProps> = ({
   description, 
   canonicalPath = '', 
   schemaType = 'AutoRepair',
-  keywords = 'escapamentos, oficina mecânica, curitiba, suspensão, freios'
+  keywords = 'manutenção automotiva, auto center, curitiba, suspensão, freios, escapamentos'
 }) => {
   const fullUrl = `${COMPANY_INFO.siteUrl}${canonicalPath}`;
-  const displayTitle = `${title} | BS Escapamentos`;
+  const displayTitle = `${title} | BS CAR CENTER`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": schemaType,
+    "@id": `${COMPANY_INFO.siteUrl}/#business`,
     "name": COMPANY_INFO.name,
+    "alternateName": COMPANY_INFO.historicalName,
     "image": "https://picsum.photos/1200/630",
     "url": COMPANY_INFO.siteUrl,
     "telephone": COMPANY_INFO.whatsappDisplay,
