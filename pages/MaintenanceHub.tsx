@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EnhancedSEO from '../components/EnhancedSEO';
+import ActionTicker from '../components/ActionTicker';
 import { SERVICES, COMPANY_INFO } from '../data/constants';
 import * as Icons from 'lucide-react';
 import { LucideIcon, ArrowRight, CheckCircle2, Phone, MessageCircle, MapPin } from 'lucide-react';
@@ -76,6 +77,11 @@ const MaintenanceHub: React.FC = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Task Letreiro de Ações Rápidas */}
+        <div className="mb-12">
+          <ActionTicker />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">

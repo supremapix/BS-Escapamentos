@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { COMPANY_INFO } from '../data/constants';
-import { ChevronRight, ShieldCheck, Wrench, MessageCircle, MapPin, Gauge, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronRight, ShieldCheck, Gauge, MapPin } from 'lucide-react';
 
 const MESSAGES = [
   "MANUTENÇÃO AUTOMOTIVA EM CURITIBA",
@@ -127,46 +126,14 @@ const Hero: React.FC = () => {
           Manutenção Automotiva Completa em Curitiba: freios, suspensão, geometria, balanceamento, scanner, injeção eletrônica, troca de óleo, câmbio automático, motores e escapamentos no Novo Mundo, com fácil acesso ao CIC e região.
         </p>
 
-        {/* Primary and Secondary CTA (Item 8) */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-lg mx-auto animate-fade-in-up px-2 sm:px-4 mb-2">
-          <a 
-            href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar um atendimento.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 group bg-primary-yellow hover:bg-yellow-400 text-slate-950 font-black py-4 px-6 rounded-2xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-2.5 text-sm sm:text-base border border-primary-yellow shadow-xl active:scale-95"
-          >
-            <MessageCircle size={20} className="fill-slate-950 shrink-0" />
-            <span>AGENDAR ATENDIMENTO</span>
-          </a>
-          
-          <Link 
-            to="/servicos"
-            className="flex-1 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-6 rounded-2xl transition-all hover:bg-white hover:text-slate-950 hover:shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base active:scale-95"
-          >
-            <Wrench size={18} className="shrink-0" />
-            <span>VER SERVIÇOS</span>
-          </Link>
-        </div>
-
-        {/* Quick Phone Call option for mobile and seniors */}
-        <div className="animate-fade-in-up text-center mb-4 sm:mb-6">
-          <a
-            href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-200 hover:text-primary-yellow transition-colors font-medium bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10"
-          >
-            <Phone size={14} className="text-primary-yellow shrink-0 fill-primary-yellow" />
-            <span>Prefere ligar direto? <strong className="text-primary-yellow underline font-bold">{COMPANY_INFO.phone}</strong></span>
-          </a>
-        </div>
-
         {/* Factual Badges (Item 24 & 52: Audited and truthful) */}
-        <div className="mt-4 sm:mt-6 md:mt-8 flex flex-wrap gap-4 sm:gap-6 md:gap-10 justify-center text-gray-300 text-[11px] sm:text-xs font-semibold animate-fade-in-up opacity-90">
-          <div className="flex items-center gap-1.5">
-            <ShieldCheck size={16} className="text-primary-green" />
+        <div className="mt-2 sm:mt-4 flex flex-wrap gap-4 sm:gap-6 md:gap-10 justify-center text-gray-300 text-xs sm:text-sm font-semibold animate-fade-in-up opacity-95">
+          <div className="flex items-center gap-1.5 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10">
+            <ShieldCheck size={16} className="text-primary-green shrink-0" />
             <span>Garantia de 90 dias (CDC)</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Gauge size={16} className="text-primary-yellow" />
+          <div className="flex items-center gap-1.5 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10">
+            <Gauge size={16} className="text-primary-yellow shrink-0" />
             <span>Diagnóstico Computadorizado</span>
           </div>
         </div>

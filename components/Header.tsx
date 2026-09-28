@@ -170,53 +170,18 @@ const Header: React.FC = () => {
             >
               Contato
             </Link>
-
-            {/* Desktop CTA Button */}
-            <a
-              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar um atendimento.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary-green hover:bg-green-600 text-white px-5 py-2 rounded-xl transition-all text-xs font-bold shadow-md hover:scale-105"
-            >
-              <MessageCircle size={15} />
-              <span>AGENDAR</span>
-            </a>
           </nav>
 
-          {/* Mobile Top Actions (Senior-Friendly: Direct Call + WhatsApp + Obvious Menu Button) */}
-          <div className="flex xl:hidden items-center gap-2 z-50">
-            {/* Quick Call direct button for older adults */}
-            <a
-              href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-              className="flex items-center gap-1.5 bg-primary-yellow text-primary-dark font-black px-3 py-1.5 rounded-lg text-xs shadow transition-transform active:scale-95"
-              aria-label="Ligar para a oficina"
-              title="Ligar agora"
-            >
-              <Phone size={14} className="fill-primary-dark shrink-0" />
-              <span className="font-extrabold tracking-tight">LIGAR</span>
-            </a>
-
-            {/* Quick WhatsApp button */}
-            <a
-              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e preciso de atendimento.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-primary-green text-white p-2 rounded-lg shadow transition-transform active:scale-95 flex items-center justify-center"
-              aria-label="Chamar no WhatsApp"
-              title="Conversar no WhatsApp"
-            >
-              <MessageCircle size={18} />
-            </a>
-
-            {/* Main Menu Button with Text "MENU" so it's 100% obvious to seniors */}
+          {/* Mobile Menu Button (Clean, uncluttered header) */}
+          <div className="flex xl:hidden items-center z-50">
             <button
               onClick={toggleMenu}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-xs transition-colors border ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl font-bold text-xs transition-all border shadow-sm ${
                 isOpen
                   ? 'bg-primary-yellow text-primary-dark border-primary-yellow'
-                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20 active:scale-95'
               }`}
-              aria-label={isOpen ? "Fechar Menu" : "Abrir Menu de Opções"}
+              aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
               aria-expanded={isOpen}
             >
               {isOpen ? (
@@ -227,7 +192,7 @@ const Header: React.FC = () => {
               ) : (
                 <>
                   <Menu size={18} className="text-primary-yellow" />
-                  <span>MENU</span>
+                  <span className="tracking-wider">MENU</span>
                 </>
               )}
             </button>

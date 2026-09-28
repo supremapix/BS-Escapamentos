@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import ActionTicker from '../components/ActionTicker';
 import { 
   SERVICES, 
   COMPANY_INFO, 
@@ -51,6 +52,9 @@ const Home: React.FC = () => {
       
       {/* Hero Section */}
       <Hero />
+
+      {/* Task Letreiro de Ações Rápidas (Botões Clicáveis em Movimento Contínuo) */}
+      <ActionTicker />
 
       {/* AIO Answer-First Block (Item 9: 50-80 words) */}
       <section className="py-8 bg-white border-b border-gray-100">
