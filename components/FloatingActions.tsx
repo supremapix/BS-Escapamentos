@@ -26,7 +26,7 @@ const FloatingActions: React.FC = () => {
   const labelClass = "absolute right-14 bg-gray-900 text-white text-xs font-bold px-3 py-1.5 rounded-md shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none";
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4 pointer-events-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 sm:gap-4 pointer-events-none">
       {/* Container for interactive elements (re-enabling pointer events) */}
       <div className="flex flex-col items-end gap-3 pointer-events-auto">
 
@@ -88,16 +88,17 @@ const FloatingActions: React.FC = () => {
         {/* --- Main Toggle Button --- */}
         <button
           onClick={toggleMenu}
-          className={`flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 ${isOpen ? 'bg-gray-600 rotate-90' : 'bg-primary-blue hover:bg-blue-800'}`}
+          className={`flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 ${isOpen ? 'bg-gray-600 rotate-90' : 'bg-primary-blue hover:bg-blue-800'}`}
           aria-label={isOpen ? "Fechar menu" : "Opções de contato"}
           aria-expanded={isOpen}
         >
           {isOpen ? (
-            <X size={24} className="text-white" />
+            <X size={22} className="text-white" />
           ) : (
             <>
               <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-20 animate-ping"></span>
-              <Headset size={28} className="text-white relative z-10" />
+              <Headset size={24} className="text-white relative z-10 sm:hidden" />
+              <Headset size={28} className="text-white relative z-10 hidden sm:block" />
             </>
           )}
         </button>

@@ -44,25 +44,25 @@ const Header: React.FC = () => {
       <header 
         className={`fixed w-full top-0 z-50 transition-all duration-300 border-b ${
           showDarkHeader
-            ? 'bg-primary-dark/95 backdrop-blur-md py-2.5 shadow-lg border-white/10' 
-            : 'bg-transparent py-4 border-transparent'
+            ? 'bg-primary-dark/95 backdrop-blur-md py-2 md:py-2.5 shadow-lg border-white/10' 
+            : 'bg-primary-dark/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none py-2 md:py-4 border-white/10 md:border-transparent shadow-md md:shadow-none'
         }`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 flex justify-between items-center h-14 md:h-auto">
           
           {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-2.5 z-50 group" onClick={closeMenu}>
-            <div className={`relative flex items-center justify-center transition-all duration-300 ${showDarkHeader ? 'w-10 h-7' : 'w-12 h-8 md:w-14 md:h-9'} bg-primary-blue border-2 border-primary-yellow rounded-[50%] shadow-md`}>
-              <span className="text-primary-yellow font-black italic tracking-tighter text-sm md:text-base" style={{ fontFamily: 'Arial Black, Arial, sans-serif' }}>
+          <Link to="/" className="flex items-center gap-2 sm:gap-2.5 z-50 group" onClick={closeMenu}>
+            <div className={`relative flex items-center justify-center transition-all duration-300 ${showDarkHeader ? 'w-9 h-6 sm:w-10 sm:h-7' : 'w-10 h-7 sm:w-12 sm:h-8 md:w-14 md:h-9'} bg-primary-blue border-2 border-primary-yellow rounded-[50%] shadow-md shrink-0`}>
+              <span className="text-primary-yellow font-black italic tracking-tighter text-xs sm:text-sm md:text-base" style={{ fontFamily: 'Arial Black, Arial, sans-serif' }}>
                 BS
               </span>
             </div>
             
             <div className="flex flex-col">
-              <span className={`font-heading font-black leading-tight tracking-wide transition-colors ${showDarkHeader ? 'text-white group-hover:text-primary-yellow' : 'text-white group-hover:text-primary-yellow text-shadow-lg'} text-sm md:text-base`}>
+              <span className="font-heading font-black leading-tight tracking-wide text-white group-hover:text-primary-yellow transition-colors text-xs sm:text-sm md:text-base">
                 BS CAR CENTER
               </span>
-              <span className="text-primary-yellow font-bold tracking-[0.15em] uppercase text-[9px] md:text-[10px]">
+              <span className="text-primary-yellow font-bold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-[8px] sm:text-[9px] md:text-[10px]">
                 MANUTENÇÃO E ESCAPAMENTOS
               </span>
             </div>
