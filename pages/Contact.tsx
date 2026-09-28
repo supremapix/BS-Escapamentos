@@ -30,25 +30,56 @@ const Contact: React.FC = () => {
       />
       
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
-        <div className="container mx-auto px-4 max-w-5xl">
-          
-          <div className="text-center mb-12">
-            <span className="text-primary-blue font-bold uppercase tracking-wider text-xs block mb-1">
-              Atendimento e Agendamentos
+        
+        {/* Banner with Video Background */}
+        <div className="bg-primary-dark py-16 mb-12 relative overflow-hidden text-center text-white border-b-4 border-primary-yellow">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95"></div>
+          <div className="container mx-auto px-4 relative z-10 max-w-4xl">
+            <span className="text-primary-yellow font-bold uppercase tracking-wider text-xs block mb-2">
+              Atendimento e Agendamentos no Novo Mundo
             </span>
-            <h1 className="text-3xl md:text-5xl font-heading font-black text-primary-dark mb-3">
+            <h1 className="text-3xl md:text-5xl font-heading font-black mb-3">
               Fale com a BS CAR CENTER
             </h1>
-            <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-              Tire dúvidas, solicite orçamentos ou agende a avaliação do seu veículo com nossa equipe técnica.
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto">
+              Tire dúvidas, solicite orçamentos ou agende a avaliação do seu veículo com nossa equipe técnica em Curitiba.
             </p>
           </div>
+        </div>
 
+        <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
             
             {/* Contact Info Side */}
             <div className="lg:col-span-5 space-y-6">
               
+              {/* Store Facade Photo */}
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-sm aspect-[16/10] bg-gray-100 group">
+                <img
+                  src="https://img.supremasite.com.br/bs/bs-loja.webp"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/bs-loja.webp'; }}
+                  alt="Fachada Oficial BS CAR CENTER na Rua Pedro Gusso, 2340 - Novo Mundo, Curitiba"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 left-3 bg-primary-dark/90 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow">
+                  <MapPin size={12} className="text-primary-yellow" />
+                  <span>R. Pedro Gusso, 2340</span>
+                </div>
+              </div>
+
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
                 <h2 className="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
                   Canais Oficiais

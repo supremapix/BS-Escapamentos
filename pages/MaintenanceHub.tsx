@@ -30,9 +30,20 @@ const MaintenanceHub: React.FC = () => {
           </nav>
         </div>
 
-        {/* Hero Section */}
+        {/* Hero Section with Video Background */}
         <div className="bg-primary-dark py-16 text-white relative overflow-hidden mb-12 border-b-4 border-primary-yellow">
-          <div className="absolute inset-0 bg-primary-blue/20"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95"></div>
           <div className="container mx-auto px-4 relative z-10 max-w-5xl">
             <span className="text-primary-yellow font-bold uppercase tracking-wider text-xs md:text-sm mb-3 block">
               Auto Center no Novo Mundo | Curitiba - PR
@@ -182,22 +193,36 @@ const MaintenanceHub: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Banner */}
-          <div className="bg-gradient-to-r from-primary-blue to-primary-dark rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
-            <h2 className="text-3xl md:text-4xl font-heading font-black mb-4">
-              Precisa de Manutenção no Seu Veículo?
-            </h2>
-            <p className="text-gray-200 max-w-2xl mx-auto mb-8 text-lg">
-              Converse com a nossa equipe, informe os sintomas do carro e agende o melhor horário para avaliação no Novo Mundo.
-            </p>
-            <a
-              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Quero agendar uma revisão na BS CAR CENTER.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-primary-yellow text-primary-dark hover:bg-yellow-400 font-black py-4 px-10 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-3 shadow-lg"
+          {/* CTA Banner with Video Background */}
+          <div className="relative overflow-hidden bg-primary-dark rounded-3xl p-8 md:p-12 text-center text-white border-2 border-primary-yellow/30 shadow-xl">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+              className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
             >
-              <MessageCircle size={22} /> AGENDAR ATENDIMENTO
-            </a>
+              <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+              <source src="/bs.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-blue/85 to-primary-dark/95 pointer-events-none" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-heading font-black mb-4">
+                Precisa de Manutenção no Seu Veículo?
+              </h2>
+              <p className="text-gray-200 max-w-2xl mx-auto mb-8 text-lg">
+                Converse com a nossa equipe, informe os sintomas do carro e agende o melhor horário para avaliação no Novo Mundo.
+              </p>
+              <a
+                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Quero agendar uma revisão na BS CAR CENTER.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-yellow text-primary-dark hover:bg-yellow-400 font-black py-4 px-10 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-3 shadow-lg"
+              >
+                <MessageCircle size={22} /> AGENDAR ATENDIMENTO
+              </a>
+            </div>
           </div>
 
         </div>

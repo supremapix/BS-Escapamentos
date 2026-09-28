@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HERO_IMAGES, COMPANY_INFO } from '../data/constants';
+import { COMPANY_INFO } from '../data/constants';
 import { ChevronRight, ShieldCheck, Wrench, MessageCircle, MapPin, Gauge } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,6 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
   // Parallax Effect
@@ -28,14 +27,6 @@ const Hero: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Slide rotation
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000); 
-    return () => clearInterval(slideInterval);
   }, []);
 
   // Typewriter logic
@@ -78,23 +69,19 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="relative h-screen min-h-[640px] flex items-center justify-center bg-primary-dark text-white overflow-hidden">
       
-      {/* Dynamic Background Slides */}
-      {HERO_IMAGES.map((slide, index) => (
-        <div 
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'
-          }`}
-        >
-          <img 
-            src={slide} 
-            alt="Oficina Mecânica e Auto Center em Curitiba Novo Mundo" 
-            className="w-full h-full object-cover transform will-change-transform scale-105"
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
-      
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+        <source src="/bs.mp4" type="video/mp4" />
+      </video>
+
       {/* Overlays for high contrast & legibility */}
       <div className="absolute inset-0 bg-gray-950/70 z-0"></div>
       <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>

@@ -54,9 +54,20 @@ const ServiceDetail: React.FC = () => {
           </nav>
         </div>
 
-        {/* Hero Section */}
+        {/* Hero Section with Video Background */}
         <div className="bg-primary-dark py-14 text-white relative overflow-hidden mb-12 border-b-4 border-primary-yellow">
-          <div className="absolute inset-0 bg-primary-blue/20"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95"></div>
           <div className="container mx-auto px-4 relative z-10 max-w-5xl">
             <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs font-bold text-primary-yellow uppercase tracking-wider mb-3">
               <span>BS CAR CENTER</span>

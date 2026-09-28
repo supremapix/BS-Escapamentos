@@ -21,9 +21,20 @@ const Services: React.FC = () => {
       
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
         
-        {/* Header Banner */}
+        {/* Header Banner with Video Background */}
         <div className="bg-primary-dark py-16 text-center text-white mb-12 relative overflow-hidden border-b-4 border-primary-yellow">
-          <div className="absolute inset-0 bg-primary-blue/25"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95"></div>
           <div className="container mx-auto px-4 relative z-10 max-w-4xl">
             <span className="text-primary-yellow font-bold tracking-widest uppercase text-xs md:text-sm mb-2 block">
               BS CAR CENTER | Novo Mundo - Curitiba

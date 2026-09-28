@@ -22,16 +22,23 @@ export const COMPANY_INFO = {
   siteUrl: "https://www.bsescapamentos.com.br"
 };
 
+export const STORE_IMAGES = {
+  mainFacade: "https://img.supremasite.com.br/bs/bs-loja.webp",
+  yardBay: "https://img.supremasite.com.br/bs/bs-loja-cic.webp",
+  videoBg: "https://img.supremasite.com.br/bs/bs.mp4",
+  altMain: "Fachada oficial da BS CAR CENTER na Rua Pedro Gusso, 2340 - Novo Mundo, Curitiba",
+  altYard: "Pátio e boxes de serviços mecânicos da BS CAR CENTER na Rua Pedro Gusso, 2324 - Curitiba"
+};
+
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+  "https://img.supremasite.com.br/bs/bs-loja.webp",
+  "https://img.supremasite.com.br/bs/bs-loja-cic.webp"
 ];
 
 export const PAGE_IMAGES = {
-  trust: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  trust: "https://img.supremasite.com.br/bs/bs-loja.webp",
   exhaust: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  workshop: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  workshop: "https://img.supremasite.com.br/bs/bs-loja-cic.webp"
 };
 
 // Hierarchy of confirmed services

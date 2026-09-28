@@ -17,9 +17,20 @@ const About: React.FC = () => {
       
       <div className="pt-24 pb-16 bg-white min-h-screen">
         
-        {/* Header Section */}
+        {/* Header Section with Video Background */}
         <div className="bg-primary-dark py-16 text-white text-center relative overflow-hidden border-b-4 border-primary-yellow mb-12">
-          <div className="absolute inset-0 bg-primary-blue/20"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/90 via-primary-dark/80 to-primary-dark/95"></div>
           <div className="container mx-auto px-4 relative z-10 max-w-4xl">
             <span className="text-primary-yellow font-bold uppercase tracking-wider text-xs md:text-sm mb-2 block">
               Tradição e Evolução Técnica no Novo Mundo
@@ -38,17 +49,26 @@ const About: React.FC = () => {
           {/* Main Story */}
           <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
             <div className="w-full md:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 group">
                 <img 
-                  src={HERO_IMAGES[1]} 
-                  alt="Oficina Mecânica BS CAR CENTER Curitiba" 
-                  className="w-full h-80 object-cover" 
+                  src="https://img.supremasite.com.br/bs/bs-loja.webp" 
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/bs-loja.webp'; }}
+                  alt="Fachada Oficial BS CAR CENTER na Rua Pedro Gusso, 2340 em Curitiba" 
+                  className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500" 
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
+                <div className="absolute bottom-3 left-3 bg-primary-dark/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow">
+                  <MapPin size={13} className="text-primary-yellow" />
+                  <span>R. Pedro Gusso, 2340 - Fachada Oficial</span>
+                </div>
               </div>
             </div>
             
             <div className="w-full md:w-1/2 space-y-4 text-sm md:text-base text-gray-700 leading-relaxed">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary-blue bg-blue-50 px-3 py-1 rounded-full">
+                <span>Nossa Origem & Evolução</span>
+              </div>
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary-dark">
                 Quem Somos
               </h2>
@@ -61,6 +81,68 @@ const About: React.FC = () => {
               <p>
                 Hoje, operando sob a marca <strong>BS CAR CENTER</strong> (anteriormente conhecida como BS Escapamentos), realizamos manutenções preventivas e corretivas em suspensão, freios, geometria, balanceamento, injeção eletrônica, diagnóstico computadorizado com scanner, troca de óleo, manutenção de transmissão automática e componentes de motores, mantendo os escapamentos como uma de nossas mais importantes especialidades.
               </p>
+            </div>
+          </div>
+
+          {/* Galeria de Fotos da Loja e Estrutura */}
+          <div className="mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h3 className="text-2xl font-heading font-bold text-primary-dark mb-2">
+                Conheça a Nossa Estrutura Física
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Instalações preparadas para atendimento ágil e seguro na Rua Pedro Gusso, no bairro Novo Mundo.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition">
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  <img
+                    src="https://img.supremasite.com.br/bs/bs-loja.webp"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/bs-loja.webp'; }}
+                    alt="Fachada Oficial BS CAR CENTER - R. Pedro Gusso, 2340"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute top-3 left-3 bg-primary-dark/90 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Unidade 2340
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-bold text-gray-900 text-base mb-1">
+                    Fachada Principal & Recepção
+                  </h4>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Localização na Rua Pedro Gusso, 2340. Recepção de clientes, orçamentos, diagnósticos preventivos e canal direto de atendimento com nossa equipe técnica.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition">
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  <img
+                    src="https://img.supremasite.com.br/bs/bs-loja-cic.webp"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/bs-loja-cic.webp'; }}
+                    alt="Pátio e Boxes de Manutenção - R. Pedro Gusso, 2324"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute top-3 left-3 bg-primary-blue text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Unidade 2324
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-bold text-gray-900 text-base mb-1">
+                    Pátio de Manobra & Boxes Mecânicos
+                  </h4>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Acesso operacional na Rua Pedro Gusso, 2324. Elevadores automotivos, rampa de geometria 3D, área ampla para movimentação e pátio seguro.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

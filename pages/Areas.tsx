@@ -19,9 +19,20 @@ const Areas: React.FC = () => {
       
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
         
-        {/* Banner */}
+        {/* Banner with Video Background */}
         <div className="bg-primary-dark py-16 mb-10 relative overflow-hidden text-center text-white border-b-4 border-primary-yellow">
-          <div className="absolute inset-0 bg-primary-blue/20"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+            className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+          >
+            <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+            <source src="/bs.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95"></div>
           <div className="container mx-auto px-4 relative z-10 max-w-4xl">
              <span className="text-primary-yellow text-xs font-bold uppercase tracking-wider block mb-2">
                Cobertura Operacional no Novo Mundo

@@ -60,9 +60,20 @@ const LocationPage: React.FC = () => {
             <span className="text-gray-800 font-bold">{locName}</span>
           </nav>
 
-          {/* Banner */}
+          {/* Banner with Video Background */}
           <div className="bg-primary-dark rounded-3xl p-8 md:p-12 text-white relative overflow-hidden mb-10 border-b-4 border-primary-yellow">
-            <div className="absolute inset-0 bg-primary-blue/25"></div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+              className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+            >
+              <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+              <source src="/bs.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-blue/80 pointer-events-none"></div>
             <div className="relative z-10 max-w-3xl">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="bg-primary-yellow text-primary-dark text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">

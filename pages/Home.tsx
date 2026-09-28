@@ -377,8 +377,20 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section (Item 41: Standardized CTAs) */}
-      <section className="py-16 bg-primary-blue text-center relative overflow-hidden text-white">
+      {/* CTA Section (Item 41: Standardized CTAs) with Video Background */}
+      <section className="py-20 bg-primary-dark text-center relative overflow-hidden text-white border-y-2 border-primary-yellow/30">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="https://img.supremasite.com.br/bs/bs-loja.webp"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 filter saturate-150 pointer-events-none"
+        >
+          <source src="https://img.supremasite.com.br/bs/bs.mp4" type="video/mp4" />
+          <source src="/bs.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-blue/85 to-primary-dark/95 pointer-events-none" />
         <div className="container mx-auto px-4 max-w-3xl relative z-10">
           <h2 className="text-3xl md:text-4xl font-heading font-black mb-3">
             Agende a Manutenção do Seu Veículo
