@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tabBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0a1128" />
+    </linearGradient>
+    <linearGradient id="tabGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded Squircle / Circle Badge -->
+  <circle cx="256" cy="256" r="240" fill="url(#tabBg)" stroke="url(#tabGold)" stroke-width="28" />
+
+  <!-- Center Oval -->
+  <ellipse cx="256" cy="256" rx="205" ry="155" fill="#1e3a8a" stroke="url(#tabGold)" stroke-width="16" />
+
+  <!-- "BS" Monogram (Bold, Racing Italic) -->
+  <g transform="skewX(-10) translate(40, 30)">
+    <!-- Letter B -->
+    <path d="M 170 148 
+             L 242 148 
+             C 272 148 290 162 290 185 
+             C 290 202 278 214 262 220 
+             C 284 226 298 242 298 266 
+             C 298 293 274 310 240 310 
+             L 170 310 Z 
+             M 205 178 
+             L 205 214 
+             L 238 214 
+             C 250 214 258 208 258 196 
+             C 258 184 250 178 238 178 Z 
+             M 205 244 
+             L 205 280 
+             L 242 280 
+             C 256 280 265 273 265 262 
+             C 265 251 256 244 242 244 Z" 
+          fill="url(#tabGold)" stroke="#78350f" stroke-width="4" stroke-linejoin="round" />
+
+    <!-- Letter S -->
+    <path d="M 395 182 
+             L 362 195 
+             C 358 185 348 177 334 177 
+             C 320 177 312 184 312 194 
+             C 312 206 322 212 344 219 
+             C 378 229 398 243 398 271 
+             C 398 298 374 314 336 314 
+             C 298 314 274 294 268 267 
+             L 302 254 
+             C 306 270 318 281 336 281 
+             C 350 281 361 273 361 263 
+             C 361 251 350 245 328 237 
+             C 296 226 278 212 278 188 
+             C 278 164 302 145 336 145 
+             C 368 145 388 161 395 182 Z" 
+          fill="url(#tabGold)" stroke="#78350f" stroke-width="4" stroke-linejoin="round" />
+  </g>
+</svg>
