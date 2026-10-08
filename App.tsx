@@ -15,6 +15,7 @@ import Areas from './pages/Areas';
 import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
 import BlogPost from './pages/BlogPost';
+import EscapamentosCuritiba from './pages/EscapamentosCuritiba';
 import NotFound from './pages/NotFound';
 
 // Scroll to top on route change
@@ -29,7 +30,7 @@ const ScrollToTop = () => {
 const AppContent: React.FC = () => {
   const location = useLocation();
   const isNotFoundPage = location.pathname !== '/' && 
-    !['/manutencao-automotiva-curitiba', '/servicos', '/sobre', '/areas', '/contato'].includes(location.pathname) &&
+    !['/manutencao-automotiva-curitiba', '/servicos', '/sobre', '/areas', '/contato', '/escapamentos-curitiba'].includes(location.pathname) &&
     !location.pathname.startsWith('/servicos/') &&
     !location.pathname.startsWith('/local/') &&
     !location.pathname.startsWith('/blog/');
@@ -44,6 +45,7 @@ const AppContent: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/manutencao-automotiva-curitiba" element={<MaintenanceHub />} />
+          <Route path="/escapamentos-curitiba" element={<EscapamentosCuritiba />} />
           <Route path="/servicos" element={<Services />} />
           <Route path="/servicos/:slug" element={<ServiceDetail />} />
           <Route path="/sobre" element={<About />} />

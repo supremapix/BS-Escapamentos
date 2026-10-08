@@ -4,6 +4,7 @@ module.exports = {
   staticDir: 'dist',
   routes: [
     '/',
+    '/escapamentos-curitiba',
     '/manutencao-automotiva-curitiba',
     '/sobre',
     '/servicos',
