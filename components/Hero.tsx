@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, loopNum]);
 
   return (
-    <section id="home" className="relative min-h-[100dvh] md:h-screen flex items-center justify-center bg-primary-dark text-white overflow-hidden py-24 sm:py-28 md:py-0">
+    <section id="home" className="relative min-h-[calc(100dvh-100px)] md:min-h-[calc(100vh-110px)] flex items-center justify-center bg-primary-dark text-white overflow-hidden py-10 sm:py-14 md:py-12">
       
       {/* Video Background */}
       <video

@@ -21,7 +21,7 @@ const pageData = {
   phoneRaw: '4132683473',
   whatsapp: '5541998434800',
   whatsappDisplay: '(41) 99843-4800',
-  address: 'Rua Pedro Gusso, 2340',
+  address: 'R. Pedro Gusso, 2340 e 2324',
   city: 'Curitiba',
   state: 'PR',
   zip: '81310-900',
@@ -59,7 +59,7 @@ const businessSchema = {
   "email": "contato@bsescapamentos.com.br",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": pageData.address,
+    "streetAddress": "R. Pedro Gusso, 2340 e 2324",
     "addressLocality": pageData.city,
     "addressRegion": pageData.state,
     "postalCode": pageData.zip,
@@ -90,7 +90,7 @@ const businessSchema = {
   "sameAs": [
     "https://www.facebook.com/BSescapamentosautocenter/",
     "https://www.instagram.com/bscarcenter/",
-    "https://maps.app.goo.gl/uX73xQ8ZqLzW7YwM7"
+    "https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR"
   ]
 };
 
@@ -105,12 +105,7 @@ const serviceSchema = {
   },
   "areaServed": [
     { "@type": "City", "name": "Curitiba" },
-    { "@type": "Neighborhood", "name": "Novo Mundo" },
-    { "@type": "Neighborhood", "name": "Cidade Industrial de Curitiba" },
-    { "@type": "Neighborhood", "name": "Neo Ville" },
-    { "@type": "Neighborhood", "name": "Capão Raso" },
-    { "@type": "Neighborhood", "name": "Pinheirinho" },
-    { "@type": "Neighborhood", "name": "Portão" }
+    { "@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba" }
   ],
   "url": pageData.url
 };
@@ -217,24 +212,32 @@ const prerenderedBody = `
             <dd class="font-medium text-gray-900 mt-0.5">Escapamentos e manutenção automotiva</dd>
           </div>
           <div class="border-l-2 border-primary-green pl-3">
-            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Localização</dt>
-            <dd class="font-medium text-gray-900 mt-0.5">Novo Mundo, Curitiba/PR</dd>
+            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Endereço</dt>
+            <dd class="font-medium text-gray-900 mt-0.5">${pageData.address}</dd>
           </div>
           <div class="border-l-2 border-primary-blue pl-3">
-            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Atendimento</dt>
-            <dd class="font-medium text-gray-900 mt-0.5">Curitiba, CIC, Neo Ville e regiões próximas</dd>
+            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Localização</dt>
+            <dd class="font-medium text-gray-900 mt-0.5">Curitiba/PR, região do CIC e Novo Mundo, próxima ao Neo Ville</dd>
           </div>
           <div class="border-l-2 border-primary-yellow pl-3">
+            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Acesso Principal</dt>
+            <dd class="font-medium text-gray-900 mt-0.5">Rua Pedro Gusso</dd>
+          </div>
+          <div class="border-l-2 border-primary-green pl-3">
             <dt class="text-gray-500 font-semibold uppercase text-[11px]">WhatsApp</dt>
             <dd class="font-bold text-primary-dark mt-0.5">${pageData.whatsappDisplay}</dd>
           </div>
-          <div class="border-l-2 border-primary-green pl-3">
-            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Endereço</dt>
-            <dd class="font-medium text-gray-900 mt-0.5">${pageData.address} - Novo Mundo, Curitiba/PR</dd>
-          </div>
-          <div class="sm:col-span-2 lg:col-span-3 border-l-2 border-gray-300 pl-3">
+          <div class="sm:col-span-2 lg:col-span-2 border-l-2 border-gray-300 pl-3">
             <dt class="text-gray-500 font-semibold uppercase text-[11px]">Horário</dt>
             <dd class="font-medium text-gray-900 mt-0.5">${pageData.hours}</dd>
+          </div>
+          <div class="border-l-2 border-primary-blue pl-3">
+            <dt class="text-gray-500 font-semibold uppercase text-[11px]">Google Maps</dt>
+            <dd class="mt-0.5">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR" target="_blank" rel="noopener noreferrer" class="text-primary-blue font-bold hover:underline">
+                Traçar rota oficial &rarr;
+              </a>
+            </dd>
           </div>
         </dl>
       </div>
@@ -349,25 +352,69 @@ const prerenderedBody = `
     </section>
 
     <section class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
-      <h2 class="text-2xl sm:text-3xl font-heading font-black text-gray-900 mb-6">5. Regiões atendidas</h2>
-      <p class="text-gray-700 mb-6 leading-relaxed text-sm sm:text-base">Pela proximidade geográfica de nossa oficina na Rua Pedro Gusso com vias de ligação rápida como a Linha Verde, Avenida República Argentina, Rua João Bettega e Contorno Sul, recebemos condutores das seguintes regiões de Curitiba:</p>
-      <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs sm:text-sm">
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Novo Mundo</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Cidade Industrial de Curitiba (CIC)</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Neo Ville</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Capão Raso</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Pinheirinho</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Portão</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Fazendinha</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Xaxim</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Hauer</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Água Verde</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Boqueirão</li>
-        <li class="p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Sítio Cercado</li>
-        <li class="sm:col-span-2 md:col-span-4 p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800 font-medium">Demais regiões de Curitiba conforme atendimento real</li>
-      </ul>
-      <div class="mt-6 text-xs text-gray-500">
-        Consulte mais detalhes sobre a cobertura de bairros em nossa página de <a href="/areas" class="text-primary-blue font-bold hover:underline">regiões e bairros atendidos em Curitiba</a>.
+      <h2 class="text-2xl sm:text-3xl font-heading font-black text-gray-900 mb-6">Como chegar à BS CAR CENTER no CIC e Novo Mundo</h2>
+      <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base mb-8">
+        <p>Nossa loja fica na <strong>R. Pedro Gusso, 2340 e 2324</strong>, em Curitiba, na área de ligação entre a Cidade Industrial (CIC), o Novo Mundo e a região do Neo Ville. O acesso é feito pela Rua Pedro Gusso, com conexão às principais vias da região.</p>
+        <p>Clientes do CIC, Novo Mundo, Neo Ville, Capão Raso, Pinheirinho, Portão, Fazendinha, Xaxim, Hauer, Água Verde, Boqueirão e regiões próximas costumam chegar à nossa loja pela Rua Pedro Gusso e pelas principais vias de ligação da região.</p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-base sm:text-lg font-heading font-bold text-gray-900 mb-4">Rotas e vias de acesso:</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua Pedro Gusso</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acesso direto aos endereços 2340 e 2324 da oficina.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua João Bettega</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Conexão com a região do CIC, Capão Raso e bairros próximos.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua João Dembinski</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acesso para quem vem da região oeste e do CIC.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua Eduardo Sprada</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Ligação com Campo Comprido, CIC e bairros da região oeste.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua Desembargador Cid Campelo</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acesso interno à Cidade Industrial.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Rua João Chede</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Conexão com áreas internas do CIC.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Avenida das Indústrias</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acesso para a região industrial e vias do CIC.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Avenida Juscelino Kubitschek de Oliveira</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acesso regional ao CIC.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pela Linha Verde e Avenida Winston Churchill</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Opção para quem vem da zona sul e do Pinheirinho com conexão para a Pedro Gusso.</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200/80">
+            <strong class="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">Pelo Contorno Sul e Rodovia do Xisto</strong>
+            <span class="text-gray-600 text-xs sm:text-sm leading-relaxed block">Acessos regionais que distribuem o fluxo metropolitano para as vias locais do CIC e Novo Mundo.</span>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-gray-500 italic">Para obter a rota atualizada conforme o trânsito, informe seu ponto de partida no Google Maps.</p>
+      </div>
+
+      <div class="pt-6 border-t border-gray-100 flex flex-wrap gap-3 sm:gap-4 items-center">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR" target="_blank" rel="noopener noreferrer" class="bg-primary-blue hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all shadow-md">
+          Traçar rota até a loja
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=${pageData.whatsapp}&text=Olá! Gostaria de informações sobre como chegar à loja para avaliar o escapamento." target="_blank" rel="noopener noreferrer" class="bg-primary-green hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all shadow-md">
+          Chamar no WhatsApp
+        </a>
+        <a href="tel:${pageData.phoneRaw}" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all border border-gray-200">
+          Ligar para a loja
+        </a>
       </div>
     </section>
 
@@ -378,7 +425,7 @@ const prerenderedBody = `
           <div>
             <span class="block text-xs uppercase font-bold text-primary-yellow mb-1">Endereço Oficial</span>
             <p class="text-white font-medium">${pageData.address}</p>
-            <p class="text-xs text-gray-400 mt-0.5">Novo Mundo, Curitiba/PR - CEP: ${pageData.zip}</p>
+            <p class="text-xs text-gray-400 mt-0.5">Região da Cidade Industrial (CIC) / Novo Mundo, próxima ao Neo Ville - Curitiba/PR - CEP: ${pageData.zip}</p>
           </div>
           <div>
             <span class="block text-xs uppercase font-bold text-primary-yellow mb-1">Telefone Fixo</span>
@@ -393,8 +440,8 @@ const prerenderedBody = `
             <p class="text-white">${pageData.hours}</p>
           </div>
           <div class="pt-2 flex flex-wrap gap-3">
-            <a href="https://maps.app.goo.gl/uX73xQ8ZqLzW7YwM7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary-blue hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-xs transition-colors">
-              <span>Traçar Rota no Google Maps</span>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary-blue hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-xs transition-colors">
+              <span>Traçar rota até a loja</span>
             </a>
             <a href="/contato" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-5 rounded-xl text-xs transition-colors border border-white/20">
               <span>Página de Contato</span>

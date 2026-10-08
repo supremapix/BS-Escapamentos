@@ -54,7 +54,7 @@ const Header: React.FC = () => {
   };
 
   const isActive = (path: string) => location.pathname === path;
-  const showDarkHeader = !isHome || scrolled;
+  const showDarkHeader = true;
 
   return (
     <>

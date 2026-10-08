@@ -50,11 +50,13 @@ const Home: React.FC = () => {
         keywords="bs car center, auto center curitiba, manutenção automotiva curitiba, oficina mecanica curitiba, mecanica automotiva curitiba, auto center novo mundo, oficina cic curitiba, freios curitiba, suspensao curitiba, escapamentos curitiba"
       />
       
+      {/* Task Letreiro de Ações Rápidas (Logo após o Header) */}
+      <div className="pt-14 md:pt-[65px] bg-slate-950">
+        <ActionTicker />
+      </div>
+
       {/* Hero Section */}
       <Hero />
-
-      {/* Task Letreiro de Ações Rápidas (Botões Clicáveis em Movimento Contínuo) */}
-      <ActionTicker />
 
       {/* AIO Answer-First Block (Item 9: 50-80 words) */}
       <section className="py-8 bg-white border-b border-gray-100">

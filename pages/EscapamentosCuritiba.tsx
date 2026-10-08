@@ -134,20 +134,47 @@ const SYMPTOMS_LIST = [
   }
 ];
 
-const REGIONS_LIST = [
-  "Novo Mundo",
-  "Cidade Industrial de Curitiba (CIC)",
-  "Neo Ville",
-  "Capão Raso",
-  "Pinheirinho",
-  "Portão",
-  "Fazendinha",
-  "Xaxim",
-  "Hauer",
-  "Água Verde",
-  "Boqueirão",
-  "Sítio Cercado",
-  "Demais regiões de Curitiba conforme deslocamento real"
+const ACCESS_ROUTES = [
+  {
+    via: "Pela Rua Pedro Gusso",
+    desc: "Acesso direto aos endereços 2340 e 2324 da oficina."
+  },
+  {
+    via: "Pela Rua João Bettega",
+    desc: "Conexão com a região do CIC, Capão Raso e bairros próximos."
+  },
+  {
+    via: "Pela Rua João Dembinski",
+    desc: "Acesso para quem vem da região oeste e do CIC."
+  },
+  {
+    via: "Pela Rua Eduardo Sprada",
+    desc: "Ligação com Campo Comprido, CIC e bairros da região oeste."
+  },
+  {
+    via: "Pela Rua Desembargador Cid Campelo",
+    desc: "Acesso interno à Cidade Industrial."
+  },
+  {
+    via: "Pela Rua João Chede",
+    desc: "Conexão com áreas internas do CIC."
+  },
+  {
+    via: "Pela Avenida das Indústrias",
+    desc: "Acesso para a região industrial e vias do CIC."
+  },
+  {
+    via: "Pela Avenida Juscelino Kubitschek de Oliveira",
+    desc: "Acesso regional ao CIC."
+  },
+  {
+    via: "Pela Linha Verde e Avenida Winston Churchill",
+    desc: "Opção para quem vem da zona sul e do Pinheirinho com conexão para a Pedro Gusso."
+  },
+  {
+    via: "Pelo Contorno Sul e Rodovia do Xisto",
+    desc: "Acessos regionais que distribuem o fluxo metropolitano para as vias locais do CIC e Novo Mundo."
+  }
 ];
 
 const EscapamentosCuritiba: React.FC = () => {
@@ -194,7 +221,7 @@ const EscapamentosCuritiba: React.FC = () => {
     "email": COMPANY_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": COMPANY_INFO.streetAddress,
+      "streetAddress": "R. Pedro Gusso, 2340 e 2324",
       "addressLocality": COMPANY_INFO.city,
       "addressRegion": COMPANY_INFO.state,
       "postalCode": COMPANY_INFO.zip,
@@ -225,7 +252,7 @@ const EscapamentosCuritiba: React.FC = () => {
     "sameAs": [
       COMPANY_INFO.facebook,
       COMPANY_INFO.instagram,
-      COMPANY_INFO.mapsLink
+      "https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR"
     ]
   };
 
@@ -240,12 +267,7 @@ const EscapamentosCuritiba: React.FC = () => {
     },
     "areaServed": [
       { "@type": "City", "name": "Curitiba" },
-      { "@type": "Neighborhood", "name": "Novo Mundo" },
-      { "@type": "Neighborhood", "name": "Cidade Industrial de Curitiba" },
-      { "@type": "Neighborhood", "name": "Neo Ville" },
-      { "@type": "Neighborhood", "name": "Capão Raso" },
-      { "@type": "Neighborhood", "name": "Pinheirinho" },
-      { "@type": "Neighborhood", "name": "Portão" }
+      { "@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba" }
     ],
     "url": canonicalUrl
   };
@@ -371,24 +393,37 @@ const EscapamentosCuritiba: React.FC = () => {
                 <dd className="font-medium text-gray-900 mt-0.5">Escapamentos e manutenção automotiva</dd>
               </div>
               <div className="border-l-2 border-primary-green pl-3">
-                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Localização</dt>
-                <dd className="font-medium text-gray-900 mt-0.5">Novo Mundo, Curitiba/PR</dd>
+                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Endereço</dt>
+                <dd className="font-medium text-gray-900 mt-0.5">R. Pedro Gusso, 2340 e 2324</dd>
               </div>
               <div className="border-l-2 border-primary-blue pl-3">
-                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Atendimento</dt>
-                <dd className="font-medium text-gray-900 mt-0.5">Curitiba, CIC, Neo Ville e regiões próximas</dd>
+                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Localização</dt>
+                <dd className="font-medium text-gray-900 mt-0.5">Curitiba/PR, região do CIC e Novo Mundo, próxima ao Neo Ville</dd>
               </div>
               <div className="border-l-2 border-primary-yellow pl-3">
+                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Acesso Principal</dt>
+                <dd className="font-medium text-gray-900 mt-0.5">Rua Pedro Gusso</dd>
+              </div>
+              <div className="border-l-2 border-primary-green pl-3">
                 <dt className="text-gray-500 font-semibold uppercase text-[11px]">WhatsApp</dt>
                 <dd className="font-bold text-primary-dark mt-0.5">{COMPANY_INFO.whatsappDisplay}</dd>
               </div>
-              <div className="border-l-2 border-primary-green pl-3">
-                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Endereço</dt>
-                <dd className="font-medium text-gray-900 mt-0.5">{COMPANY_INFO.address}</dd>
-              </div>
-              <div className="sm:col-span-2 lg:col-span-3 border-l-2 border-gray-300 pl-3">
+              <div className="sm:col-span-2 lg:col-span-2 border-l-2 border-gray-300 pl-3">
                 <dt className="text-gray-500 font-semibold uppercase text-[11px]">Horário</dt>
                 <dd className="font-medium text-gray-900 mt-0.5">Segunda a Sexta das 08h às 18h | Sábado das 08h às 12h</dd>
+              </div>
+              <div className="border-l-2 border-primary-blue pl-3">
+                <dt className="text-gray-500 font-semibold uppercase text-[11px]">Google Maps</dt>
+                <dd className="mt-0.5">
+                  <a 
+                    href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-blue font-bold hover:underline inline-flex items-center gap-1"
+                  >
+                    <span>Traçar rota oficial</span> &rarr;
+                  </a>
+                </dd>
               </div>
             </dl>
           </div>
@@ -511,29 +546,75 @@ const EscapamentosCuritiba: React.FC = () => {
           </div>
         </section>
 
-        {/* Seção 5: Regiões atendidas */}
-        <section aria-labelledby="section-regioes" className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
+        {/* Seção 5: De onde nossos clientes vêm e como chegar */}
+        <section aria-labelledby="section-como-chegar" className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 mb-6 text-primary-blue">
             <Navigation size={26} className="text-primary-blue shrink-0" />
-            <h2 id="section-regioes" className="text-2xl sm:text-3xl font-heading font-black text-gray-900">
-              5. Regiões atendidas
+            <h2 id="section-como-chegar" className="text-2xl sm:text-3xl font-heading font-black text-gray-900">
+              Como chegar à BS CAR CENTER no CIC e Novo Mundo
             </h2>
           </div>
-          <p className="text-gray-700 mb-6 leading-relaxed text-sm sm:text-base">
-            Pela proximidade geográfica de nossa oficina na Rua Pedro Gusso com vias de ligação rápida como a Linha Verde, Avenida República Argentina, Rua João Bettega e Contorno Sul, recebemos condutores das seguintes regiões de Curitiba:
-          </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs sm:text-sm">
-            {REGIONS_LIST.map((region, idx) => (
-              <div key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-800">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary-blue shrink-0" />
-                <span className="font-medium">{region}</span>
-              </div>
-            ))}
+          <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base mb-8">
+            <p>
+              Nossa loja fica na <strong>R. Pedro Gusso, 2340 e 2324</strong>, em Curitiba, na área de ligação entre a Cidade Industrial (CIC), o Novo Mundo e a região do Neo Ville. O acesso é feito pela Rua Pedro Gusso, com conexão às principais vias da região.
+            </p>
+            <p>
+              Clientes do CIC, Novo Mundo, Neo Ville, Capão Raso, Pinheirinho, Portão, Fazendinha, Xaxim, Hauer, Água Verde, Boqueirão e regiões próximas costumam chegar à nossa loja pela Rua Pedro Gusso e pelas principais vias de ligação da região.
+            </p>
           </div>
 
-          <div className="mt-6 text-xs text-gray-500">
-            Consulte mais detalhes sobre a cobertura de bairros em nossa página de <Link to="/areas" className="text-primary-blue font-bold hover:underline">regiões e bairros atendidos em Curitiba</Link>.
+          <div className="mb-8">
+            <h3 className="text-base sm:text-lg font-heading font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary-blue"></span>
+              <span>Rotas e vias de acesso:</span>
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              {ACCESS_ROUTES.map((route, idx) => (
+                <div key={idx} className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 hover:border-primary-blue/40 transition-colors">
+                  <span className="font-bold text-gray-900 text-sm block mb-1 text-primary-blue">
+                    {route.via}
+                  </span>
+                  <span className="text-gray-600 text-xs sm:text-sm leading-relaxed block">
+                    {route.desc}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-4 text-xs text-gray-500 italic">
+              Para obter a rota atualizada conforme o trânsito, informe seu ponto de partida no Google Maps.
+            </p>
+          </div>
+
+          {/* Botões de Ação para Localização e Rotas */}
+          <div className="pt-6 border-t border-gray-100 flex flex-wrap gap-3 sm:gap-4 items-center">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Pedro+Gusso,+2340,+Curitiba,+PR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all shadow-md flex items-center gap-2 active:scale-95"
+            >
+              <Navigation size={16} />
+              <span>Traçar rota até a loja</span>
+            </a>
+            <a
+              href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de informações sobre como chegar à loja para avaliar o escapamento.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary-green hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all shadow-md flex items-center gap-2 active:scale-95"
+            >
+              <MessageCircle size={16} />
+              <span>Chamar no WhatsApp</span>
+            </a>
+            <a
+              href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
+              className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition-all flex items-center gap-2 active:scale-95 border border-gray-200"
+            >
+              <Phone size={16} className="text-primary-blue" />
+              <span>Ligar para a loja</span>
+            </a>
           </div>
         </section>
 
@@ -549,8 +630,8 @@ const EscapamentosCuritiba: React.FC = () => {
             <div className="space-y-4 text-sm sm:text-base text-gray-300">
               <div>
                 <span className="block text-xs uppercase font-bold text-primary-yellow mb-1">Endereço Oficial</span>
-                <p className="text-white font-medium">{COMPANY_INFO.address}</p>
-                <p className="text-xs text-gray-400 mt-0.5">Novo Mundo, Curitiba/PR - CEP: {COMPANY_INFO.zip}</p>
+                <p className="text-white font-medium">R. Pedro Gusso, 2340 e 2324</p>
+                <p className="text-xs text-gray-400 mt-0.5">Região da Cidade Industrial (CIC) / Novo Mundo, próxima ao Neo Ville - Curitiba/PR - CEP: {COMPANY_INFO.zip}</p>
               </div>
 
               <div>
