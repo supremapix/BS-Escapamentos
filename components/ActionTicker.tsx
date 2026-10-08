@@ -148,7 +148,7 @@ const ActionTicker: React.FC = () => {
       </div>
     );
 
-    const baseClass = `inline-flex items-center px-4 py-2 rounded-2xl border transition-all duration-200 transform hover:scale-[1.03] active:scale-95 shadow-md mx-2 whitespace-nowrap cursor-pointer ${item.badgeStyle}`;
+    const baseClass = `inline-flex items-center px-3 py-1 rounded-xl border transition-all duration-200 transform hover:scale-[1.02] active:scale-95 shadow-sm mx-1.5 whitespace-nowrap cursor-pointer ${item.badgeStyle}`;
 
     if (item.type === 'internal') {
       return (
@@ -174,7 +174,7 @@ const ActionTicker: React.FC = () => {
   return (
     <section 
       aria-label="Letreiro de Ações Rápidas da BS CAR CENTER" 
-      className="relative w-full bg-slate-950 border-y-2 border-primary-yellow/40 shadow-2xl py-2.5 sm:py-3 overflow-hidden z-20"
+      className="relative w-full bg-slate-950 border-b border-primary-yellow/40 shadow-sm py-1 sm:py-1.5 overflow-hidden z-20"
     >
       {/* Side Vignettes for smooth edge fade */}
       <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-slate-950 to-transparent z-10" />

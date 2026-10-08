@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import ActionTicker from '../components/ActionTicker';
 import { 
   SERVICES, 
   COMPANY_INFO, 
@@ -50,11 +49,6 @@ const Home: React.FC = () => {
         keywords="bs car center, auto center curitiba, manutenção automotiva curitiba, oficina mecanica curitiba, mecanica automotiva curitiba, auto center novo mundo, oficina cic curitiba, freios curitiba, suspensao curitiba, escapamentos curitiba"
       />
       
-      {/* Task Letreiro de Ações Rápidas (Logo após o Header) */}
-      <div className="pt-14 md:pt-[65px] bg-slate-950">
-        <ActionTicker />
-      </div>
-
       {/* Hero Section */}
       <Hero />
 

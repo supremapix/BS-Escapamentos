@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO, SERVICES } from '../data/constants';
+import ActionTicker from './ActionTicker';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,14 +59,15 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header 
-        className={`fixed w-full top-0 z-50 transition-all duration-300 border-b ${
-          showDarkHeader
-            ? 'bg-primary-dark/95 backdrop-blur-md py-2 md:py-2.5 shadow-lg border-white/10' 
-            : 'bg-primary-dark/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none py-2 md:py-4 border-white/10 md:border-transparent shadow-md md:shadow-none'
-        }`}
-      >
-        <div className="container mx-auto px-4 flex justify-between items-center h-14 md:h-auto">
+      {/* Top Fixed Wrapper: Animated Ticker on top of Header */}
+      <div className="fixed w-full top-0 z-50">
+        {/* Task: Letreiro Animado em Cima do Header */}
+        <ActionTicker />
+
+        <header 
+          className="w-full bg-primary-dark/95 backdrop-blur-md py-2 md:py-2.5 shadow-lg border-b border-white/10 transition-all duration-300"
+        >
+          <div className="container mx-auto px-4 flex justify-between items-center h-14 md:h-auto">
           
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 z-50 group" onClick={closeMenu}>
@@ -199,6 +201,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
+    </div>
 
       {/* Senior-Friendly Mobile Drawer */}
       <div
