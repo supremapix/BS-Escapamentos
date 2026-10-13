@@ -23,27 +23,40 @@ const BlogPost: React.FC = () => {
     });
   };
 
-  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 2);
+  const isEscapamento = post.category === 'Escapamentos' || post.slug.includes('escapamento') || post.slug.includes('silencioso') || post.slug.includes('catalisador');
+  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id && (isEscapamento ? (p.category === 'Escapamentos' || p.slug.includes('escapamento') || p.slug.includes('catalisador')) : true)).slice(0, 4);
 
   return (
     <>
       <EnhancedSEO 
-        title={`${post.title} | BS CAR CENTER`}
-        description={post.excerpt} 
+        title={post.metaTitle || `${post.title} | BS CAR CENTER`}
+        description={post.metaDescription || post.excerpt} 
         canonicalPath={`/blog/${post.slug}`}
         image={post.image}
         schemaType="Article" 
-        keywords={`manutenção automotiva curitiba, ${post.title.toLowerCase()}, auto center novo mundo`}
+        keywords={post.keywords ? post.keywords.join(', ') : `escapamentos curitiba, ${post.title.toLowerCase()}, auto center novo mundo`}
+        articleData={{
+          headline: post.title,
+          datePublished: post.datePublished || "2026-03-01",
+          dateModified: post.dateModified || post.datePublished || "2026-03-01",
+          category: post.category || (isEscapamento ? "Escapamentos" : "Manutenção Automotiva"),
+          authorName: "BS CAR CENTER"
+        }}
       />
       
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
           
-          {/* Back link */}
-          <div className="mb-6">
+          {/* Back link and breadcrumbs */}
+          <div className="mb-6 flex items-center justify-between">
             <Link to="/" className="inline-flex items-center text-xs text-gray-500 hover:text-primary-blue font-semibold">
               <ChevronLeft size={16} /> Voltar para o Início
             </Link>
+            {isEscapamento && (
+              <Link to="/escapamentos-curitiba" className="text-xs text-primary-blue hover:underline font-semibold">
+                Ver Oficina de Escapamentos em Curitiba →
+              </Link>
+            )}
           </div>
 
           <article className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden mb-12">
@@ -58,9 +71,21 @@ const BlogPost: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
               
               <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full text-white">
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold bg-primary-yellow text-primary-dark px-3 py-1 rounded-full mb-3">
-                  <Calendar size={13} />
-                  <span>{post.date}</span>
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold bg-primary-yellow text-primary-dark px-3 py-1 rounded-full">
+                    <Calendar size={13} />
+                    <span>{post.date}</span>
+                  </div>
+                  {post.category && (
+                    <span className="text-xs font-semibold bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                  )}
+                  {post.readingTime && (
+                    <span className="text-xs text-gray-300">
+                      • {post.readingTime} de leitura
+                    </span>
+                  )}
                 </div>
                 <h1 className="text-2xl md:text-4xl font-heading font-black leading-tight text-white drop-shadow">
                   {post.title}

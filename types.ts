@@ -25,3 +25,22 @@ export interface MetaData {
   description: string;
   canonical: string;
 }
+
+export interface BlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  excerpt: string;
+  date: string;
+  datePublished?: string;
+  dateModified?: string;
+  category?: string;
+  image: string;
+  content: string;
+  faq?: { question: string; answer: string }[];
+  keywords?: string[];
+  readingTime?: string;
+  author?: string;
+}

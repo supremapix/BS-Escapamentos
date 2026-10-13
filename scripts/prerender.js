@@ -503,3 +503,116 @@ if (!fs.existsSync(targetDir)) {
 
 fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
 console.log(`[prerender] Página pré-renderizada gerada com sucesso em: dist/escapamentos-curitiba/index.html`);
+
+// Pré-renderização dos Artigos do Blog (incluindo os 8 artigos estratégicos)
+try {
+  const blogFileRaw = fs.readFileSync(path.resolve('data/blogPosts.ts'), 'utf-8');
+  const code = blogFileRaw
+    .replace(/import\s+.*?;/g, '')
+    .replace(/:\s*BlogPost\[\]/g, '');
+  const tmpPath = path.resolve('dist/.tmp-blog.mjs');
+  fs.writeFileSync(tmpPath, code, 'utf-8');
+  const { BLOG_POSTS } = await import(`file://${tmpPath}`);
+  try { fs.unlinkSync(tmpPath); } catch (_) {}
+
+  if (Array.isArray(BLOG_POSTS)) {
+    for (const post of BLOG_POSTS) {
+      let postHtml = template;
+      const postUrl = `https://www.bsescapamentos.com.br/blog/${post.slug}`;
+      const postTitle = post.metaTitle || `${post.title} | BS CAR CENTER`;
+      const postDesc = post.metaDescription || post.excerpt;
+      const postImg = post.image || 'https://www.bsescapamentos.com.br/og-image.png';
+
+      // 1. Substituir <title>
+      postHtml = postHtml.replace(/<title>.*?<\/title>/s, `<title>${postTitle}</title>`);
+
+      // 2. Substituir meta description
+      postHtml = postHtml.replace(/<meta\s+name="description"\s+content=".*?"\s*\/?>/i, `<meta name="description" content="${postDesc}" />`);
+
+      // 3. Substituir canonical
+      postHtml = postHtml.replace(/<link\s+rel="canonical"\s+href=".*?"\s*\/?>/i, `<link rel="canonical" href="${postUrl}" />`);
+
+      // 4. Substituir Open Graph & Twitter
+      postHtml = postHtml.replace(/<meta\s+property="og:type"\s+content=".*?"\s*\/?>/i, `<meta property="og:type" content="article" />`);
+      postHtml = postHtml.replace(/<meta\s+property="og:url"\s+content=".*?"\s*\/?>/i, `<meta property="og:url" content="${postUrl}" />`);
+      postHtml = postHtml.replace(/<meta\s+property="og:title"\s+content=".*?"\s*\/?>/i, `<meta property="og:title" content="${postTitle}" />`);
+      postHtml = postHtml.replace(/<meta\s+property="og:description"\s+content=".*?"\s*\/?>/i, `<meta property="og:description" content="${postDesc}" />`);
+      postHtml = postHtml.replace(/<meta\s+property="og:image"\s+content=".*?"\s*\/?>/i, `<meta property="og:image" content="${postImg}" />`);
+      postHtml = postHtml.replace(/<meta\s+name="twitter:title"\s+content=".*?"\s*\/?>/i, `<meta name="twitter:title" content="${postTitle}" />`);
+      postHtml = postHtml.replace(/<meta\s+name="twitter:description"\s+content=".*?"\s*\/?>/i, `<meta name="twitter:description" content="${postDesc}" />`);
+      postHtml = postHtml.replace(/<meta\s+name="twitter:image"\s+content=".*?"\s*\/?>/i, `<meta name="twitter:image" content="${postImg}" />`);
+
+      // 5. Schemas JSON-LD
+      const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
+        "headline": post.title,
+        "description": postDesc,
+        "image": [postImg],
+        "datePublished": post.datePublished || "2026-03-01",
+        "dateModified": post.dateModified || post.datePublished || "2026-03-01",
+        "author": {
+          "@type": "Organization",
+          "name": "BS CAR CENTER",
+          "url": "https://www.bsescapamentos.com.br"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BS CAR CENTER",
+          "logo": { "@type": "ImageObject", "url": "https://www.bsescapamentos.com.br/og-image.png" }
+        },
+        "articleSection": post.category || "Escapamentos e Mecânica",
+        "inLanguage": "pt-BR"
+      };
+
+      const articleBreadcrumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.bsescapamentos.com.br/" },
+          { "@type": "ListItem", "position": 2, "name": "Artigos", "item": "https://www.bsescapamentos.com.br/#dicas" },
+          { "@type": "ListItem", "position": 3, "name": post.title, "item": postUrl }
+        ]
+      };
+
+      const postSchemasHtml = `
+  <script type="application/ld+json">
+  ${JSON.stringify(articleSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+  ${JSON.stringify(articleBreadcrumbs, null, 2)}
+  </script>`;
+
+      postHtml = postHtml.replace('</head>', `${postSchemasHtml}\n  </head>`);
+
+      // 6. Conteúdo estático dentro do root
+      const articleBody = `
+<div class="pt-24 pb-16 bg-gray-50 min-h-screen">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <article class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden mb-12">
+      <div class="p-6 md:p-10">
+        <h1 class="text-2xl md:text-4xl font-heading font-black leading-tight text-gray-900 mb-4">${post.title}</h1>
+        <div class="text-xs text-gray-500 mb-6">${post.date} • ${post.category || 'Manutenção'}</div>
+        <div class="prose max-w-none text-gray-700 leading-relaxed text-sm md:text-base space-y-4">
+          ${post.content || `<p>${post.excerpt}</p>`}
+        </div>
+      </div>
+    </article>
+  </div>
+</div>`;
+
+      postHtml = postHtml.replace('<div id="root"></div>', `<div id="root" class="prerendered">${articleBody}</div>`);
+
+      const postDir = path.join(distDir, 'blog', post.slug);
+      if (!fs.existsSync(postDir)) {
+        fs.mkdirSync(postDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(postDir, 'index.html'), postHtml, 'utf-8');
+    }
+    console.log(`[prerender] ${BLOG_POSTS.length} artigos do blog pré-renderizados com sucesso em: dist/blog/[slug]/index.html`);
+  }
+} catch (err) {
+  console.error('[prerender] Erro ao pré-renderizar artigos do blog:', err);
+}
+

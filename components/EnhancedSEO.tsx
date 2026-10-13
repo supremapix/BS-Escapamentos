@@ -18,6 +18,13 @@ interface EnhancedSEOProps {
     name: string;
     type: 'City' | 'Neighborhood' | 'AdministrativeArea';
   }[];
+  articleData?: {
+    headline: string;
+    datePublished?: string;
+    dateModified?: string;
+    authorName?: string;
+    category?: string;
+  };
 }
 
 const EnhancedSEO: React.FC<EnhancedSEOProps> = ({ 
@@ -29,7 +36,8 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   image = 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   noindex = false,
   serviceData,
-  areaServed
+  areaServed,
+  articleData
 }) => {
   const cleanPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
   const fullUrl = `${COMPANY_INFO.siteUrl}${cleanPath === '/' ? '' : cleanPath}`;
@@ -114,6 +122,63 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     });
   }
 
+  // If page is an article / blog post, add BlogPosting & BreadcrumbList schema
+  if (schemaType === 'Article' || articleData) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": fullUrl
+      },
+      "headline": articleData?.headline || title,
+      "description": description,
+      "image": [image],
+      "datePublished": articleData?.datePublished || "2026-03-01",
+      "dateModified": articleData?.dateModified || articleData?.datePublished || "2026-03-01",
+      "author": {
+        "@type": "Organization",
+        "name": articleData?.authorName || COMPANY_INFO.name,
+        "url": COMPANY_INFO.siteUrl
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": COMPANY_INFO.name,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${COMPANY_INFO.siteUrl}/og-image.png`
+        }
+      },
+      "articleSection": articleData?.category || "Escapamentos e Mecânica",
+      "inLanguage": "pt-BR"
+    });
+
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": COMPANY_INFO.siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Artigos",
+          "item": `${COMPANY_INFO.siteUrl}/#dicas`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": articleData?.headline || title,
+          "item": fullUrl
+        }
+      ]
+    });
+  }
+
   return (
     <Helmet>
       {/* Basic Tags */}
@@ -135,7 +200,7 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta name="ICBM" content="-25.5098, -49.2935" />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={schemaType === 'Article' ? 'article' : 'website'} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={displayTitle} />
       <meta property="og:description" content={description} />
