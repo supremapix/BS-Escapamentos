@@ -15,6 +15,7 @@ import Areas from './pages/Areas';
 import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
 import BlogPost from './pages/BlogPost';
+import Blog from './pages/Blog';
 import EscapamentosCuritiba from './pages/EscapamentosCuritiba';
 import NotFound from './pages/NotFound';
 
@@ -30,10 +31,10 @@ const ScrollToTop = () => {
 const AppContent: React.FC = () => {
   const location = useLocation();
   const isNotFoundPage = location.pathname !== '/' && 
-    !['/manutencao-automotiva-curitiba', '/servicos', '/sobre', '/areas', '/contato', '/escapamentos-curitiba'].includes(location.pathname) &&
+    !['/manutencao-automotiva-curitiba', '/servicos', '/sobre', '/areas', '/contato', '/escapamentos-curitiba', '/blog'].includes(location.pathname) &&
     !location.pathname.startsWith('/servicos/') &&
     !location.pathname.startsWith('/local/') &&
-    !location.pathname.startsWith('/blog/');
+    !location.pathname.startsWith('/blog');
 
   return (
     <div className="flex flex-col min-h-screen font-sans bg-white text-gray-900">
@@ -52,6 +53,7 @@ const AppContent: React.FC = () => {
           <Route path="/areas" element={<Areas />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/local/:slug" element={<LocationPage />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           {/* Catch-all route for 404 errors */}
           <Route path="*" element={<NotFound />} />

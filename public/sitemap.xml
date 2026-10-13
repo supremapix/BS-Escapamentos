@@ -48,7 +48,8 @@
   <url><loc>https://www.bsescapamentos.com.br/servicos/motores</loc><priority>0.85</priority></url>
   <url><loc>https://www.bsescapamentos.com.br/servicos/escapamentos</loc><priority>0.85</priority></url>
 
-  <!-- Blog Articles -->
+  <!-- Blog Hub & Articles -->
+  <url><loc>https://www.bsescapamentos.com.br/blog</loc><priority>0.85</priority></url>
   <url><loc>https://www.bsescapamentos.com.br/blog/como-saber-se-a-suspensao-precisa-de-avaliacao</loc><priority>0.7</priority></url>
   <url><loc>https://www.bsescapamentos.com.br/blog/quando-fazer-geometria-e-balanceamento</loc><priority>0.7</priority></url>
   <url><loc>https://www.bsescapamentos.com.br/blog/sinais-de-desgaste-nos-freios</loc><priority>0.7</priority></url>

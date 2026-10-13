@@ -48,15 +48,25 @@ const BlogPost: React.FC = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           
           {/* Back link and breadcrumbs */}
-          <div className="mb-6 flex items-center justify-between">
-            <Link to="/" className="inline-flex items-center text-xs text-gray-500 hover:text-primary-blue font-semibold">
-              <ChevronLeft size={16} /> Voltar para o Início
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+            <Link to="/blog" className="inline-flex items-center text-xs text-gray-600 hover:text-primary-blue font-semibold">
+              <ChevronLeft size={16} /> Voltar para o Blog
             </Link>
-            {isEscapamento && (
-              <Link to="/escapamentos-curitiba" className="text-xs text-primary-blue hover:underline font-semibold">
-                Ver Oficina de Escapamentos em Curitiba →
+            <div className="flex items-center gap-3">
+              <Link to="/" className="text-xs text-gray-400 hover:text-gray-600">
+                Início
               </Link>
-            )}
+              <span className="text-gray-300">•</span>
+              {isEscapamento ? (
+                <Link to="/escapamentos-curitiba" className="text-xs text-primary-blue hover:underline font-semibold">
+                  Oficina de Escapamentos em Curitiba →
+                </Link>
+              ) : (
+                <Link to="/servicos" className="text-xs text-primary-blue hover:underline font-semibold">
+                  Nossos Serviços →
+                </Link>
+              )}
+            </div>
           </div>
 
           <article className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden mb-12">
@@ -164,6 +174,15 @@ const BlogPost: React.FC = () => {
                     </div>
                   </Link>
                 ))}
+              </div>
+              <div className="mt-6 text-center">
+                <Link
+                  to="/blog"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary-blue hover:underline bg-white px-5 py-2.5 rounded-xl border border-gray-200 shadow-sm hover:border-primary-blue transition-all"
+                >
+                  <span>Explorar todas as orientações no Blog ({BLOG_POSTS.length} artigos)</span>
+                  <ArrowRight size={14} />
+                </Link>
               </div>
             </div>
           )}

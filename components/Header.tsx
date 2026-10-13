@@ -13,7 +13,8 @@ import {
   Info, 
   ShieldCheck, 
   Navigation,
-  ZoomIn
+  ZoomIn,
+  BookOpen
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO, SERVICES } from '../data/constants';
@@ -162,6 +163,15 @@ const Header: React.FC = () => {
               }`}
             >
               Áreas
+            </Link>
+
+            <Link
+              to="/blog"
+              className={`font-medium text-xs uppercase tracking-wider transition-colors py-2 ${
+                location.pathname.startsWith('/blog') ? 'text-primary-yellow font-bold' : 'text-gray-200 hover:text-primary-yellow'
+              }`}
+            >
+              Blog
             </Link>
 
             <Link
@@ -489,6 +499,30 @@ const Header: React.FC = () => {
                       </span>
                       <span className="text-[11px] text-gray-400">
                         Novo Mundo, CIC, Portão, Pinheirinho...
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
+
+                {/* Blog & Guias Técnicos */}
+                <Link
+                  to="/blog"
+                  onClick={closeMenu}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-colors border ${
+                    location.pathname.startsWith('/blog') 
+                      ? 'bg-primary-blue text-primary-yellow border-primary-yellow/40 font-bold' 
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-gray-100 border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen size={isLargeFont ? 24 : 20} className="text-primary-yellow shrink-0" />
+                    <div>
+                      <span className={`block font-bold leading-tight ${isLargeFont ? 'text-lg' : 'text-base'}`}>
+                        Blog & Artigos Automotivos
+                      </span>
+                      <span className="text-[11px] text-gray-400">
+                        14 matérias técnicas e dicas de escapamento
                       </span>
                     </div>
                   </div>

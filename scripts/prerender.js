@@ -516,6 +516,35 @@ try {
   try { fs.unlinkSync(tmpPath); } catch (_) {}
 
   if (Array.isArray(BLOG_POSTS)) {
+    // Pré-renderizar página principal do Blog (/blog)
+    let blogIndexHtml = template;
+    const blogTitle = 'Blog & Orientações Técnicas em Curitiba | BS CAR CENTER';
+    const blogDesc = 'Artigos técnicos, diagnósticos e orientações sobre escapamentos, catalisadores, suspensão e manutenção automotiva em Curitiba com a BS CAR CENTER.';
+    blogIndexHtml = blogIndexHtml.replace(/<title>.*?<\/title>/i, `<title>${blogTitle}</title>`);
+    blogIndexHtml = blogIndexHtml.replace(/<meta\s+name="description"\s+content=".*?"\s*\/?>/i, `<meta name="description" content="${blogDesc}" />`);
+    blogIndexHtml = blogIndexHtml.replace(/<link\s+rel="canonical"\s+href=".*?"\s*\/?>/i, `<link rel="canonical" href="https://www.bsescapamentos.com.br/blog" />`);
+    blogIndexHtml = blogIndexHtml.replace('<div id="root"></div>', `<div id="root" class="prerendered">
+<div class="pt-24 pb-16 bg-gray-50 min-h-screen">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <h1 class="text-3xl sm:text-4xl font-heading font-black text-gray-900 mb-4">Blog & Orientações Técnicas em Curitiba</h1>
+    <p class="text-gray-600 mb-8 max-w-2xl">Guias e matérias técnicas sobre escapamentos, catalisadores e manutenção da BS CAR CENTER.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      ${BLOG_POSTS.map(p => `
+      <article class="bg-white p-5 rounded-2xl border border-gray-200">
+        <h2 class="font-bold text-gray-900 text-base mb-2"><a href="/blog/${p.slug}">${p.title}</a></h2>
+        <p class="text-gray-600 text-xs mb-3">${p.excerpt}</p>
+        <a href="/blog/${p.slug}" class="text-blue-600 font-bold text-xs">Ler orientações &rarr;</a>
+      </article>`).join('')}
+    </div>
+  </div>
+</div></div>`);
+    const blogHubDir = path.join(distDir, 'blog');
+    if (!fs.existsSync(blogHubDir)) {
+      fs.mkdirSync(blogHubDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(blogHubDir, 'index.html'), blogIndexHtml, 'utf-8');
+    console.log(`[prerender] Hub do blog gerado com sucesso em: dist/blog/index.html`);
+
     for (const post of BLOG_POSTS) {
       let postHtml = template;
       const postUrl = `https://www.bsescapamentos.com.br/blog/${post.slug}`;

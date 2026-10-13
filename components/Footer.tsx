@@ -366,6 +366,16 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/escapamentos-curitiba" className="hover:text-primary-yellow transition-colors font-medium">
+                  Escapamentos em Curitiba
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-primary-yellow transition-colors font-medium text-amber-300">
+                  Blog & Artigos Automotivos
+                </Link>
+              </li>
+              <li>
                 <Link to="/sobre" className="hover:text-primary-yellow transition-colors">
                   Quem Somos & Fotos da Oficina
                 </Link>

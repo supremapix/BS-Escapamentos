@@ -16,9 +16,10 @@ import {
   ArrowRight,
   Car,
   HelpCircle,
-  Info
+  Info,
+  BookOpen
 } from 'lucide-react';
-import { COMPANY_INFO } from '../data/constants';
+import { COMPANY_INFO, BLOG_POSTS } from '../data/constants';
 
 interface FAQItem {
   question: string;
@@ -734,6 +735,101 @@ const EscapamentosCuritiba: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Seção 8: Artigos e Guias sobre Escapamentos em Curitiba */}
+        <section aria-labelledby="section-artigos-escapamento" className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <div className="flex items-center gap-2.5 text-primary-blue mb-2">
+                <BookOpen size={24} className="text-primary-blue shrink-0" />
+                <span className="text-xs uppercase font-black tracking-wider text-primary-blue">
+                  Conteúdo Técnico & Guias de Especialistas
+                </span>
+              </div>
+              <h2 id="section-artigos-escapamento" className="text-2xl sm:text-3xl font-heading font-black text-gray-900">
+                8. Artigos e Orientações sobre Escapamentos em Curitiba
+              </h2>
+            </div>
+            <Link 
+              to="/blog" 
+              className="text-primary-blue hover:underline font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>Ver todos os artigos do Blog</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8">
+            Confira as matérias técnicas desenvolvidas pela equipe da BS CAR CENTER explicando os principais cuidados com silenciosos, catalisadores, vazamentos, ruídos e legislação ambiental para motoristas de Curitiba:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {BLOG_POSTS.filter(p => 
+              p.category === 'Escapamentos' || 
+              p.slug.includes('escapamento') || 
+              p.slug.includes('silencioso') || 
+              p.slug.includes('catalisador')
+            ).map((post) => (
+              <article 
+                key={post.id}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="h-36 overflow-hidden relative bg-gray-100">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <span className="absolute top-2 left-2 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">
+                      {post.category || 'Escapamentos'}
+                    </span>
+                  </div>
+
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 text-[10px] text-gray-500 mb-1.5">
+                      <Calendar size={11} className="text-primary-blue" />
+                      <span>{post.date}</span>
+                      {post.readTime && <span className="ml-1">• {post.readTime}</span>}
+                    </div>
+
+                    <h3 className="font-bold text-gray-900 text-xs sm:text-sm leading-snug mb-2 group-hover:text-primary-blue transition-colors line-clamp-2">
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+
+                    <p className="text-gray-600 text-[11px] leading-relaxed line-clamp-2 mb-3">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 pt-0">
+                  <Link 
+                    to={`/blog/${post.slug}`} 
+                    className="text-primary-blue font-bold text-[11px] inline-flex items-center gap-1 hover:text-primary-dark group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Ler matéria completa</span>
+                    <ArrowRight size={11} />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+            <span className="text-xs text-gray-500">
+              Precisa de diagnóstico no seu veículo? Avaliamos seu escapamento no elevador com transparência.
+            </span>
+            <Link
+              to="/blog"
+              className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-xs transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>Acessar Blog Completo</span>
+              <ArrowRight size={13} />
+            </Link>
           </div>
         </section>
 

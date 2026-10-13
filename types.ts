@@ -42,5 +42,6 @@ export interface BlogPost {
   faq?: { question: string; answer: string }[];
   keywords?: string[];
   readingTime?: string;
+  readTime?: string;
   author?: string;
 }

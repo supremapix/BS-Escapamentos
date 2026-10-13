@@ -265,28 +265,41 @@ const Home: React.FC = () => {
                 Dicas de Manutenção e Diagnóstico
               </h2>
             </div>
-            <Link to="/blog/como-saber-se-a-suspensao-precisa-de-avaliacao" className="text-primary-blue font-bold text-xs hover:underline inline-flex items-center gap-1">
-              Ver artigos <ChevronRight size={14} />
+            <Link to="/blog" className="text-primary-blue font-bold text-xs hover:underline inline-flex items-center gap-1">
+              Ver todos os artigos ({BLOG_POSTS.length}) <ChevronRight size={14} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {BLOG_POSTS.slice(0, 3).map((post) => (
-              <article key={post.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              BLOG_POSTS.find(p => p.slug === 'escapamento-automotivo-em-curitiba-sinais-e-manutencao'),
+              BLOG_POSTS.find(p => p.slug === 'silencioso-do-carro-fazendo-barulho-causas-como-resolver'),
+              BLOG_POSTS.find(p => p.slug === 'catalisador-com-defeito-sinais-e-cuidados'),
+              BLOG_POSTS[0],
+              BLOG_POSTS[1],
+              BLOG_POSTS[2]
+            ].filter((p): p is typeof BLOG_POSTS[0] => Boolean(p)).map((post) => (
+              <article key={post.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
                 <div className="h-44 overflow-hidden relative">
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+                  {post.category && (
+                    <span className="absolute top-2.5 left-2.5 bg-primary-dark/85 backdrop-blur-sm text-primary-yellow text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {post.category}
+                    </span>
+                  )}
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <div className="flex items-center gap-1 text-[11px] text-gray-500 mb-2">
                     <Calendar size={12} className="text-primary-blue" />
                     <span>{post.date}</span>
+                    {post.readTime && <span className="ml-1">• {post.readTime}</span>}
                   </div>
-                  <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug hover:text-primary-blue transition-colors">
+                  <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug group-hover:text-primary-blue transition-colors line-clamp-2">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="text-gray-600 text-xs leading-relaxed line-clamp-3 mb-4 flex-grow">
@@ -301,6 +314,16 @@ const Home: React.FC = () => {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 bg-primary-blue hover:bg-blue-800 text-white font-bold py-3.5 px-8 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95"
+            >
+              <span>Explorar todas as {BLOG_POSTS.length} matérias do Blog</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
