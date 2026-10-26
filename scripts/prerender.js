@@ -645,3 +645,31 @@ try {
   console.error('[prerender] Erro ao pré-renderizar artigos do blog:', err);
 }
 
+// Preserve existing prerendered content and give every sitemap route its own
+// initial canonical. Previously SPA-only routes inherited the home canonical.
+const sitemap = fs.readFileSync(path.join(distDir, 'sitemap.xml'), 'utf-8');
+const canonicalTag = /<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi;
+const siteOrigin = new URL(pageData.url).origin;
+const sitemapUrls = [...sitemap.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)]
+  .map(match => match[1].trim());
+if (!sitemapUrls.length) throw new Error('[prerender] Sitemap sem URLs.');
+
+for (const canonicalUrl of sitemapUrls) {
+  const url = new URL(canonicalUrl);
+  if (url.origin !== siteOrigin || url.search || url.hash) {
+    throw new Error(`[prerender] URL inesperada no sitemap: ${canonicalUrl}`);
+  }
+  const output = path.join(distDir, url.pathname, 'index.html');
+  const source = fs.existsSync(output) ? fs.readFileSync(output, 'utf-8') : template;
+  const existing = [...source.matchAll(canonicalTag)];
+  if (existing.length !== 1) {
+    throw new Error(`[prerender] Canonical ausente ou duplicada: ${canonicalUrl}`);
+  }
+  // Helmet owns this tag after mounting, so navigation replaces it rather than
+  // adding another canonical alongside the server-generated one.
+  const result = source.replace(canonicalTag,
+    `<link rel="canonical" href="${canonicalUrl}" data-rh="true" />`);
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, result, 'utf-8');
+}
+console.log(`[prerender] Canonical inicial verificada em ${sitemapUrls.length} rotas do sitemap.`);
