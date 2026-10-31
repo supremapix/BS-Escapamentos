@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  MessageCircle, 
-  Phone, 
-  Navigation, 
-  Wrench, 
-  Clock, 
-  ShieldCheck, 
-  CreditCard, 
-  Gauge, 
+import {
+  MessageCircle,
+  Phone,
+  Navigation,
+  Wrench,
+  Clock,
+  ShieldCheck,
+  CreditCard,
+  Gauge,
   Sparkles,
   Coffee
 } from 'lucide-react';
@@ -110,7 +110,7 @@ const TICKER_ITEMS: TickerItem[] = [
     sublabel: 'Diagnóstico Eletrônico Preciso',
     icon: <Gauge size={15} className="text-cyan-400 shrink-0" />,
     type: 'internal',
-    href: '/servicos/injecao-eletronica-diagnostico',
+    href: '/servicos/injecao-eletronica',
     badgeStyle: 'bg-slate-900 hover:bg-slate-800 border-cyan-500/40 hover:border-cyan-400 text-cyan-200',
     iconStyle: 'text-cyan-400',
     textStyle: 'text-cyan-300 font-bold',
@@ -172,8 +172,8 @@ const ActionTicker: React.FC = () => {
   };
 
   return (
-    <section 
-      aria-label="Letreiro de Ações Rápidas da BS CAR CENTER" 
+    <section
+      aria-label="Letreiro de Ações Rápidas da BS CAR CENTER"
       className="relative w-full bg-slate-950 border-b border-primary-yellow/40 shadow-sm py-1 sm:py-1.5 overflow-hidden z-20"
     >
       {/* Side Vignettes for smooth edge fade */}

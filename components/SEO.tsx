@@ -10,14 +10,14 @@ interface SEOProps {
   keywords?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
-  canonicalPath = '', 
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  canonicalPath = '',
   schemaType = 'AutoRepair',
   keywords = 'manutenção automotiva, auto center, curitiba, suspensão, freios, escapamentos'
 }) => {
-  const fullUrl = `${COMPANY_INFO.siteUrl}${canonicalPath}`;
+  const fullUrl = `${COMPANY_INFO.siteUrl}${canonicalPath || "/"}`;
   const displayTitle = `${title} | BS CAR CENTER`;
 
   const structuredData = {
@@ -26,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({
     "@id": `${COMPANY_INFO.siteUrl}/#business`,
     "name": COMPANY_INFO.name,
     "alternateName": COMPANY_INFO.historicalName,
-    "image": "https://picsum.photos/1200/630",
+    "image": "https://www.bsescapamentos.com.br/og-image.png",
     "url": COMPANY_INFO.siteUrl,
     "telephone": COMPANY_INFO.whatsappDisplay,
     "address": {
@@ -39,7 +39,7 @@ const SEO: React.FC<SEOProps> = ({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -25.5098, 
+      "latitude": -25.5098,
       "longitude": -49.2935
     },
     "openingHoursSpecification": [
@@ -65,20 +65,20 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={fullUrl} />
-      
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={displayTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://picsum.photos/1200/630" />
+      <meta property="og:image" content="https://www.bsescapamentos.com.br/og-image.png" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={fullUrl} />
       <meta property="twitter:title" content={displayTitle} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content="https://picsum.photos/1200/630" />
+      <meta property="twitter:image" content="https://www.bsescapamentos.com.br/og-image.png" />
 
       {/* Structured Data */}
       <script type="application/ld+json">

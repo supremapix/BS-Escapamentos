@@ -1,8 +1,9 @@
+import NotFound from './NotFound';
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import EnhancedSEO from '../components/EnhancedSEO';
 import { SERVICES, COMPANY_INFO } from '../data/constants';
-import * as Icons from 'lucide-react';
+import { serviceIcons as Icons } from '../components/serviceIcons';
 import { LucideIcon, ArrowRight, CheckCircle2, MessageCircle, MapPin, ChevronRight, Plus, Minus, Clock, Phone } from 'lucide-react';
 
 const ServiceDetail: React.FC = () => {
@@ -16,7 +17,7 @@ const ServiceDetail: React.FC = () => {
   const service = SERVICES.find(s => s.slug === slug);
 
   if (!service) {
-    return <Navigate to="/servicos" replace />;
+    return <NotFound />;
   }
 
   const IconComponent = (Icons as any)[service.iconName] as LucideIcon;
@@ -28,7 +29,7 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <>
-      <EnhancedSEO 
+      <EnhancedSEO
         title={service.metaTitle}
         description={service.metaDescription}
         canonicalPath={`/servicos/${service.slug}`}
@@ -40,7 +41,7 @@ const ServiceDetail: React.FC = () => {
       />
 
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
-        
+
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 pt-4 mb-6">
           <nav className="text-sm text-gray-500 flex items-center gap-2 overflow-x-auto whitespace-nowrap">
@@ -74,7 +75,7 @@ const ServiceDetail: React.FC = () => {
               <span>•</span>
               <span>Novo Mundo, Curitiba</span>
             </div>
-            
+
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-6 leading-tight">
               {service.h1}
             </h1>
@@ -106,10 +107,10 @@ const ServiceDetail: React.FC = () => {
         {/* Content Body */}
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            
+
             {/* Main Content Column */}
             <div className="lg:col-span-8 space-y-10">
-              
+
               {/* Technical Details Card */}
               <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4 mb-6">
@@ -192,7 +193,7 @@ const ServiceDetail: React.FC = () => {
                     </Link>
                   ))}
                 </div>
-                
+
                 <div className="mt-6 pt-4 border-t border-gray-100 text-center">
                   <Link
                     to="/manutencao-automotiva-curitiba"
@@ -207,7 +208,7 @@ const ServiceDetail: React.FC = () => {
 
             {/* Sidebar Column */}
             <div className="lg:col-span-4 space-y-6">
-              
+
               {/* Contact Card */}
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-28 space-y-6">
                 <div>

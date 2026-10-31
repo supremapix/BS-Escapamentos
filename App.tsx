@@ -28,9 +28,9 @@ const ScrollToTop = () => {
   return null;
 };
 
-const AppContent: React.FC = () => {
+export const AppContent: React.FC = () => {
   const location = useLocation();
-  const isNotFoundPage = location.pathname !== '/' && 
+  const isNotFoundPage = location.pathname !== '/' &&
     !['/manutencao-automotiva-curitiba', '/servicos', '/sobre', '/areas', '/contato', '/escapamentos-curitiba', '/blog'].includes(location.pathname) &&
     !location.pathname.startsWith('/servicos/') &&
     !location.pathname.startsWith('/local/') &&
@@ -41,8 +41,8 @@ const AppContent: React.FC = () => {
       <ScrollToTop />
       <AnalyticsTracker />
       <Header />
-      
-      <main className="flex-grow">
+
+      <main id="conteudo" tabIndex={-1} className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/manutencao-automotiva-curitiba" element={<MaintenanceHub />} />

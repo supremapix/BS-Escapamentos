@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EnhancedSEO from '../components/EnhancedSEO';
-import ActionTicker from '../components/ActionTicker';
 import { SERVICES, COMPANY_INFO } from '../data/constants';
-import * as Icons from 'lucide-react';
+import { serviceIcons as Icons } from '../components/serviceIcons';
 import { LucideIcon, ArrowRight, CheckCircle2, MessageCircle, Phone, MapPin, Wrench } from 'lucide-react';
 
 const Services: React.FC = () => {
+  const [query, setQuery] = useState('');
+  const normalize = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const filtered = SERVICES.filter(s => normalize(s.title + ' ' + s.description).includes(normalize(query)));
   return (
     <>
-      <EnhancedSEO 
-        title="Serviços de Manutenção Automotiva em Curitiba | BS CAR CENTER" 
-        description="Conheça os serviços da BS CAR CENTER em Curitiba: freios, suspensão, geometria, balanceamento, injeção eletrônica, scanner, troca de óleo e escapamentos." 
+      <EnhancedSEO
+        title="Serviços de Manutenção Automotiva em Curitiba | BS CAR CENTER"
+        description="Conheça os serviços da BS CAR CENTER em Curitiba: freios, suspensão, geometria, balanceamento, injeção eletrônica, scanner, troca de óleo e escapamentos."
         canonicalPath="/servicos"
         keywords="serviços automotivos curitiba, oficina mecanica novo mundo, bs car center curitiba, freios curitiba, suspensão curitiba, troca de oleo curitiba"
         serviceData={{
@@ -19,9 +21,9 @@ const Services: React.FC = () => {
           description: "Catálogo completo de serviços de mecânica, diagnósticos e manutenção preventiva em Curitiba pela BS CAR CENTER."
         }}
       />
-      
+
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
-        
+
         {/* Header Banner with Video Background */}
         <div className="bg-primary-dark py-16 text-center text-white mb-12 relative overflow-hidden border-b-4 border-primary-yellow">
           <video
@@ -49,13 +51,14 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        {/* Task Letreiro de Ações Rápidas */}
-        <div className="mb-12">
-          <ActionTicker />
-        </div>
-
         <div className="container mx-auto px-4 max-w-6xl">
-          
+
+          <section className="mb-8" aria-label="Encontrar serviço">
+            <label htmlFor="buscar-servico" className="block text-lg font-bold mb-3">Qual serviço você procura?</label>
+            <input id="buscar-servico" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Ex.: freios, óleo, escapamento" className="w-full rounded-xl border-2 border-slate-400 p-4 text-lg" />
+            <p role="status" className="mt-3 text-slate-600">{filtered.length} serviços encontrados</p>
+            {!filtered.length && <button className="underline p-3" onClick={() => setQuery('')}>Limpar busca e ver todos</button>}
+          </section>
           {/* Answer-first Hub highlight */}
           <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="max-w-2xl">
@@ -77,30 +80,30 @@ const Services: React.FC = () => {
             </Link>
           </div>
 
-          {/* Grid of confirmed services */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {SERVICES.map((service) => {
+            {filtered.map((service) => {
               const IconComponent = (Icons as any)[service.iconName] as LucideIcon;
-              
+
               return (
-                <div 
-                  key={service.id} 
+                <div
+                  key={service.id}
                   className="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/30 flex flex-col justify-between group"
                 >
                   <div>
                     <div className="bg-primary-blue/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-primary-blue group-hover:bg-primary-blue group-hover:text-primary-yellow transition-colors shrink-0">
                       {IconComponent && <IconComponent size={28} />}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-blue transition-colors">
                       {service.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <Link
                       to={service.slug === 'manutencao-automotiva' ? '/manutencao-automotiva-curitiba' : `/servicos/${service.slug}`}
@@ -109,7 +112,7 @@ const Services: React.FC = () => {
                       Detalhes técnicos <ArrowRight size={15} />
                     </Link>
 
-                    <a 
+                    <a
                       href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de consultar orçamento para ${service.title}.`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -133,7 +136,7 @@ const Services: React.FC = () => {
                  Consulte compatibilidade para diagnóstico e reprogramação de módulos automotivos específicos, bem como manutenções personalizadas para o seu veículo. Nossa equipe atende com transparência e clareza.
                </p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                 <a 
+                 <a
                    href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de consultar orçamento para serviços mecânicos na BS CAR CENTER.`}
                    target="_blank"
                    rel="noopener noreferrer"
@@ -141,7 +144,7 @@ const Services: React.FC = () => {
                  >
                    <MessageCircle size={20} /> Falar pelo WhatsApp
                  </a>
-                 <a 
+                 <a
                    href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
                    className="border-2 border-slate-700 hover:border-primary-blue bg-white hover:bg-slate-50 text-gray-900 font-bold py-4 px-8 rounded-2xl transition-all inline-flex items-center justify-center gap-2.5 active:scale-95 text-sm sm:text-base"
                  >

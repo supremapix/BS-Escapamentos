@@ -42,3 +42,19 @@ Novo Mundo e regiões próximas, incluindo CIC e região do Neo Ville, conforme 
 ## Site
 
 https://www.bsescapamentos.com.br/
+
+## Guias e serviços
+
+- [Serviços e busca por especialidade](https://www.bsescapamentos.com.br/servicos)
+- [Manutenção automotiva](https://www.bsescapamentos.com.br/manutencao-automotiva-curitiba)
+- [Escapamentos em Curitiba](https://www.bsescapamentos.com.br/escapamentos-curitiba)
+- [Freios](https://www.bsescapamentos.com.br/servicos/freios)
+- [Suspensão](https://www.bsescapamentos.com.br/servicos/suspensao)
+- [Geometria e balanceamento](https://www.bsescapamentos.com.br/servicos/geometria-balanceamento)
+- [Scanner automotivo](https://www.bsescapamentos.com.br/servicos/scanner-automotivo)
+- [Injeção eletrônica](https://www.bsescapamentos.com.br/servicos/injecao-eletronica)
+- [Troca de óleo](https://www.bsescapamentos.com.br/servicos/troca-de-oleo)
+- [Câmbio automático](https://www.bsescapamentos.com.br/servicos/cambio-automatico)
+- [Motores](https://www.bsescapamentos.com.br/servicos/motores)
+- [Contato e localização](https://www.bsescapamentos.com.br/contato)
+- [Artigos de manutenção](https://www.bsescapamentos.com.br/blog)

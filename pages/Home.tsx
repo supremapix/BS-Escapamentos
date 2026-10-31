@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import { 
-  SERVICES, 
-  COMPANY_INFO, 
-  HOME_PRIMARY_AREAS, 
-  BLOG_POSTS, 
-  HOME_FAQS, 
-  CLIENT_FEEDBACK, 
-  DIFFERENTIALS 
+import {
+  SERVICES,
+  COMPANY_INFO,
+  HOME_PRIMARY_AREAS,
+  BLOG_POSTS,
+  HOME_FAQS,
+  CLIENT_FEEDBACK,
+  DIFFERENTIALS
 } from '../data/constants';
-import * as Icons from 'lucide-react';
+import { serviceIcons as Icons } from '../components/serviceIcons';
 import { LucideIcon, MapPin, ChevronRight, Plus, Minus, Calendar, Quote, MessageCircle, Phone, ArrowRight, Wrench, Navigation } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { trackFormSubmit } from '../lib/analytics';
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
                    `Email: ${data.email || 'Não informado'}%0A` +
                    `Serviço: ${data.servico}%0A` +
                    `Mensagem: ${data.mensagem}`;
-    
+
     const url = `https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=${message}`;
     // GA4: só chega aqui após validação do react-hook-form. Nenhum campo digitado é enviado.
     trackFormSubmit('home_orcamento');
@@ -41,14 +41,14 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <EnhancedSEO 
-        title="BS CAR CENTER | Manutenção Automotiva em Curitiba" 
-        description="Auto Center em Curitiba com manutenção automotiva, freios, suspensão, geometria, balanceamento, scanner, injeção, troca de óleo, câmbio automático, motores e escapamentos na BS CAR CENTER." 
+      <EnhancedSEO
+        title="BS CAR CENTER | Manutenção Automotiva em Curitiba"
+        description="Auto Center em Curitiba com manutenção automotiva, freios, suspensão, geometria, balanceamento, scanner, injeção, troca de óleo, câmbio automático, motores e escapamentos na BS CAR CENTER."
         canonicalPath="/"
         schemaType="AutoRepair"
         keywords="bs car center, auto center curitiba, manutenção automotiva curitiba, oficina mecanica curitiba, mecanica automotiva curitiba, auto center novo mundo, oficina cic curitiba, freios curitiba, suspensao curitiba, escapamentos curitiba"
       />
-      
+
       {/* Hero Section */}
       <Hero />
 
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
       {/* Services Section (Item 23: Auto Center hierarchy & cards) */}
       <section id="servicos" className="py-20 bg-gray-50 relative">
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          
+
           <div className="text-center mb-14">
             <span className="text-primary-blue font-bold uppercase tracking-wider text-xs md:text-sm mb-2 block">
               Auto Center Completo em Curitiba
@@ -110,10 +110,10 @@ const Home: React.FC = () => {
               const IconComponent = (Icons as any)[service.iconName] as LucideIcon;
               const isHub = service.slug === 'manutencao-automotiva';
               const targetUrl = isHub ? '/manutencao-automotiva-curitiba' : `/servicos/${service.slug}`;
-              
+
               return (
-                <div 
-                  key={service.id} 
+                <div
+                  key={service.id}
                   className={`bg-white p-7 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border ${
                     isHub ? 'border-primary-blue bg-gradient-to-b from-blue-50/50 to-white' : 'border-gray-100 hover:border-primary-blue/40'
                   } flex flex-col justify-between group`}
@@ -129,18 +129,18 @@ const Home: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    
+
                     <h3 className="text-lg font-bold text-primary-dark mb-2 group-hover:text-primary-blue transition-colors">
                       {service.shortTitle || service.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                    <Link 
+                    <Link
                       to={targetUrl}
                       className="text-primary-blue font-bold text-xs md:text-sm hover:text-primary-dark inline-flex items-center gap-1 group/btn"
                     >
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
                       <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
 
-                    <a 
+                    <a
                       href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Gostaria de consultar sobre ${service.shortTitle || service.title} no BS Auto Center.`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -163,8 +163,8 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link 
-              to="/manutencao-automotiva-curitiba" 
+            <Link
+              to="/manutencao-automotiva-curitiba"
               className="inline-flex items-center gap-2 bg-primary-blue hover:bg-blue-900 text-white font-bold py-3.5 px-8 rounded-full shadow-md transition-all text-sm"
             >
               <Wrench size={18} />
@@ -180,9 +180,9 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2">
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Oficina Mecânica BS CAR CENTER Curitiba" 
+                <img
+                  src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Oficina Mecânica BS CAR CENTER Curitiba"
                   className="rounded-2xl shadow-xl w-full object-cover h-[360px]"
                   loading="lazy"
                 />
@@ -205,9 +205,9 @@ const Home: React.FC = () => {
               <p className="text-gray-600 mb-6 text-sm leading-relaxed">
                 Hoje, como <strong>BS CAR CENTER</strong>, realizamos desde aferição geométrica e diagnóstico computadorizado por scanner até reparos em suspensão, freios, injeção, óleo de câmbio automático e motores, mantendo os escapamentos como uma valiosa especialidade histórica.
               </p>
-              
-              <Link 
-                to="/sobre" 
+
+              <Link
+                to="/sobre"
                 className="inline-flex items-center gap-2 text-primary-blue hover:text-primary-dark font-bold text-sm"
               >
                 Conheça nossa estrutura <ChevronRight size={16} />
@@ -281,9 +281,9 @@ const Home: React.FC = () => {
             ].filter((p): p is typeof BLOG_POSTS[0] => Boolean(p)).map((post) => (
               <article key={post.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
                 <div className="h-44 overflow-hidden relative">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
+                  <img
+                    src={post.image}
+                    alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -305,8 +305,8 @@ const Home: React.FC = () => {
                   <p className="text-gray-600 text-xs leading-relaxed line-clamp-3 mb-4 flex-grow">
                     {post.excerpt}
                   </p>
-                  <Link 
-                    to={`/blog/${post.slug}`} 
+                  <Link
+                    to={`/blog/${post.slug}`}
                     className="text-primary-blue font-bold text-xs inline-flex items-center gap-1 hover:text-primary-dark mt-auto"
                   >
                     Ler orientações <ArrowRight size={12} />
@@ -346,7 +346,7 @@ const Home: React.FC = () => {
           <div className="space-y-3">
             {HOME_FAQS.map((faq, index) => (
               <div key={index} className="border border-gray-200 rounded-xl overflow-hidden bg-white">
-                <button 
+                <button
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left"
                 >
@@ -381,8 +381,8 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
             {HOME_PRIMARY_AREAS.map((loc) => (
-              <Link 
-                key={loc.slug} 
+              <Link
+                key={loc.slug}
                 to={`/local/${loc.slug}`}
                 className="p-3 bg-gray-50 hover:bg-primary-blue hover:text-white rounded-xl border border-gray-200 text-gray-700 font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5"
               >
@@ -393,7 +393,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <Link 
+            <Link
               to="/areas"
               className="inline-flex items-center gap-2 border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white font-bold py-2.5 px-6 rounded-full text-xs transition-colors"
             >
@@ -426,7 +426,7 @@ const Home: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
              {/* WhatsApp Button */}
-             <a 
+             <a
                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Vim pelo site da BS CAR CENTER e gostaria de agendar uma avaliação.`}
                target="_blank"
                rel="noreferrer"
@@ -446,7 +446,7 @@ const Home: React.FC = () => {
              </a>
 
              {/* Phone Button */}
-             <a 
+             <a
                href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
                className="bg-slate-900/90 hover:bg-slate-800 border-2 border-primary-yellow text-white font-black p-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.3)] flex items-center justify-center gap-3.5"
              >
@@ -464,7 +464,7 @@ const Home: React.FC = () => {
              </a>
 
              {/* GPS Route Button */}
-             <a 
+             <a
                href={COMPANY_INFO.mapsLink}
                target="_blank"
                rel="noreferrer"
@@ -490,7 +490,7 @@ const Home: React.FC = () => {
       <section id="contato" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col md:flex-row">
-            
+
             {/* Info Side */}
             <div className="bg-primary-dark text-white p-8 md:w-5/12 flex flex-col justify-between">
               <div>
@@ -498,7 +498,7 @@ const Home: React.FC = () => {
                   Atendimento Local
                 </span>
                 <h3 className="text-2xl font-bold font-heading mb-6">BS CAR CENTER</h3>
-                
+
                 <div className="space-y-5 text-xs text-gray-300">
                   <div className="flex items-start gap-3">
                     <MapPin size={18} className="text-primary-yellow shrink-0 mt-0.5" />
@@ -535,14 +535,14 @@ const Home: React.FC = () => {
             <div className="p-8 md:w-7/12">
               <h3 className="text-xl font-bold text-gray-900 mb-1">Solicitar Orçamento</h3>
               <p className="text-gray-500 text-xs mb-5">Preencha os dados para envio direto ao nosso WhatsApp.</p>
-              
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <label className="block text-gray-700 font-bold mb-1 text-xs">Nome Completo</label>
-                  <input 
+                  <input
                     {...register("nome", { required: true })}
-                    type="text" 
-                    className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
+                    type="text"
+                    className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none"
                     placeholder="Seu nome"
                   />
                 </div>
@@ -550,16 +550,16 @@ const Home: React.FC = () => {
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-gray-700 font-bold mb-1 text-xs">Telefone / WhatsApp</label>
-                    <input 
+                    <input
                       {...register("telefone", { required: true })}
-                      type="tel" 
-                      className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
+                      type="tel"
+                      className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none"
                       placeholder="(41) 9..."
                     />
                   </div>
                   <div>
                     <label className="block text-gray-700 font-bold mb-1 text-xs">Serviço Desejado</label>
-                    <select 
+                    <select
                       {...register("servico")}
                       className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none"
                     >
@@ -571,16 +571,16 @@ const Home: React.FC = () => {
 
                 <div>
                   <label className="block text-gray-700 font-bold mb-1 text-xs">Mensagem ou Sintoma do Veículo</label>
-                  <textarea 
+                  <textarea
                     {...register("mensagem")}
-                    rows={3} 
-                    className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none" 
+                    rows={3}
+                    className="w-full px-4 py-2.5 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary-blue text-sm outline-none"
                     placeholder="Descreva o que o carro está apresentando..."
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="w-full bg-primary-green hover:bg-green-600 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-md"
                 >
                   <MessageCircle size={18} />

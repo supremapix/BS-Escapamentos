@@ -27,21 +27,21 @@ interface EnhancedSEOProps {
   };
 }
 
-const EnhancedSEO: React.FC<EnhancedSEOProps> = ({ 
-  title, 
-  description, 
-  canonicalPath = '', 
+const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
+  title,
+  description,
+  canonicalPath = '',
   schemaType = 'AutoRepair',
   keywords = 'auto center curitiba, manutenção automotiva curitiba, oficina mecanica novo mundo, freios curitiba, suspensão curitiba, geometria e balanceamento curitiba, scanner automotivo, troca de oleo, escapamentos curitiba',
-  image = 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  image = `${COMPANY_INFO.siteUrl}/og-image.png`,
   noindex = false,
   serviceData,
   areaServed,
   articleData
 }) => {
   const cleanPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
-  const fullUrl = `${COMPANY_INFO.siteUrl}${cleanPath === '/' ? '' : cleanPath}`;
-  
+  const fullUrl = `${COMPANY_INFO.siteUrl}${cleanPath === '/' ? '/' : cleanPath.replace(/\/$/, '')}`;
+
   // Format title without duplicating brand
   const displayTitle = title.includes('|') ? title : `${title} | BS CAR CENTER`;
 
@@ -52,7 +52,7 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     { "@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba" }
   ];
 
-  const schemaAreaServed = areaServed 
+  const schemaAreaServed = areaServed
     ? areaServed.map(area => ({ "@type": area.type, "name": area.name }))
     : defaultAreaServed;
 
@@ -77,7 +77,7 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -25.5098, 
+      "latitude": -25.5098,
       "longitude": -49.2935
     },
     "openingHoursSpecification": [
@@ -134,8 +134,8 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       "headline": articleData?.headline || title,
       "description": description,
       "image": [image],
-      "datePublished": articleData?.datePublished || "2026-03-01",
-      "dateModified": articleData?.dateModified || articleData?.datePublished || "2026-03-01",
+      "datePublished": articleData?.datePublished,
+      "dateModified": articleData?.dateModified || articleData?.datePublished,
       "author": {
         "@type": "Organization",
         "name": articleData?.authorName || COMPANY_INFO.name,
@@ -190,7 +190,7 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       ) : (
         <meta name="robots" content="index, follow" />
       )}
-      <link rel="canonical" href={fullUrl} />
+      {!noindex && <link rel="canonical" href={fullUrl} />}
       <meta name="theme-color" content="#1e3a8a" />
 
       {/* Geolocation Meta Tags */}

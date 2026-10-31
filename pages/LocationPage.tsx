@@ -1,3 +1,4 @@
+import NotFound from './NotFound';
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { LOCATIONS, SERVICES, COMPANY_INFO, PAGE_IMAGES } from '../data/constants';
@@ -25,7 +26,7 @@ const LocationPage: React.FC = () => {
   }, []);
 
   if (!location) {
-    return <Navigate to="/areas" replace />;
+    return <NotFound />;
   }
 
   const locName = location.name === "Neo Ville" ? "Região do Neo Ville" : location.name;
@@ -39,18 +40,18 @@ const LocationPage: React.FC = () => {
 
   return (
     <>
-      <EnhancedSEO 
-        title={pageTitle} 
-        description={pageDesc} 
+      <EnhancedSEO
+        title={pageTitle}
+        description={pageDesc}
         canonicalPath={canonicalPath}
         keywords={`oficina ${locName}, auto center ${locName}, manutenção automotiva ${locName}, freios ${locName}, suspensão ${locName}, escapamentos ${locName}`}
         schemaType="AutoRepair"
         areaServed={[{ name: location.name, type: isCity ? 'City' : 'Neighborhood' }]}
       />
-      
+
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4 max-w-5xl">
-          
+
           {/* Breadcrumb */}
           <nav className="text-xs text-gray-500 mb-6 flex items-center gap-2 overflow-x-auto whitespace-nowrap">
             <Link to="/" className="hover:text-primary-blue">Início</Link>
@@ -188,13 +189,13 @@ const LocationPage: React.FC = () => {
             </div>
 
             <div className="h-64 w-full rounded-2xl overflow-hidden bg-gray-100">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.8797967272847!2d-49.29568902375841!3d-25.47570497753308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce32d2b5f5471%3A0x6b8f72200259f972!2sR.%20Pedro%20Gusso%2C%202340%20-%20Novo%20Mundo%2C%20Curitiba%20-%20PR%2C%2081900-080!5e0!3m2!1spt-BR!2sbr!4v1683123456789!5m2!1spt-BR!2sbr" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.8797967272847!2d-49.29568902375841!3d-25.47570497753308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce32d2b5f5471%3A0x6b8f72200259f972!2sR.%20Pedro%20Gusso%2C%202340%20-%20Novo%20Mundo%2C%20Curitiba%20-%20PR%2C%2081900-080!5e0!3m2!1spt-BR!2sbr!4v1683123456789!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
                 title={`Mapa BS CAR CENTER para condutores de ${locName}`}
               ></iframe>
             </div>

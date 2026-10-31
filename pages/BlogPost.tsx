@@ -1,3 +1,4 @@
+import NotFound from './NotFound';
 import React, { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { BLOG_POSTS, COMPANY_INFO } from '../data/constants';
@@ -10,10 +11,10 @@ const BlogPost: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   if (!post) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
 
-  const currentUrl = window.location.href;
+  const currentUrl = `${COMPANY_INFO.siteUrl}/blog/${post.slug}`;
   const shareText = `Confira este artigo da BS CAR CENTER: ${post.title}`;
 
   const handleCopyLink = () => {
@@ -28,25 +29,25 @@ const BlogPost: React.FC = () => {
 
   return (
     <>
-      <EnhancedSEO 
+      <EnhancedSEO
         title={post.metaTitle || `${post.title} | BS CAR CENTER`}
-        description={post.metaDescription || post.excerpt} 
+        description={post.metaDescription || post.excerpt}
         canonicalPath={`/blog/${post.slug}`}
         image={post.image}
-        schemaType="Article" 
+        schemaType="Article"
         keywords={post.keywords ? post.keywords.join(', ') : `escapamentos curitiba, ${post.title.toLowerCase()}, auto center novo mundo`}
         articleData={{
           headline: post.title,
-          datePublished: post.datePublished || "2026-03-01",
-          dateModified: post.dateModified || post.datePublished || "2026-03-01",
+          datePublished: post.datePublished,
+          dateModified: post.dateModified || post.datePublished,
           category: post.category || (isEscapamento ? "Escapamentos" : "Manutenção Automotiva"),
           authorName: "BS CAR CENTER"
         }}
       />
-      
+
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
-          
+
           {/* Back link and breadcrumbs */}
           <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
             <Link to="/blog" className="inline-flex items-center text-xs text-gray-600 hover:text-primary-blue font-semibold">
@@ -70,16 +71,16 @@ const BlogPost: React.FC = () => {
           </div>
 
           <article className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden mb-12">
-            
+
             {/* Header Image */}
             <div className="relative h-64 md:h-80 w-full">
-              <img 
-                src={post.image} 
-                alt={post.title} 
+              <img
+                src={post.image}
+                alt={post.title}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-              
+
               <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full text-white">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <div className="inline-flex items-center gap-1.5 text-xs font-bold bg-primary-yellow text-primary-dark px-3 py-1 rounded-full">
@@ -105,19 +106,19 @@ const BlogPost: React.FC = () => {
 
             {/* Content Body */}
             <div className="p-6 md:p-10">
-              <div 
+              <div
                 className="prose max-w-none text-gray-700 leading-relaxed text-sm md:text-base space-y-4"
-                dangerouslySetInnerHTML={{ __html: post.content || `<p>${post.excerpt}</p>` }} 
+                dangerouslySetInnerHTML={{ __html: post.content || `<p>${post.excerpt}</p>` }}
               />
-              
+
               {/* Share & WhatsApp CTA */}
               <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-1">
                     <Share2 size={14} /> Compartilhar:
                   </span>
-                  
-                  <a 
+
+                  <a
                     href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + currentUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -127,7 +128,7 @@ const BlogPost: React.FC = () => {
                     <MessageCircle size={15} />
                   </a>
 
-                  <button 
+                  <button
                     onClick={handleCopyLink}
                     className={`p-2 rounded-full transition text-xs flex items-center gap-1 ${copied ? 'bg-primary-green text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     title="Copiar Link"
@@ -136,7 +137,7 @@ const BlogPost: React.FC = () => {
                   </button>
                 </div>
 
-                <a 
+                <a
                   href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}&text=Olá! Li o artigo "${post.title}" no site e gostaria de agendar um atendimento.`}
                   target="_blank"
                   rel="noreferrer"

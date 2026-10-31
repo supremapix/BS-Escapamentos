@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import EnhancedSEO from '../components/EnhancedSEO';
 import ActionTicker from '../components/ActionTicker';
 import { SERVICES, COMPANY_INFO } from '../data/constants';
-import * as Icons from 'lucide-react';
+import { serviceIcons as Icons } from '../components/serviceIcons';
 import { LucideIcon, ArrowRight, CheckCircle2, Phone, MessageCircle, MapPin } from 'lucide-react';
 
 const MaintenanceHub: React.FC = () => {
   return (
     <>
-      <EnhancedSEO 
+      <EnhancedSEO
         title="Manutenção Automotiva em Curitiba | BS CAR CENTER"
         description="Auto Center em Curitiba para manutenção automotiva preventiva e corretiva com a BS CAR CENTER. Diagnóstico computadorizado, freios, suspensão, injeção e motor no Novo Mundo."
         canonicalPath="/manutencao-automotiva-curitiba"
@@ -21,7 +21,7 @@ const MaintenanceHub: React.FC = () => {
       />
 
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
-        
+
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 pt-4 mb-6">
           <nav className="text-sm text-gray-500 flex items-center gap-2">
@@ -52,7 +52,7 @@ const MaintenanceHub: React.FC = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-6 leading-tight">
               Manutenção Automotiva em Curitiba
             </h1>
-            
+
             {/* AIO Answer First Block (50-80 words) */}
             <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-gray-100 text-base md:text-lg leading-relaxed shadow-lg">
               <p>
@@ -85,7 +85,7 @@ const MaintenanceHub: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">
-          
+
           {/* Diagnostic & Preventive vs Corrective */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
@@ -137,8 +137,8 @@ const MaintenanceHub: React.FC = () => {
               {SERVICES.map((srv) => {
                 const IconComponent = (Icons as any)[srv.iconName] as LucideIcon;
                 return (
-                  <div 
-                    key={srv.id} 
+                  <div
+                    key={srv.id}
                     className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-primary-blue/40 flex flex-col justify-between"
                   >
                     <div>
@@ -150,7 +150,7 @@ const MaintenanceHub: React.FC = () => {
                     </div>
 
                     <div className="border-t border-gray-100 pt-3 flex justify-between items-center">
-                      <Link 
+                      <Link
                         to={`/servicos/${srv.slug}`}
                         className="text-primary-blue hover:text-primary-dark font-bold text-sm inline-flex items-center gap-1 group"
                       >
@@ -181,7 +181,7 @@ const MaintenanceHub: React.FC = () => {
                 A oficina está localizada na <strong>{COMPANY_INFO.address}</strong>, uma das principais vias arteriais do bairro Novo Mundo, permitindo deslocamento rápido para quem vem da Cidade Industrial de Curitiba (CIC), região do Neo Ville, Capão Raso, Portão e Pinheirinho.
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
-                <a 
+                <a
                   href={COMPANY_INFO.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -189,7 +189,7 @@ const MaintenanceHub: React.FC = () => {
                 >
                   <MapPin size={18} /> Ver Rota no Google Maps
                 </a>
-                <a 
+                <a
                   href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
                   className="border border-gray-300 hover:border-primary-blue text-gray-800 font-bold py-3 px-6 rounded-xl inline-flex items-center gap-2"
                 >
@@ -227,7 +227,7 @@ const MaintenanceHub: React.FC = () => {
                   rel="noopener noreferrer"
                   className="bg-primary-yellow text-slate-950 hover:bg-yellow-400 font-black py-4 px-8 rounded-2xl transition-all transform hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-3 shadow-xl active:scale-95 text-sm sm:text-base"
                 >
-                  <MessageCircle size={22} className="fill-slate-950" /> 
+                  <MessageCircle size={22} className="fill-slate-950" />
                   <span>AGENDAR NO WHATSAPP</span>
                 </a>
 
@@ -235,7 +235,7 @@ const MaintenanceHub: React.FC = () => {
                   href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
                   className="bg-slate-900/90 hover:bg-slate-800 border-2 border-white/40 hover:border-primary-yellow text-white font-black py-4 px-8 rounded-2xl transition-all transform hover:-translate-y-0.5 shadow-xl flex items-center justify-center gap-3 active:scale-95 text-sm sm:text-base"
                 >
-                  <Phone size={20} className="text-primary-yellow fill-primary-yellow" /> 
+                  <Phone size={20} className="text-primary-yellow fill-primary-yellow" />
                   <span>LIGAR: {COMPANY_INFO.phone}</span>
                 </a>
               </div>
