@@ -13,6 +13,7 @@
     { "source": "/local/campo-comprido-velho", "destination": "/local/campo-comprido", "permanent": true },
     { "source": "/local/santa-quiteria-velha", "destination": "/local/santa-quiteria", "permanent": true },
     { "source": "/local/cidade-industrial", "destination": "/local/cidade-industrial-de-curitiba", "permanent": true },
-    { "source": "/local/alto-da-rua-xv", "destination": "/local/alto-da-xv", "permanent": true }
+    { "source": "/local/alto-da-rua-xv", "destination": "/local/alto-da-xv", "permanent": true },
+    { "source": "/local/jardim-schaffer", "destination": "/local/vista-alegre", "permanent": true }
   ]
 }

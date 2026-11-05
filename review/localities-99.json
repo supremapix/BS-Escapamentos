@@ -1,0 +1,997 @@
+{
+  "baseCommit": "aa4417ebfe56fed7c702373a5ad6c8c4e59b0606",
+  "historicalRemoval": "e5f2e792835915716598d0c5b431d16a3d8922e9",
+  "date": "2026-11-05",
+  "rows": [
+    {
+      "name": "Vila Parolin",
+      "path": "/local/vila-parolin",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://educacao.curitiba.pr.gov.br/unidade/vila-parolim-centro-municipal-de-educacao-infantil/18227",
+      "reason": "CMEI homônimo fica no Guaíra; comunidade e bairro não demonstrados como equivalentes.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Torres",
+      "path": "/local/vila-torres",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/7-fase-da-acao-integrada-cabo-seguro-passa-pela-vila-torres-e-parolin/82631",
+      "reason": "Comunidade situada no Prado Velho; parte de um bairro não é sinônimo do bairro inteiro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Jardim Schaffer",
+      "path": "/local/jardim-schaffer",
+      "decision": "alias",
+      "destination": "/local/vista-alegre",
+      "source": "https://www.curitiba.pr.gov.br/conteudo/bosque-alemao-memorial-alemao/268",
+      "reason": "Prefeitura identifica expressamente Jardim Schaffer como outro nome de Vista Alegre; destino restaurado neste lote.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Sabará",
+      "path": "/local/vila-sabara",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://transito.curitiba.pr.gov.br/noticias/av-getulio-vargas-tem-nova-estrutura-cicloviaria/452",
+      "reason": "Comunidade na CIC; não há prova de equivalência com a totalidade do bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Boqueirão de Baixo",
+      "path": "/local/boqueirao-de-baixo",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Boqueirão de Cima",
+      "path": "/local/boqueirao-de-cima",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Tanguá",
+      "path": "/local/tangua",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Zumbi",
+      "path": "/local/vila-zumbi",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Abranches de Baixo",
+      "path": "/local/abranches-de-baixo",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Abranches de Cima",
+      "path": "/local/abranches-de-cima",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Nossa Senhora da Luz",
+      "path": "/local/vila-nossa-senhora-da-luz",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Tecnológica",
+      "path": "/local/vila-tecnologica",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Oficinas",
+      "path": "/local/vila-oficinas",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Fanny",
+      "path": "/local/vila-fanny",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://educacao.curitiba.pr.gov.br/unidade/vila-fanny-centro-municipal-de-educacao-infantil/18314",
+      "reason": "Equipamento homônimo fica no Lindóia; nome sozinho não comprova equivalência com o bairro Fanny.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Hauer",
+      "path": "/local/vila-hauer",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://educacao.curitiba.pr.gov.br/unidade/vila-hauer-centro-municipal-de-educacao-infantil/18276",
+      "reason": "CMEI homônimo fica no Boqueirão, enquanto unidade de saúde fica no Hauer; não equiparar automaticamente.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Batel Soho",
+      "path": "/local/batel-soho",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "CIC Norte",
+      "path": "/local/cic-norte",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "CIC Central",
+      "path": "/local/cic-central",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "CIC Sul",
+      "path": "/local/cic-sul",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Guaíra",
+      "path": "/local/vila-guaira",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://locais.curitiba.pr.gov.br/unidade-de-saude-vila-guaira/643",
+      "reason": "Equipamento no Guaíra confirma localização, mas não delimitação territorial nem sinonímia.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Centro Histórico",
+      "path": "/local/centro-historico",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/reforma-na-sao-francisco-anima-comerciantes-do-centro-historico/52355",
+      "reason": "Região histórica citada junto à Rua São Francisco; não equivale automaticamente ao Centro ou São Francisco.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Ecoville",
+      "path": "/local/ecoville",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/predio-historico-da-igreja-construida-em-1889-sera-restaurado-em-curitiba/69868",
+      "reason": "Fonte associa região ao Mossunguê, sem demonstrar equivalência exata.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Carmo Abranches",
+      "path": "/local/carmo-abranches",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Ahú",
+      "path": "/local/ahu",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Alto Boqueirão",
+      "path": "/local/alto-boqueirao",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Alto da Glória",
+      "path": "/local/alto-da-gloria",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Atuba",
+      "path": "/local/atuba",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Augusta",
+      "path": "/local/augusta",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Bacacheri",
+      "path": "/local/bacacheri",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Bairro Alto",
+      "path": "/local/bairro-alto",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Barreirinha",
+      "path": "/local/barreirinha",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Boa Vista",
+      "path": "/local/boa-vista",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Bom Retiro",
+      "path": "/local/bom-retiro",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Butiatuvinha",
+      "path": "/local/butiatuvinha",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Cabral",
+      "path": "/local/cabral",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Cachoeira",
+      "path": "/local/cachoeira",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Capão da Imbuia",
+      "path": "/local/capao-da-imbuia",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Cascatinha",
+      "path": "/local/cascatinha",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Hugo Lange",
+      "path": "/local/hugo-lange",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Jardim das Américas",
+      "path": "/local/jardim-das-americas",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Jardim Social",
+      "path": "/local/jardim-social",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Juvevê",
+      "path": "/local/juveve",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Lamenha Pequena",
+      "path": "/local/lamenha-pequena",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Mercês",
+      "path": "/local/merces",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Mossunguê",
+      "path": "/local/mossungue",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Orleans",
+      "path": "/local/orleans",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Pilarzinho",
+      "path": "/local/pilarzinho",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Riviera",
+      "path": "/local/riviera",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Santa Cândida",
+      "path": "/local/santa-candida",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Santa Felicidade",
+      "path": "/local/santa-felicidade",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Santo Inácio",
+      "path": "/local/santo-inacio",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São Braz",
+      "path": "/local/sao-braz",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São Francisco",
+      "path": "/local/sao-francisco",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São João",
+      "path": "/local/sao-joao",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São Lourenço",
+      "path": "/local/sao-lourenco",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São Miguel",
+      "path": "/local/sao-miguel",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Pantanal",
+      "path": "/local/vila-pantanal",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Taboão",
+      "path": "/local/taboao",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Tarumã",
+      "path": "/local/taruma",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Tingui",
+      "path": "/local/tingui",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": true,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vista Alegre",
+      "path": "/local/vista-alegre",
+      "decision": "restore",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/populacao-recebe-noticias-personalizadas-dos-bairros-via-whatsapp/50663",
+      "reason": "Bairro oficial distinto, presente no cadastro histórico. Restaurar a URL original usando o template atual; não redirecionar para outro bairro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Uberaba de Cima",
+      "path": "/local/uberaba-de-cima",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Uberaba de Baixo",
+      "path": "/local/uberaba-de-baixo",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "São Braz Velho",
+      "path": "/local/sao-braz-velho",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Verde",
+      "path": "/local/vila-verde",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Barigui",
+      "path": "/local/vila-barigui",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Caiuá",
+      "path": "/local/caiua",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/obras-da-prefeitura-de-curitiba-recuperam-asfalto-de-ruas-do-bairro-cidade-industrial/79000",
+      "reason": "Área dentro da Cidade Industrial; não é sinônimo de toda a CIC.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Fazendinha-Portão",
+      "path": "/local/fazendinha-portao",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Bacacheri Velho",
+      "path": "/local/bacacheri-velho",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Capão da Imbuia Velho",
+      "path": "/local/capao-da-imbuia-velho",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila São Pedro",
+      "path": "/local/vila-sao-pedro",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Osternack",
+      "path": "/local/vila-osternack",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://locais.curitiba.pr.gov.br/cambio-verde-vila-osternack-ii/1481",
+      "reason": "Equipamento no Ganchinho; cadastro da Cohab também menciona planta no Sítio Cercado. Delimitação não confirmada.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Formosa",
+      "path": "/local/vila-formosa",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Sandra",
+      "path": "/local/vila-sandra",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Conjunto Caiuá",
+      "path": "/local/conjunto-caiua",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Conjunto Parigot de Souza",
+      "path": "/local/conjunto-parigot-de-souza",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Reno",
+      "path": "/local/vila-reno",
+      "decision": "hold-unverified",
+      "destination": null,
+      "source": null,
+      "reason": "Nome histórico sem equivalência territorial comprovada nesta revisão. Não inferir destino por prefixos, sufixos ou proximidade; requer fonte cadastral ou confirmação específica.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Vila Audi",
+      "path": "/local/vila-audi",
+      "decision": "hold-territory",
+      "destination": null,
+      "source": "https://www.curitiba.pr.gov.br/noticias/acao-integrada-orienta-mulheres-da-vila-audi-uniao-sobre-direitos-e-enfrentamento-a-violencia-em-curitiba/73748",
+      "reason": "Comunidade Audi-União situada no Uberaba; não equivale ao bairro inteiro.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Adrianópolis",
+      "path": "/local/adrianopolis",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Agudos do Sul",
+      "path": "/local/agudos-do-sul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Balsa Nova",
+      "path": "/local/balsa-nova",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Bocaiúva do Sul",
+      "path": "/local/bocaiuva-do-sul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Campina Grande do Sul",
+      "path": "/local/campina-grande-do-sul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Campo do Tenente",
+      "path": "/local/campo-do-tenente",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Campo Magro",
+      "path": "/local/campo-magro",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Cerro Azul",
+      "path": "/local/cerro-azul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Contenda",
+      "path": "/local/contenda",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Doutor Ulysses",
+      "path": "/local/doutor-ulysses",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Itaperuçu",
+      "path": "/local/itaperucu",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Lapa",
+      "path": "/local/lapa",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Mandirituba",
+      "path": "/local/mandirituba",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Piên",
+      "path": "/local/pien",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Piraquara",
+      "path": "/local/piraquara",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Quatro Barras",
+      "path": "/local/quatro-barras",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Quitandinha",
+      "path": "/local/quitandinha",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Rio Branco do Sul",
+      "path": "/local/rio-branco-do-sul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Rio Negro",
+      "path": "/local/rio-negro",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Tijucas do Sul",
+      "path": "/local/tijucas-do-sul",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    },
+    {
+      "name": "Tunas do Paraná",
+      "path": "/local/tunas-do-parana",
+      "decision": "hold-coverage",
+      "destination": null,
+      "source": "https://www.amep.pr.gov.br/FAQ/Municipios-da-Regiao-Metropolitana-de-Curitiba",
+      "reason": "Município confirmado da RMC e presente no histórico. Não é alias de Curitiba. Confirmar cobertura comercial antes de reativar; template atual promete facilidade de acesso.",
+      "inHistoricalSitemap": false,
+      "historicallyLinked": true
+    }
+  ]
+}

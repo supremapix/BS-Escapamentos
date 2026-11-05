@@ -452,7 +452,16 @@ const CONFIRMED_NEIGHBORHOODS = [
   "Santa Quitéria", "Vila Izabel", "Seminário", "Batel", "Bigorrilho", "Campina do Siqueira",
   "Campo Comprido", "Fanny", "Guaíra", "Lindóia", "Parolin", "Prado Velho", "Rebouças",
   "Centro", "Centro Cívico", "Alto da XV", "Cristo Rei", "Jardim Botânico", "Cajuru",
-  "Uberaba", "Guabirotuba", "Tatuquara", "Umbará", "Ganchinho", "Caximba", "Campo de Santana"
+  "Uberaba", "Guabirotuba", "Tatuquara", "Umbará", "Ganchinho", "Caximba", "Campo de Santana",
+  // Restored historical URLs for official Curitiba neighborhoods (review/localities-99.json).
+  "Ahú", "Alto Boqueirão", "Alto da Glória", "Atuba", "Augusta",
+  "Bacacheri", "Bairro Alto", "Barreirinha", "Boa Vista", "Bom Retiro",
+  "Butiatuvinha", "Cabral", "Cachoeira", "Capão da Imbuia", "Cascatinha",
+  "Hugo Lange", "Jardim das Américas", "Jardim Social", "Juvevê", "Lamenha Pequena",
+  "Mercês", "Mossunguê", "Orleans", "Pilarzinho", "Riviera",
+  "Santa Cândida", "Santa Felicidade", "Santo Inácio", "São Braz", "São Francisco",
+  "São João", "São Lourenço", "São Miguel", "Taboão", "Tarumã",
+  "Tingui", "Vista Alegre"
 ];
 
 const CONFIRMED_CITIES = [
