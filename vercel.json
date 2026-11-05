@@ -4,5 +4,15 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [{ "source": "/servicos/manutencao-automotiva", "destination": "/manutencao-automotiva-curitiba", "permanent": true }]
+  "redirects": [
+    { "source": "/servicos/manutencao-automotiva", "destination": "/manutencao-automotiva-curitiba", "permanent": true },
+    { "source": "/local/pinheirinho-velho", "destination": "/local/pinheirinho", "permanent": true },
+    { "source": "/local/portao-velho", "destination": "/local/portao", "permanent": true },
+    { "source": "/local/guaira-velho", "destination": "/local/guaira", "permanent": true },
+    { "source": "/local/xaxim-velho", "destination": "/local/xaxim", "permanent": true },
+    { "source": "/local/campo-comprido-velho", "destination": "/local/campo-comprido", "permanent": true },
+    { "source": "/local/santa-quiteria-velha", "destination": "/local/santa-quiteria", "permanent": true },
+    { "source": "/local/cidade-industrial", "destination": "/local/cidade-industrial-de-curitiba", "permanent": true },
+    { "source": "/local/alto-da-rua-xv", "destination": "/local/alto-da-xv", "permanent": true }
+  ]
 }
