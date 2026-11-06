@@ -31,7 +31,7 @@ const LocationPage: React.FC = () => {
 
   const locName = location.name === "Neo Ville" ? "Região do Neo Ville" : location.name;
   const isCity = location.type === 'city';
-  const preposition = isCity ? "em" : "no";
+  const preposition = location.type === "region" ? "para" : isCity ? "em" : "no";
   const displayLocation = `${preposition} ${locName}`;
 
   const pageTitle = `Auto Center e Manutenção Automotiva ${displayLocation} | BS CAR CENTER`;
@@ -46,7 +46,7 @@ const LocationPage: React.FC = () => {
         canonicalPath={canonicalPath}
         keywords={`oficina ${locName}, auto center ${locName}, manutenção automotiva ${locName}, freios ${locName}, suspensão ${locName}, escapamentos ${locName}`}
         schemaType="AutoRepair"
-        areaServed={[{ name: location.name, type: isCity ? 'City' : 'Neighborhood' }]}
+        areaServed={[{ name: location.name, type: location.type === 'region' ? 'Place' : isCity ? 'City' : 'Neighborhood' }]}
       />
 
       <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
@@ -116,6 +116,18 @@ const LocationPage: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {location.context && (
+            <section className="bg-white p-6 md:p-8 rounded-3xl border border-gray-200 mb-10" aria-labelledby="local-context">
+              <h2 id="local-context" className="text-xl font-heading font-bold text-primary-dark mb-3">Entenda a região e onde ocorre o atendimento</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">{location.context}</p>
+              <p className="text-sm text-gray-600 mb-4">A fonte territorial descreve a região; não comprova serviços ou vínculo comercial com a Prefeitura.</p>
+              <div className="flex flex-wrap gap-4 text-sm font-semibold">
+                <a href={location.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary-blue underline">Fonte municipal sobre a CIC (página 7)</a>
+                <Link to="/local/cidade-industrial-de-curitiba" className="text-primary-blue underline">Atendimento para a Cidade Industrial de Curitiba</Link>
+              </div>
+            </section>
+          )}
 
           {/* Main Services Checklist */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

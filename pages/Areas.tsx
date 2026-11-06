@@ -6,7 +6,7 @@ import { MapPin, Navigation } from 'lucide-react';
 
 const Areas: React.FC = () => {
   const cities = LOCATIONS.filter(l => l.type === 'city');
-  const neighborhoods = LOCATIONS.filter(l => l.type === 'neighborhood');
+  const neighborhoods = LOCATIONS.filter(l => l.type !== 'city');
 
   return (
     <>

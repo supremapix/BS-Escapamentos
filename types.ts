@@ -17,7 +17,9 @@ export interface ServiceItem {
 export interface LocationData {
   slug: string;
   name: string;
-  type: 'neighborhood' | 'city';
+  type: 'neighborhood' | 'city' | 'region';
+  context?: string;
+  sourceUrl?: string;
 }
 
 export interface MetaData {

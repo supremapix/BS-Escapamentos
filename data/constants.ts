@@ -475,7 +475,28 @@ const generateSlug = (text: string) => {
     .replace(/\s+/g, '-');
 };
 
+// Geographic context: Prefeitura de Curitiba, SME, e-book CIC (2021), page 7.
+// Preserve the historical cic-central URL; the municipal source calls the area CIC Centro.
+const CIC_REGIONS: LocationData[] = [
+  {
+    name: "CIC Central (CIC Centro)", slug: "cic-central", type: "region",
+    context: "Este endereço antigo do site usa CIC Central. O material da Secretaria Municipal da Educação descreve a porção central como CIC Centro e cita Itatiaia, Nossa Senhora da Luz e Caiuá entre suas localidades. É uma referência regional, não um bairro oficial separado. Para agendar na BS, informe sua localidade, o veículo e o problema observado; o atendimento ocorre na oficina do Novo Mundo.",
+    sourceUrl: "https://mid-educacao.curitiba.pr.gov.br/2021/9/pdf/00310644.pdf"
+  },
+  {
+    name: "CIC Norte", slug: "cic-norte", type: "region",
+    context: "CIC Norte é uma referência regional apresentada no material da Secretaria Municipal da Educação, que cita Jardim Gabineto, Vila Sandra, Atenas e Augusta. Não representa um bairro oficial único. Antes de sair, confirme o horário e o serviço com a BS e use o endereço da oficina no Novo Mundo como destino, evitando confundir a região de origem com o local do atendimento.",
+    sourceUrl: "https://mid-educacao.curitiba.pr.gov.br/2021/9/pdf/00310644.pdf"
+  },
+  {
+    name: "CIC Sul", slug: "cic-sul", type: "region",
+    context: "O material municipal identifica a CIC Sul como uma região que inclui, entre outras localidades, Vila Verde e Vitória Régia. A indicação regional não significa que exista uma filial da BS ali. A avaliação e os reparos são realizados no Novo Mundo. Ao entrar em contato, descreva ruídos, luzes de alerta e condições de uso do veículo para combinar a avaliação adequada.",
+    sourceUrl: "https://mid-educacao.curitiba.pr.gov.br/2021/9/pdf/00310644.pdf"
+  }
+];
+
 export const LOCATIONS: LocationData[] = [
+  ...CIC_REGIONS,
   ...CONFIRMED_CITIES.map(name => ({
     name,
     slug: generateSlug(name),

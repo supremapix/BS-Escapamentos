@@ -16,7 +16,7 @@ interface EnhancedSEOProps {
   };
   areaServed?: {
     name: string;
-    type: 'City' | 'Neighborhood' | 'AdministrativeArea';
+    type: 'City' | 'Neighborhood' | 'AdministrativeArea' | 'Place';
   }[];
   articleData?: {
     headline: string;

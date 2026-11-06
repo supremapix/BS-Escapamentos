@@ -28,6 +28,6 @@ for(const row of review.rows){
   assert.match(render(row.path).head,/noindex/);
  }
 }
-assert.equal(routes.length,114);
+assert.equal(routes.length,117);
 for(const path of ['/local/inexistente-qa','/blog/inexistente-qa','/servicos/inexistente-qa','/inexistente-qa'])assert.match(render(path).head,/noindex/);
-console.log('PASS: 37 restored historical routes, one evidenced alias, 61 held routes, original redirects and unknown-route noindex.');
+console.log('PASS: 40 restored historical routes, one evidenced alias, 58 held routes, original redirects and unknown-route noindex.');
